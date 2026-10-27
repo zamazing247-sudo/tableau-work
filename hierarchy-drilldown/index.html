@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Drill-Down Tables in Tableau</title>
-<meta name="description" content="How an operating-rollup drill-down (expand and collapse rows in a Tableau table) works: one address per row, one parameter as memory, three rules, one click action.">
+<title>Parameter-Driven Hierarchy Drill-Down</title>
+<meta name="description" content="How a parameter-driven hierarchy drill-down (expand and collapse rows in a Tableau table) works: one address per row, one parameter as memory, three rules, one click action.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one reading column (~68ch); the simulator and screenshots get a wider band */
@@ -91,16 +91,16 @@ table.grid{border-collapse:collapse;width:100%;min-width:860px;font-size:.88rem}
 <body>
 
 <header class="top col">
-  <div class="kicker"><a href="../">Tableau Work</a> · Drill-down tables</div>
-  <h1>Drill-Down Tables in Tableau</h1>
-  <p class="dek">An operating rollup you can expand and collapse row by row, like folders in a file explorer, built with two parameters, a handful of calculated fields and one click action. No extensions, no data reloads.</p>
+  <div class="kicker"><a href="../">Tableau Work</a> · Parameter actions</div>
+  <h1>Parameter-Driven Hierarchy Drill-Down</h1>
+  <p class="dek">A multi-level hierarchy table you can expand and collapse row by row, like folders in a file explorer, built with two parameters, a handful of calculated fields and one click action. No extensions, no data reloads.</p>
   <div class="byline"><span>Zameer Sayed</span><span>Data: fictional (Brightline Retail)</span><span>Tableau 2020.1+ (parameter actions)</span></div>
 </header>
 
 <section class="wide" aria-label="Live dashboard">
   <figure style="margin:24px 0 0">
-    <img src="images/rollup-dashboard.png" alt="Operating Rollup dashboard: a table of company, groups and divisions with Stores, Sales vs Target, Customer Satisfaction, On-Time Delivery and Staff Turnover, cells coloured green or red by quartile">
-    <figcaption>The Operating Rollup dashboard. Click a row to open or close it; the colours compare each unit with its peers at the same level. <span id="viz-link"></span></figcaption>
+    <img src="images/drilldown-dashboard.png" alt="Hierarchy drill-down dashboard: a table of company, groups and divisions with Stores, Sales vs Target, Customer Satisfaction, On-Time Delivery and Staff Turnover, cells coloured green or red by quartile">
+    <figcaption>The Hierarchy Drill-Down dashboard. Click a row to open or close it; the colours compare each unit with its peers at the same level. <span id="viz-link"></span></figcaption>
   </figure>
 </section>
 

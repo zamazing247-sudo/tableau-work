@@ -7,8 +7,7 @@ Tableau dashboards and how-to write-ups, published with GitHub Pages.
 | Project | Folder | What it is |
 | --- | --- | --- |
 | Custom Tables with Tableau Map Layers | [`custom-table-map-layers/`](custom-table-map-layers/) | A category scorecard built entirely from map layers on one sheet, with a step-by-step guide · [live viz](https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard) |
-
-| Drill-Down Tables in Tableau | [`operating-rollup-drilldown/`](operating-rollup-drilldown/) | An operating rollup that expands and collapses row by row, with an in-browser simulator of the logic |
+| Parameter-Driven Hierarchy Drill-Down | [`hierarchy-drilldown/`](hierarchy-drilldown/) | A multi-level hierarchy table that expands and collapses row by row, with an in-browser simulator of the logic |
 
 ## Adding a project
 
