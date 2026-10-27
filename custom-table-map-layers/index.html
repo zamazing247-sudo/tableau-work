@@ -7,10 +7,6 @@
 <meta name="description" content="How to build a custom table in Tableau with map layers: several values stacked in one column, flags, sparklines and mini bars, all on one sheet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<script>
-  // ===== Paste your Tableau Public viz link here (the link from the viz's Share button) =====
-  window.VIZ_URL = "https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard";
-</script>
 <style>
 /* Layout: one reading column (~68ch) with full-width bands for the live viz and screenshots */
 :root{
@@ -60,9 +56,7 @@ figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
 .diagram svg{width:100%;height:auto;display:block}
 .viz-band{margin:36px auto}
 .viz-frame{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow-x:auto}
-.viz-frame tableau-viz{display:block;min-width:1100px}
-.viz-empty{padding:24px}
-.viz-empty p{color:var(--muted);font-size:.95rem}
+.viz-note{font-size:.86rem;color:var(--muted);margin:8px 0 0}
 .steps-group{font-weight:600;margin:1.6em 0 .4em;color:var(--accent)}
 .lesson{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 14px}
 .lesson h3{margin:0 0 .3em;font-size:1rem}
@@ -83,13 +77,10 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
 
 <section class="wide viz-band" aria-label="Live dashboard">
   <div class="viz-frame" id="viz-frame">
-    <div class="viz-empty" id="viz-empty">
-      <figure style="margin:0">
-        <img src="images/scorecard-collapsed.png" alt="Category Scorecard dashboard: sub-category rows with stacked sales, profit and orders values, flag icons, sparklines and region bars">
-        <figcaption>The finished Category Scorecard. <span id="viz-hint">Open the live version on Tableau Public to try the filters and click-through panels.</span></figcaption>
-      </figure>
-    </div>
+    <!-- Tableau Public embed code (Share → Embed) -->
+    <div class='tableauPlaceholder' id='viz1793119179725' style='position: relative'><noscript><a href='#'><img alt='Category Scorecard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CategoryScorecardCustomTablewithMapLayer&#47;CategoryScorecard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CategoryScorecardCustomTablewithMapLayer&#47;CategoryScorecard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CategoryScorecardCustomTablewithMapLayer&#47;CategoryScorecard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1793119179725');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1500px';vizElement.style.height='1177px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
   </div>
+  <p class="viz-note">Live dashboard: scroll sideways on smaller screens, or <a href="https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard">open it on Tableau Public</a>.</p>
 </section>
 
 <main class="col">
@@ -264,33 +255,9 @@ Profit Margin    = SUM([Profit]) / SUM([Sales])</code></pre>
 
   <footer>
     <p>Map-layer table technique inspired by Spencer King's <em>Custom Table with Map Layers</em> on Tableau Public. Data: Sample – Superstore, which ships with Tableau.</p>
-    <p id="viz-footer"></p>
+    <p><a href="https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard">Open the dashboard on Tableau Public</a></p>
   </footer>
 </main>
 
-<script>
-(function () {
-  var url = (window.VIZ_URL || "").trim();
-  var hint = document.getElementById("viz-hint");
-  var foot = document.getElementById("viz-footer");
-  if (!url) { hint.textContent = "A live, interactive version is on Tableau Public."; return; }
-  var link = document.createElement("a"); link.href = url; link.textContent = "Open the dashboard on Tableau Public";
-  foot.appendChild(link);
-  var s = document.createElement("script"); s.type = "module";
-  s.src = "https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js";
-  s.onload = function () {
-    var frame = document.getElementById("viz-frame");
-    var viz = document.createElement("tableau-viz");
-    viz.setAttribute("src", url.split("?")[0]);
-    viz.setAttribute("toolbar", "bottom");
-    viz.setAttribute("hide-tabs", "");
-    viz.setAttribute("width", "100%");
-    viz.setAttribute("height", "1180");
-    document.getElementById("viz-empty").remove();
-    frame.appendChild(viz);
-  };
-  document.head.appendChild(s);
-})();
-</script>
 </body>
 </html>
