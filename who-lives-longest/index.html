@@ -126,7 +126,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
         <tr><td><b>FIXED LOD expressions</b></td><td>Region tiles</td><td>Look up the selected unit's level and parents once, on every row.</td></tr>
         <tr><td><b>Parameter-driven drill-down</b></td><td>Explore-the-hierarchy table</td><td>Opens and closes rows five levels deep with one parameter and one click action.</td></tr>
         <tr><td><b>Dynamic zone visibility</b></td><td>“How long might you live?” panel</td><td>Shows the panel and hides the map, numbers and charts from one boolean field.</td></tr>
-        <tr><td><b>Range and list parameters</b></td><td>Predictor questions</td><td>13 inputs (a slider and 12 dropdowns) feed a single calculation.</td></tr>
+        <tr><td><b>Range and list parameters</b></td><td>Predictor questions</td><td>14 inputs (a slider and 13 dropdowns) feed a single calculation.</td></tr>
         <tr><td><b>Filled map + geographic role</b></td><td>“Where lives are longest”</td><td>ISO alpha-2 codes with the Country role; one filter zooms the map to the selection.</td></tr>
         <tr><td><b>Calculated labels</b></td><td>Trend chart</td><td>Labels the line ends and the dips (COVID-19, HIV/AIDS) from a single field.</td></tr>
         <tr><td><b>Multi-field formatted labels</b></td><td>KPI band, spotlight, predictor result</td><td>Big number, unit and context line in one Text mark, each in its own size and colour.</td></tr>
@@ -201,15 +201,16 @@ END</code></pre>
   <h2 id="predictor">6 · The predictor: parameters + dynamic zone visibility</h2>
   <figure>
     <img src="images/predictor.png" alt="The predictor panel: questions on the left, the estimate (88 years) on the right with how it is built up" loading="lazy">
-    <figcaption>A 40-year-old woman in the United States: 81.4 years at birth, +4.3 for already reaching 40, +2.5 for her habits.</figcaption>
+    <figcaption>A 40-year-old woman born in India, living in the United States: 81.4 years at birth there, −1.5 for her birth country, +4.3 for already reaching 40, +2.5 for her habits.</figcaption>
   </figure>
   <h3>The inputs</h3>
-  <p>13 parameters: a <b>range parameter</b> shown as a slider (age), and list parameters for sex, country (217 values with display aliases), smoking, exercise, sleep, BMI, alcohol, diet, outlook, fasting glucose, LDL and HDL.</p>
+  <p>14 parameters: a <b>range parameter</b> shown as a slider (age), and list parameters for sex, country you were born in, country you live in (217 names each), smoking, exercise, sleep, BMI, alcohol, diet, outlook, fasting glucose, LDL and HDL.</p>
   <h3>The model</h3>
-  <p>One calculation over the chosen country's row (filtered by <code>[Unit No] = [p_Country] AND [Series] = [p_Sex]</code>):</p>
+  <p>One calculation over the country-you-live-in row (filtered by <code>[Unit Name] = [p_LiveIn] AND [Series] = [p_Sex]</code>):</p>
   <pre><code>// Pred Estimate
 MAX([p_Age] + 1,
     AVG([Life Expectancy])        // at birth, country and sex (World Bank 2024)
+  + [Pred Born Adj]                // a fifth of the gap to the birth country (assumption)
   + MIN([Pred Survived])          // years already survived (approx. WHO global life table)
   + MIN([Pred Habits]))           // sum of CASE [p_Smoking] WHEN 'Smoke now' THEN -9 ... END, capped -20..+12
 
@@ -219,7 +220,14 @@ ELSEIF [p_Age] &lt;= 50 THEN 1 + ([p_Age] - 20) * 5 / 30
 ELSEIF [p_Age] &lt;= 65 THEN 6 + ([p_Age] - 50) * 3.5 / 15
 ELSEIF [p_Age] &lt;= 80 THEN 9.5 + ([p_Age] - 65) * 5.5 / 15
 ELSE 15 + ([p_Age] - 80) * 0.6 END</code></pre>
-  <p>The effect sizes come from large cohort studies: smoking (Doll et al., <i>BMJ</i> 2004), activity (Moore et al., <i>PLoS Medicine</i> 2012), BMI (Prospective Studies Collaboration, <i>Lancet</i> 2009), the combined habits (Li et al., <i>Circulation</i> 2018), diabetes (Emerging Risk Factors Collaboration, <i>NEJM</i> 2011), cholesterol (Prospective Studies Collaboration, <i>Lancet</i> 2007) and optimism (Lee et al., <i>PNAS</i> 2019). The lab effects are small, rounded estimates. It is for fun, not medical advice.</p>
+  <p>The birth country reaches a different row than the filtered one, so it uses a FIXED LOD, which is computed before dimension filters:</p>
+  <pre><code>// Pred Born LE: the birth country's life expectancy, same sex
+{FIXED : AVG(IIF([Kind] = 'Sex' AND [Level] = 5 AND [Unit Name] = [p_BornIn]
+               AND [Series] = [p_Sex], [Life Expectancy], NULL))}
+
+// Pred Born Adj: a fifth of the gap (migrants mostly take on the lifespan of where they live)
+IIF([p_BornIn] = [p_LiveIn], 0, 0.2 * (MIN([Pred Born LE]) - AVG([Life Expectancy])))</code></pre>
+  <p>The 0.2 is a simple assumption, not a published figure: research on migrants finds their lifespan mostly follows the country they live in. The other effect sizes come from large cohort studies: smoking (Doll et al., <i>BMJ</i> 2004), activity (Moore et al., <i>PLoS Medicine</i> 2012), BMI (Prospective Studies Collaboration, <i>Lancet</i> 2009), the combined habits (Li et al., <i>Circulation</i> 2018), diabetes (Emerging Risk Factors Collaboration, <i>NEJM</i> 2011), cholesterol (Prospective Studies Collaboration, <i>Lancet</i> 2007) and optimism (Lee et al., <i>PNAS</i> 2019). The lab effects are small, rounded estimates. It is for fun, not medical advice.</p>
   <h3>The pop-up</h3>
   <ol>
     <li>A parameter <code>p_ShowPredictor</code> holds <code>"Y"</code> or <code>"N"</code>. The gold button and the Close button are one-mark sheets; their parameter actions write <code>"Y"</code> and <code>"N"</code>.</li>
@@ -246,7 +254,7 @@ ELSE 15 + ([p_Age] - 80) * 0.6 END</code></pre>
   <div class="lesson"><h3>Tableau caches a text file's columns</h3><p>After new columns were added to a CSV, Tableau kept reporting them as missing, because it reuses a cached copy keyed by the file path. Putting the data year in the file name gives new data a fresh file.</p></div>
   <div class="lesson"><h3>Floating zones keep out of each other's way</h3><p>Tableau Desktop would not paint one large floating box behind other floating zones, and pushed floating sheets out of other sheets' slots. So the predictor panel takes the map's exact slot (with the map hidden) and is built from white zones that meet edge to edge.</p></div>
   <div class="lesson"><h3>Header styles live in the label rule</h3><p>Colour, weight and alignment for a row header go on the field's <i>label</i> format; the <i>header</i> format only sets its width and size. That is why the +/– needed its own field.</p></div>
-  <div class="lesson"><h3>Integer maths in calculations</h3><p><code>%</code> needs integers (wrap in <code>INT</code>), and dividing two integers returns a decimal; use <code>DIV()</code> for whole-number division.</p></div>
+  <div class="lesson"><h3>Big parameter lists: store the label as the value</h3><p>A 217-country list with codes as values and names as aliases would not select its value in a compact dropdown (it showed the first country). Storing the names themselves as the values fixed it.</p></div><p><code>%</code> needs integers (wrap in <code>INT</code>), and dividing two integers returns a decimal; use <code>DIV()</code> for whole-number division.</p></div>
   <div class="lesson"><h3>Microstates win every ranking</h3><p>Ranking all 217 countries puts Monaco, San Marino and Liechtenstein on top. Limiting rankings to countries of 1M+ people gives a more useful story: Hong Kong, Kuwait, Switzerland.</p></div>
 
   <footer>
