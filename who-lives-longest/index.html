@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Lives Longest? · Tableau Work</title>
+<meta name="description" content="A life-expectancy dashboard for 217 countries on World Bank data: a five-level drill-down, clickable region tiles, a zooming map, and how it was built in Tableau.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~68ch); the live viz and screenshots get a wider band */
+:root{
+  --bg:#f6f7f9; --paper:#ffffff; --ink:#1b2430; --muted:#5d6977; --line:#dde2e9; --soft:#eef2f6;
+  --accent:#1f5a8c; --accent-soft:#e3edf6; --blue:#2f6fae; --orange:#c4521f; --code-bg:#f1f4f8;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#11151b; --paper:#171c24; --ink:#e6eaef; --muted:#9aa6b2; --line:#2a323d; --soft:#1d2430;
+  --accent:#7cb2e3; --accent-soft:#1f3249; --blue:#7cb2e3; --orange:#f0a35e; --code-bg:#1d2430; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--f-body);padding:0 max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.col{max-width:720px;margin:0 auto}
+.wide{max-width:1180px;margin:0 auto}
+.viz-wide{max-width:1284px;margin:28px auto 0}   /* dashboard is 1280 px wide + frame border */
+.viz-frame{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow-x:auto}
+.viz-note{font-size:.86rem;color:var(--muted);margin:8px 0 0}
+header.top{padding:56px 0 8px}
+.kicker{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.kicker a{color:inherit}
+h1{font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.12;margin:.35em 0 .3em;letter-spacing:-.015em;text-wrap:balance}
+.dek{font-size:1.18rem;color:var(--muted);margin:0 0 1.2em;max-width:60ch}
+.byline{font-size:.9rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+h2{font-size:1.55rem;line-height:1.25;margin:2.4em 0 .5em;text-wrap:balance;letter-spacing:-.01em}
+h3{font-size:1.1rem;margin:1.6em 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);padding:.1em .35em;border-radius:4px}
+pre{font-family:var(--f-mono);font-size:.83rem;line-height:1.55;background:var(--code-bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;overflow-x:auto;margin:0 0 1.3em}
+pre code{background:none;padding:0;font-size:inherit}
+ol,ul{padding-left:1.4em;margin:0 0 1.1em}
+li{margin:.25em 0}
+figure{margin:28px 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 20px;margin:28px 0}
+.toc strong{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.toc ol{margin:0}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 1.3em}
+.callout p:last-child{margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0 0 1.4em}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.fact b{display:block;font-size:1.6rem;line-height:1.15;letter-spacing:-.01em}
+.fact span{font-size:.92rem;color:var(--muted)}
+.fact.blue b{color:var(--blue)} .fact.orange b{color:var(--orange)}
+.table-wrap{overflow-x:auto;margin:0 0 1.4em}
+table.doc{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper)}
+table.doc th,table.doc td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+table.doc th{background:var(--soft);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lesson{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 14px}
+.lesson h3{margin:0 0 .3em;font-size:1rem}
+.lesson p{margin:0;font-size:.95rem}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-size:.88rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="col">
+  <header class="top">
+    <div class="kicker"><a href="../">Tableau Work</a> · World Bank data</div>
+    <h1>Who Lives Longest?</h1>
+    <p class="dek">Since 1960 the world has gained 22 years of life. This dashboard shows where those years went: life expectancy for 217 countries, from the world down to region, sub-region, income group and country.</p>
+    <div class="byline"><span>Zameer Sayed</span><span>October 2026</span><span>Tableau Desktop 2026.3 · Tableau Public</span></div>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#viz">The live dashboard</a></li>
+      <li><a href="#story">What the data says</a></li>
+      <li><a href="#explore">How to explore it</a></li>
+      <li><a href="#data">The data and its hierarchy</a></li>
+      <li><a href="#build">How it is built</a></li>
+      <li><a href="#design">Design choices</a></li>
+      <li><a href="#lessons">Lessons learned</a></li>
+    </ol>
+  </nav>
+</div>
+
+<section id="viz" class="viz-wide">
+  <div class="viz-frame">
+    <div class='tableauPlaceholder' id='vizWhoLivesLongest' style='position: relative'><noscript><a href='#'><img alt='Who Lives Longest?' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wh&#47;WhoLivesLongest&#47;WhoLivesLongest&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /><param name='embed_code_version' value='3' /><param name='site_root' value='' /><param name='name' value='WhoLivesLongest&#47;WhoLivesLongest' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wh&#47;WhoLivesLongest&#47;WhoLivesLongest&#47;1.png' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
+    <script>
+      (function () {
+        var divElement = document.getElementById('vizWhoLivesLongest');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '1280px'; vizElement.style.height = '2380px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      })();
+    </script>
+  </div>
+  <p class="viz-note">The dashboard is 1280 px wide; on a narrow screen, scroll it sideways or <a href="https://public.tableau.com/views/WhoLivesLongest/WhoLivesLongest">open it on Tableau Public</a>.</p>
+</section>
+
+<div class="col">
+  <h2 id="story">What the data says</h2>
+  <div class="facts">
+    <div class="fact"><b>+22 years</b><span>world life expectancy, 50.9 in 1960 to 73.3 in 2023</span></div>
+    <div class="fact orange"><b>31 years</b><span>between Hong Kong (85.2) and Nigeria (54.5), among countries of 1M+ people</span></div>
+    <div class="fact blue"><b>+11.0 years</b><span>gained by Sub-Saharan Africa since 2000, the fastest of any region; North America gained 1.8</span></div>
+    <div class="fact"><b>217 of 217</b><span>countries where women outlive men; the widest gap is Ukraine, 13.3 years</span></div>
+  </div>
+  <p>People in high-income countries live 80.1 years on average, 15.1 years longer than people in low-income countries (65.0). The gap is narrowing: the regions that started lowest gained the most since 2000. The trend chart marks the dips that interrupt the climb: COVID-19 almost everywhere in 2021, HIV/AIDS across southern Africa in the late 1990s and early 2000s, the Rwandan genocide in 1994, and the Khmer Rouge years in Cambodia.</p>
+
+  <h2 id="explore">How to explore it</h2>
+  <ol>
+    <li><b>Click a tile.</b> The strip under the headline shows one tile per region with its life expectancy, coloured blue (top 25% of its peers) or orange (bottom 25%). A click focuses the whole page on that region, and its sub-regions become the next tiles. The <b>‹</b> tile goes back up.</li>
+    <li><b>Read the map.</b> It zooms to the countries inside your pick, shaded in five-year bands from orange (under 60) to blue (80+).</li>
+    <li><b>Compare.</b> “#1 in …” and the longest/shortest lists rank countries of 1M+ people inside your pick; the trend line compares it with the world average; the dot plot shows women and men for each part of it.</li>
+    <li><b>Drill.</b> At the bottom, click any row of the table to open it, all the way down to individual countries. <b>Collapse all</b> closes everything.</li>
+  </ol>
+  <figure>
+    <img src="images/dashboard-top.png" alt="The dashboard: a navy header with the title and an arc of life, three insight cards, region tiles, a world map coloured by life expectancy, the #1 country and headline numbers" loading="lazy">
+    <figcaption>The top of the dashboard: the header, three insights, the region tiles and the map.</figcaption>
+  </figure>
+
+  <h2 id="data">The data and its hierarchy</h2>
+  <p>All numbers come from <a href="https://data.worldbank.org">World Bank Open Data</a> (CC BY 4.0): life expectancy at birth (total, female, male) and population, 1960 to 2023. Regions are the World Bank’s seven; sub-regions come from the <a href="https://unstats.un.org/unsd/methodology/m49/">UN M49</a> standard. That gives a five-level hierarchy:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Level</th><th>Units</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>1 World</td><td>1</td><td>World</td></tr>
+        <tr><td>2 Region</td><td>7</td><td>Sub-Saharan Africa</td></tr>
+        <tr><td>3 Sub-region</td><td>28</td><td>Western Africa</td></tr>
+        <tr><td>4 Income group</td><td>62</td><td>Western Africa · Low income</td></tr>
+        <tr><td>5 Country</td><td>217</td><td>Burkina Faso</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Every unit above country level is a <b>population-weighted</b> average, recomputed for every year from the countries reporting that year. Each value is banded against its peers at the same level: top 25%, bottom 25%, or the middle. Rankings leave out countries under 1M people (otherwise Monaco and San Marino top every list), except in the few groups that have none.</p>
+  <p>The two CSV files the workbook reads are here: <a href="data/World%20Life%20Expectancy%20-%20Units.csv">units</a> (one row per unit and metric) and <a href="data/World%20Life%20Expectancy%20-%20Charts.csv">charts</a> (yearly trends, women and men, rankings and map rows).</p>
+
+  <h2 id="build">How it is built</h2>
+  <h3>The drill-down</h3>
+  <p>The table uses the same parameter-driven drill-down as my <a href="../hierarchy-drilldown/">hierarchy drill-down write-up</a>: each row carries its path (<code>|World|SSF|SSF-WesternAfric|</code>), a parameter remembers which rows are open, and one click action adds or removes a row’s path. Here it runs five levels deep on real data.</p>
+  <h3>The tiles</h3>
+  <p>The tiles are one sheet: a bar on a fixed 0–1 axis fills each cell, coloured by band. A calculation picks what to show from the selected unit (the <code>p_SelectedUnit</code> parameter): its parent as a “‹” tile, plus its children (or, at the income-group level, its siblings). Two parameter actions on that sheet set the selected unit and reset the open rows, so every chart, the map and the table follow one click.</p>
+  <pre><code>// Show Tile: the parent, then the children of the selected unit
+[Metric Order] = 1 AND (
+  [Unit No] = [Parent of selected]
+  OR ([Level] = [Selected level] + 1 AND [unit sits under the selected unit])
+)</code></pre>
+  <h3>The map</h3>
+  <p>A filled map on each country’s ISO alpha-2 code, with Tableau’s country geographic role. A path column holds every country’s ancestors, so one filter, <code>CONTAINS([Path], '|' + [p_SelectedUnit] + '|')</code>, keeps only the countries inside the selection, and the map zooms to them.</p>
+  <h3>The trend notes</h3>
+  <p>The labels on the trend line are found in the data, not placed by hand. For each unit, a known event (COVID-19, HIV/AIDS, the Rwandan genocide, the Khmer Rouge years) is noted only if the unit contains the affected countries and its own line drops clearly inside that event’s window.</p>
+  <h3>The images</h3>
+  <p>The header (an arc of life, with the world’s average lifespan in 1960 and today marked on it) and the closing habits wheel are drawn in code, so there is no stock art to license.</p>
+  <figure>
+    <img src="images/habits-wheel.png" alt="A wheel of six habits linked to longer lives, with the years they add for women and men" loading="lazy">
+    <figcaption>The closing section: what adds years to a life, with its sources (Li et al., <i>Circulation</i> 2018; WHO Europe 2023; Lee et al., <i>PNAS</i> 2019).</figcaption>
+  </figure>
+
+  <h2 id="design">Design choices</h2>
+  <ul>
+    <li><b>One colour language.</b> Blue always means longer lives and orange shorter ones: in the table text, the tiles, the map and the rankings. Women and men get their own pair (raspberry and teal) so blue never means two things.</li>
+    <li><b>Tiles instead of dropdowns.</b> Exploring by clicking the data itself feels lighter than picking from lists and pressing Apply.</li>
+    <li><b>Rounded cards on a navy page</b> (Tableau 2024.3+ <code>corner-radius</code> on dashboard zones), with serif headings that match the header.</li>
+    <li><b>Context under every number.</b> Each headline figure has a reference line: “−10.7 yrs vs the world”, “15.7% of world · 48 countries”.</li>
+  </ul>
+
+  <h2 id="lessons">Lessons learned</h2>
+  <div class="lesson"><h3>A NULL inside IIF blanks the whole result</h3><p>The tile label compares each unit with the selected unit’s parent. World has no parent, so the comparison was NULL, and <code>IIF(NULL, …)</code> returns NULL: every World-level tile lost its label. Wrapping the lookup in <code>IFNULL(…, '')</code> fixed it.</p></div>
+  <div class="lesson"><h3>Tableau caches a text file’s columns</h3><p>After adding columns to a CSV, Tableau kept reporting them as missing: it reuses a cached copy of the file, keyed by its path. Renaming the files (or refreshing the data source) clears it.</p></div>
+  <div class="lesson"><h3>Microstates win every ranking</h3><p>Ranking all 217 countries puts Monaco, San Marino and Liechtenstein on top. Limiting rankings to countries of 1M+ people tells a more useful story: Hong Kong, Switzerland, Japan.</p></div>
+  <div class="lesson"><h3>Integer maths in calculations</h3><p><code>%</code> needs integers (wrap the value in <code>INT</code>), and dividing two integers returns a decimal: use <code>DIV()</code> for whole-number division.</p></div>
+
+  <footer>
+    Data: World Bank Open Data (CC BY 4.0), UN M49 regions. Habits: Li et al., <i>Circulation</i>, 2018; WHO Europe, 2023; Lee et al., <i>PNAS</i>, 2019.
+    · <a href="../">All projects</a>
+  </footer>
+</div>
+
+</body>
+</html>
