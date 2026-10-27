@@ -1,446 +1,446 @@
 Sort,Unit No,Unit Name,Level,Level Name,Group No,Group Name,Division No,Division Name,Region No,Region Name,Store No,Metric,Metric Order,Value,Value Text,Band,Better,Top Threshold,Bottom Threshold
-1,Company,Brightline Retail,1,Company,,,,,,,,Stores,0,64,64,Count,,,
-1,Company,Brightline Retail,1,Company,,,,,,,,Sales vs Target,1,101.07,101.1%,Company total,Higher,,
-1,Company,Brightline Retail,1,Company,,,,,,,,Customer Satisfaction,2,83.67,83.7,Company total,Higher,,
-1,Company,Brightline Retail,1,Company,,,,,,,,On-Time Delivery,3,91.28,91.3%,Company total,Higher,,
-1,Company,Brightline Retail,1,Company,,,,,,,,Staff Turnover,4,22.23,22.2%,Company total,Lower,,
+1,Company,Company,1,Company,,,,,,,,Stores,0,64,64,Count,,,
+1,Company,Company,1,Company,,,,,,,,Sales vs Target,1,101.07,101.1%,Company total,Higher,,
+1,Company,Company,1,Company,,,,,,,,Customer Satisfaction,2,83.67,83.7,Company total,Higher,,
+1,Company,Company,1,Company,,,,,,,,On-Time Delivery,3,91.28,91.3%,Company total,Higher,,
+1,Company,Company,1,Company,,,,,,,,Staff Turnover,4,22.23,22.2%,Company total,Lower,,
 2,G1,North,2,Group,G1,North,,,,,,Stores,0,21,21,Count,,,
 2,G1,North,2,Group,G1,North,,,,,,Sales vs Target,1,102.47,102.5%,Top 25%,Higher,101.6%,100.4%
 2,G1,North,2,Group,G1,North,,,,,,Customer Satisfaction,2,82.92,82.9,Middle,Higher,84.2,82.8
 2,G1,North,2,Group,G1,North,,,,,,On-Time Delivery,3,91.07,91.1%,Middle,Higher,91.5%,90.9%
 2,G1,North,2,Group,G1,North,,,,,,Staff Turnover,4,20.07,20.1%,Top 25%,Lower,21.5%,23.5%
-3,D1,Lakes Division,3,Division,G1,North,D1,Lakes Division,,,,Stores,0,12,12,Count,,,
-3,D1,Lakes Division,3,Division,G1,North,D1,Lakes Division,,,,Sales vs Target,1,103.83,103.8%,Top 25%,Higher,103.3%,99.3%
-3,D1,Lakes Division,3,Division,G1,North,D1,Lakes Division,,,,Customer Satisfaction,2,81.89,81.9,Bottom 25%,Higher,84.1,82.1
-3,D1,Lakes Division,3,Division,G1,North,D1,Lakes Division,,,,On-Time Delivery,3,92.33,92.3%,Top 25%,Higher,92.1%,90.6%
-3,D1,Lakes Division,3,Division,G1,North,D1,Lakes Division,,,,Staff Turnover,4,20.19,20.2%,Middle,Lower,20.1%,24.1%
-4,R1,Lakes Region 01,4,Region,G1,North,D1,Lakes Division,R1,Lakes Region 01,,Stores,0,4,4,Count,,,
-4,R1,Lakes Region 01,4,Region,G1,North,D1,Lakes Division,R1,Lakes Region 01,,Sales vs Target,1,103.90,103.9%,Middle,Higher,104.1%,98.9%
-4,R1,Lakes Region 01,4,Region,G1,North,D1,Lakes Division,R1,Lakes Region 01,,Customer Satisfaction,2,83.23,83.2,Middle,Higher,85.5,82.3
-4,R1,Lakes Region 01,4,Region,G1,North,D1,Lakes Division,R1,Lakes Region 01,,On-Time Delivery,3,93.00,93.0%,Top 25%,Higher,92.8%,89.8%
-4,R1,Lakes Region 01,4,Region,G1,North,D1,Lakes Division,R1,Lakes Region 01,,Staff Turnover,4,17.29,17.3%,Middle,Lower,17.2%,26.8%
-5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1001,Stores,0,1,1,Count,,,
-5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1001,Sales vs Target,1,97.79,97.8%,Middle,Higher,105.6%,95.4%
-5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1001,Customer Satisfaction,2,86.45,86.4,Middle,Higher,89.5,77.6
-5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1001,On-Time Delivery,3,93.42,93.4%,Middle,Higher,94.0%,88.4%
-5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1001,Staff Turnover,4,10.26,10.3%,Top 25%,Lower,15.3%,28.0%
-6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1002,Stores,0,1,1,Count,,,
-6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1002,Sales vs Target,1,105.31,105.3%,Middle,Higher,105.6%,95.4%
-6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1002,Customer Satisfaction,2,81.17,81.2,Middle,Higher,89.5,77.6
-6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1002,On-Time Delivery,3,92.23,92.2%,Middle,Higher,94.0%,88.4%
-6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1002,Staff Turnover,4,16.13,16.1%,Middle,Lower,15.3%,28.0%
-7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1003,Stores,0,1,1,Count,,,
-7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1003,Sales vs Target,1,112.28,112.3%,Top 25%,Higher,105.6%,95.4%
-7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1003,Customer Satisfaction,2,88.98,89.0,Middle,Higher,89.5,77.6
-7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1003,On-Time Delivery,3,95.19,95.2%,Top 25%,Higher,94.0%,88.4%
-7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1003,Staff Turnover,4,27.27,27.3%,Middle,Lower,15.3%,28.0%
-8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1004,Stores,0,1,1,Count,,,
-8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1004,Sales vs Target,1,103.02,103.0%,Middle,Higher,105.6%,95.4%
-8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1004,Customer Satisfaction,2,77.45,77.5,Bottom 25%,Higher,89.5,77.6
-8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1004,On-Time Delivery,3,90.95,91.0%,Middle,Higher,94.0%,88.4%
-8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes Division,R1,Lakes Region 01,S1004,Staff Turnover,4,16.67,16.7%,Middle,Lower,15.3%,28.0%
-9,R2,Lakes Region 02,4,Region,G1,North,D1,Lakes Division,R2,Lakes Region 02,,Stores,0,5,5,Count,,,
-9,R2,Lakes Region 02,4,Region,G1,North,D1,Lakes Division,R2,Lakes Region 02,,Sales vs Target,1,104.26,104.3%,Top 25%,Higher,104.1%,98.9%
-9,R2,Lakes Region 02,4,Region,G1,North,D1,Lakes Division,R2,Lakes Region 02,,Customer Satisfaction,2,84.47,84.5,Middle,Higher,85.5,82.3
-9,R2,Lakes Region 02,4,Region,G1,North,D1,Lakes Division,R2,Lakes Region 02,,On-Time Delivery,3,93.79,93.8%,Top 25%,Higher,92.8%,89.8%
-9,R2,Lakes Region 02,4,Region,G1,North,D1,Lakes Division,R2,Lakes Region 02,,Staff Turnover,4,16.84,16.8%,Top 25%,Lower,17.2%,26.8%
-10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1005,Stores,0,1,1,Count,,,
-10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1005,Sales vs Target,1,115.65,115.6%,Top 25%,Higher,105.6%,95.4%
-10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1005,Customer Satisfaction,2,89.32,89.3,Middle,Higher,89.5,77.6
-10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1005,On-Time Delivery,3,90.78,90.8%,Middle,Higher,94.0%,88.4%
-10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1005,Staff Turnover,4,17.24,17.2%,Middle,Lower,15.3%,28.0%
-11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1006,Stores,0,1,1,Count,,,
-11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1006,Sales vs Target,1,102.76,102.8%,Middle,Higher,105.6%,95.4%
-11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1006,Customer Satisfaction,2,77.00,77.0,Bottom 25%,Higher,89.5,77.6
-11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1006,On-Time Delivery,3,90.30,90.3%,Middle,Higher,94.0%,88.4%
-11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1006,Staff Turnover,4,12.00,12.0%,Top 25%,Lower,15.3%,28.0%
-12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1007,Stores,0,1,1,Count,,,
-12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1007,Sales vs Target,1,105.14,105.1%,Middle,Higher,105.6%,95.4%
-12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1007,Customer Satisfaction,2,86.97,87.0,Middle,Higher,89.5,77.6
-12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1007,On-Time Delivery,3,96.24,96.2%,Top 25%,Higher,94.0%,88.4%
-12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1007,Staff Turnover,4,20.83,20.8%,Middle,Lower,15.3%,28.0%
-13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1008,Stores,0,1,1,Count,,,
-13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1008,Sales vs Target,1,105.17,105.2%,Middle,Higher,105.6%,95.4%
-13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1008,Customer Satisfaction,2,90.26,90.3,Top 25%,Higher,89.5,77.6
-13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1008,On-Time Delivery,3,94.45,94.4%,Top 25%,Higher,94.0%,88.4%
-13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1008,Staff Turnover,4,13.95,14.0%,Top 25%,Lower,15.3%,28.0%
-14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1009,Stores,0,1,1,Count,,,
-14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1009,Sales vs Target,1,96.86,96.9%,Middle,Higher,105.6%,95.4%
-14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1009,Customer Satisfaction,2,78.62,78.6,Middle,Higher,89.5,77.6
-14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1009,On-Time Delivery,3,97.68,97.7%,Top 25%,Higher,94.0%,88.4%
-14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes Division,R2,Lakes Region 02,S1009,Staff Turnover,4,25.00,25.0%,Middle,Lower,15.3%,28.0%
-15,R3,Lakes Region 03,4,Region,G1,North,D1,Lakes Division,R3,Lakes Region 03,,Stores,0,3,3,Count,,,
-15,R3,Lakes Region 03,4,Region,G1,North,D1,Lakes Division,R3,Lakes Region 03,,Sales vs Target,1,102.97,103.0%,Middle,Higher,104.1%,98.9%
-15,R3,Lakes Region 03,4,Region,G1,North,D1,Lakes Division,R3,Lakes Region 03,,Customer Satisfaction,2,75.63,75.6,Bottom 25%,Higher,85.5,82.3
-15,R3,Lakes Region 03,4,Region,G1,North,D1,Lakes Division,R3,Lakes Region 03,,On-Time Delivery,3,88.82,88.8%,Bottom 25%,Higher,92.8%,89.8%
-15,R3,Lakes Region 03,4,Region,G1,North,D1,Lakes Division,R3,Lakes Region 03,,Staff Turnover,4,29.63,29.6%,Bottom 25%,Lower,17.2%,26.8%
-16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1010,Stores,0,1,1,Count,,,
-16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1010,Sales vs Target,1,94.13,94.1%,Bottom 25%,Higher,105.6%,95.4%
-16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1010,Customer Satisfaction,2,72.08,72.1,Bottom 25%,Higher,89.5,77.6
-16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1010,On-Time Delivery,3,85.97,86.0%,Bottom 25%,Higher,94.0%,88.4%
-16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1010,Staff Turnover,4,23.33,23.3%,Middle,Lower,15.3%,28.0%
-17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1011,Stores,0,1,1,Count,,,
-17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1011,Sales vs Target,1,108.98,109.0%,Top 25%,Higher,105.6%,95.4%
-17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1011,Customer Satisfaction,2,75.52,75.5,Bottom 25%,Higher,89.5,77.6
-17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1011,On-Time Delivery,3,87.89,87.9%,Bottom 25%,Higher,94.0%,88.4%
-17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1011,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
-18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1012,Stores,0,1,1,Count,,,
-18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1012,Sales vs Target,1,101.51,101.5%,Middle,Higher,105.6%,95.4%
-18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1012,Customer Satisfaction,2,78.90,78.9,Middle,Higher,89.5,77.6
-18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1012,On-Time Delivery,3,95.78,95.8%,Top 25%,Higher,94.0%,88.4%
-18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes Division,R3,Lakes Region 03,S1012,Staff Turnover,4,31.11,31.1%,Bottom 25%,Lower,15.3%,28.0%
-19,D2,Highlands Division,3,Division,G1,North,D2,Highlands Division,,,,Stores,0,9,9,Count,,,
-19,D2,Highlands Division,3,Division,G1,North,D2,Highlands Division,,,,Sales vs Target,1,100.53,100.5%,Middle,Higher,103.3%,99.3%
-19,D2,Highlands Division,3,Division,G1,North,D2,Highlands Division,,,,Customer Satisfaction,2,84.10,84.1,Top 25%,Higher,84.1,82.1
-19,D2,Highlands Division,3,Division,G1,North,D2,Highlands Division,,,,On-Time Delivery,3,89.12,89.1%,Bottom 25%,Higher,92.1%,90.6%
-19,D2,Highlands Division,3,Division,G1,North,D2,Highlands Division,,,,Staff Turnover,4,19.95,19.9%,Top 25%,Lower,20.1%,24.1%
-20,R4,Highlands Region 01,4,Region,G1,North,D2,Highlands Division,R4,Highlands Region 01,,Stores,0,5,5,Count,,,
-20,R4,Highlands Region 01,4,Region,G1,North,D2,Highlands Division,R4,Highlands Region 01,,Sales vs Target,1,101.03,101.0%,Middle,Higher,104.1%,98.9%
-20,R4,Highlands Region 01,4,Region,G1,North,D2,Highlands Division,R4,Highlands Region 01,,Customer Satisfaction,2,84.32,84.3,Middle,Higher,85.5,82.3
-20,R4,Highlands Region 01,4,Region,G1,North,D2,Highlands Division,R4,Highlands Region 01,,On-Time Delivery,3,88.97,89.0%,Bottom 25%,Higher,92.8%,89.8%
-20,R4,Highlands Region 01,4,Region,G1,North,D2,Highlands Division,R4,Highlands Region 01,,Staff Turnover,4,22.58,22.6%,Middle,Lower,17.2%,26.8%
-21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1013,Stores,0,1,1,Count,,,
-21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1013,Sales vs Target,1,98.32,98.3%,Middle,Higher,105.6%,95.4%
-21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1013,Customer Satisfaction,2,85.35,85.3,Middle,Higher,89.5,77.6
-21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1013,On-Time Delivery,3,92.21,92.2%,Middle,Higher,94.0%,88.4%
-21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1013,Staff Turnover,4,24.14,24.1%,Middle,Lower,15.3%,28.0%
-22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1014,Stores,0,1,1,Count,,,
-22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1014,Sales vs Target,1,103.14,103.1%,Middle,Higher,105.6%,95.4%
-22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1014,Customer Satisfaction,2,91.09,91.1,Top 25%,Higher,89.5,77.6
-22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1014,On-Time Delivery,3,86.18,86.2%,Bottom 25%,Higher,94.0%,88.4%
-22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1014,Staff Turnover,4,29.17,29.2%,Bottom 25%,Lower,15.3%,28.0%
-23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1015,Stores,0,1,1,Count,,,
-23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1015,Sales vs Target,1,101.70,101.7%,Middle,Higher,105.6%,95.4%
-23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1015,Customer Satisfaction,2,92.57,92.6,Top 25%,Higher,89.5,77.6
-23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1015,On-Time Delivery,3,88.85,88.9%,Middle,Higher,94.0%,88.4%
-23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1015,Staff Turnover,4,17.50,17.5%,Middle,Lower,15.3%,28.0%
-24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1016,Stores,0,1,1,Count,,,
-24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1016,Sales vs Target,1,104.25,104.3%,Middle,Higher,105.6%,95.4%
-24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1016,Customer Satisfaction,2,73.73,73.7,Bottom 25%,Higher,89.5,77.6
-24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1016,On-Time Delivery,3,90.13,90.1%,Middle,Higher,94.0%,88.4%
-24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1016,Staff Turnover,4,21.15,21.2%,Middle,Lower,15.3%,28.0%
-25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1017,Stores,0,1,1,Count,,,
-25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1017,Sales vs Target,1,99.65,99.7%,Middle,Higher,105.6%,95.4%
-25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1017,Customer Satisfaction,2,74.19,74.2,Bottom 25%,Higher,89.5,77.6
-25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1017,On-Time Delivery,3,86.66,86.7%,Bottom 25%,Higher,94.0%,88.4%
-25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands Division,R4,Highlands Region 01,S1017,Staff Turnover,4,20.83,20.8%,Middle,Lower,15.3%,28.0%
-26,R5,Highlands Region 02,4,Region,G1,North,D2,Highlands Division,R5,Highlands Region 02,,Stores,0,4,4,Count,,,
-26,R5,Highlands Region 02,4,Region,G1,North,D2,Highlands Division,R5,Highlands Region 02,,Sales vs Target,1,99.95,99.9%,Middle,Higher,104.1%,98.9%
-26,R5,Highlands Region 02,4,Region,G1,North,D2,Highlands Division,R5,Highlands Region 02,,Customer Satisfaction,2,83.81,83.8,Middle,Higher,85.5,82.3
-26,R5,Highlands Region 02,4,Region,G1,North,D2,Highlands Division,R5,Highlands Region 02,,On-Time Delivery,3,89.28,89.3%,Bottom 25%,Higher,92.8%,89.8%
-26,R5,Highlands Region 02,4,Region,G1,North,D2,Highlands Division,R5,Highlands Region 02,,Staff Turnover,4,16.67,16.7%,Top 25%,Lower,17.2%,26.8%
-27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1018,Stores,0,1,1,Count,,,
-27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1018,Sales vs Target,1,99.85,99.9%,Middle,Higher,105.6%,95.4%
-27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1018,Customer Satisfaction,2,86.78,86.8,Middle,Higher,89.5,77.6
-27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1018,On-Time Delivery,3,88.73,88.7%,Middle,Higher,94.0%,88.4%
-27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1018,Staff Turnover,4,16.67,16.7%,Middle,Lower,15.3%,28.0%
-28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1019,Stores,0,1,1,Count,,,
-28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1019,Sales vs Target,1,109.03,109.0%,Top 25%,Higher,105.6%,95.4%
-28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1019,Customer Satisfaction,2,75.07,75.1,Bottom 25%,Higher,89.5,77.6
-28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1019,On-Time Delivery,3,88.04,88.0%,Bottom 25%,Higher,94.0%,88.4%
-28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1019,Staff Turnover,4,11.32,11.3%,Top 25%,Lower,15.3%,28.0%
-29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1020,Stores,0,1,1,Count,,,
-29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1020,Sales vs Target,1,101.85,101.9%,Middle,Higher,105.6%,95.4%
-29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1020,Customer Satisfaction,2,84.99,85.0,Middle,Higher,89.5,77.6
-29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1020,On-Time Delivery,3,93.96,94.0%,Middle,Higher,94.0%,88.4%
-29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1020,Staff Turnover,4,12.96,13.0%,Top 25%,Lower,15.3%,28.0%
-30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1021,Stores,0,1,1,Count,,,
-30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1021,Sales vs Target,1,90.97,91.0%,Bottom 25%,Higher,105.6%,95.4%
-30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1021,Customer Satisfaction,2,89.40,89.4,Middle,Higher,89.5,77.6
-30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1021,On-Time Delivery,3,88.42,88.4%,Middle,Higher,94.0%,88.4%
-30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands Division,R5,Highlands Region 02,S1021,Staff Turnover,4,27.91,27.9%,Middle,Lower,15.3%,28.0%
+3,D1,Lakes,3,Division,G1,North,D1,Lakes,,,,Stores,0,12,12,Count,,,
+3,D1,Lakes,3,Division,G1,North,D1,Lakes,,,,Sales vs Target,1,103.83,103.8%,Top 25%,Higher,103.3%,99.3%
+3,D1,Lakes,3,Division,G1,North,D1,Lakes,,,,Customer Satisfaction,2,81.89,81.9,Bottom 25%,Higher,84.1,82.1
+3,D1,Lakes,3,Division,G1,North,D1,Lakes,,,,On-Time Delivery,3,92.33,92.3%,Top 25%,Higher,92.1%,90.6%
+3,D1,Lakes,3,Division,G1,North,D1,Lakes,,,,Staff Turnover,4,20.19,20.2%,Middle,Lower,20.1%,24.1%
+4,R1,Lakes 01,4,Region,G1,North,D1,Lakes,R1,Lakes 01,,Stores,0,4,4,Count,,,
+4,R1,Lakes 01,4,Region,G1,North,D1,Lakes,R1,Lakes 01,,Sales vs Target,1,103.90,103.9%,Middle,Higher,104.1%,98.9%
+4,R1,Lakes 01,4,Region,G1,North,D1,Lakes,R1,Lakes 01,,Customer Satisfaction,2,83.23,83.2,Middle,Higher,85.5,82.3
+4,R1,Lakes 01,4,Region,G1,North,D1,Lakes,R1,Lakes 01,,On-Time Delivery,3,93.00,93.0%,Top 25%,Higher,92.8%,89.8%
+4,R1,Lakes 01,4,Region,G1,North,D1,Lakes,R1,Lakes 01,,Staff Turnover,4,17.29,17.3%,Middle,Lower,17.2%,26.8%
+5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1001,Stores,0,1,1,Count,,,
+5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1001,Sales vs Target,1,97.79,97.8%,Middle,Higher,105.6%,95.4%
+5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1001,Customer Satisfaction,2,86.45,86.4,Middle,Higher,89.5,77.6
+5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1001,On-Time Delivery,3,93.42,93.4%,Middle,Higher,94.0%,88.4%
+5,S1001,S1001 - Maple Street,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1001,Staff Turnover,4,10.26,10.3%,Top 25%,Lower,15.3%,28.0%
+6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1002,Stores,0,1,1,Count,,,
+6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1002,Sales vs Target,1,105.31,105.3%,Middle,Higher,105.6%,95.4%
+6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1002,Customer Satisfaction,2,81.17,81.2,Middle,Higher,89.5,77.6
+6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1002,On-Time Delivery,3,92.23,92.2%,Middle,Higher,94.0%,88.4%
+6,S1002,S1002 - Oak Avenue,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1002,Staff Turnover,4,16.13,16.1%,Middle,Lower,15.3%,28.0%
+7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1003,Stores,0,1,1,Count,,,
+7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1003,Sales vs Target,1,112.28,112.3%,Top 25%,Higher,105.6%,95.4%
+7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1003,Customer Satisfaction,2,88.98,89.0,Middle,Higher,89.5,77.6
+7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1003,On-Time Delivery,3,95.19,95.2%,Top 25%,Higher,94.0%,88.4%
+7,S1003,S1003 - Riverside,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1003,Staff Turnover,4,27.27,27.3%,Middle,Lower,15.3%,28.0%
+8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1004,Stores,0,1,1,Count,,,
+8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1004,Sales vs Target,1,103.02,103.0%,Middle,Higher,105.6%,95.4%
+8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1004,Customer Satisfaction,2,77.45,77.5,Bottom 25%,Higher,89.5,77.6
+8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1004,On-Time Delivery,3,90.95,91.0%,Middle,Higher,94.0%,88.4%
+8,S1004,S1004 - Market Square,5,Store,G1,North,D1,Lakes,R1,Lakes 01,S1004,Staff Turnover,4,16.67,16.7%,Middle,Lower,15.3%,28.0%
+9,R2,Lakes 02,4,Region,G1,North,D1,Lakes,R2,Lakes 02,,Stores,0,5,5,Count,,,
+9,R2,Lakes 02,4,Region,G1,North,D1,Lakes,R2,Lakes 02,,Sales vs Target,1,104.26,104.3%,Top 25%,Higher,104.1%,98.9%
+9,R2,Lakes 02,4,Region,G1,North,D1,Lakes,R2,Lakes 02,,Customer Satisfaction,2,84.47,84.5,Middle,Higher,85.5,82.3
+9,R2,Lakes 02,4,Region,G1,North,D1,Lakes,R2,Lakes 02,,On-Time Delivery,3,93.79,93.8%,Top 25%,Higher,92.8%,89.8%
+9,R2,Lakes 02,4,Region,G1,North,D1,Lakes,R2,Lakes 02,,Staff Turnover,4,16.84,16.8%,Top 25%,Lower,17.2%,26.8%
+10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1005,Stores,0,1,1,Count,,,
+10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1005,Sales vs Target,1,115.65,115.6%,Top 25%,Higher,105.6%,95.4%
+10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1005,Customer Satisfaction,2,89.32,89.3,Middle,Higher,89.5,77.6
+10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1005,On-Time Delivery,3,90.78,90.8%,Middle,Higher,94.0%,88.4%
+10,S1005,S1005 - Elm Park,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1005,Staff Turnover,4,17.24,17.2%,Middle,Lower,15.3%,28.0%
+11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1006,Stores,0,1,1,Count,,,
+11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1006,Sales vs Target,1,102.76,102.8%,Middle,Higher,105.6%,95.4%
+11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1006,Customer Satisfaction,2,77.00,77.0,Bottom 25%,Higher,89.5,77.6
+11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1006,On-Time Delivery,3,90.30,90.3%,Middle,Higher,94.0%,88.4%
+11,S1006,S1006 - Harbor View,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1006,Staff Turnover,4,12.00,12.0%,Top 25%,Lower,15.3%,28.0%
+12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1007,Stores,0,1,1,Count,,,
+12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1007,Sales vs Target,1,105.14,105.1%,Middle,Higher,105.6%,95.4%
+12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1007,Customer Satisfaction,2,86.97,87.0,Middle,Higher,89.5,77.6
+12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1007,On-Time Delivery,3,96.24,96.2%,Top 25%,Higher,94.0%,88.4%
+12,S1007,S1007 - Cedar Lane,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1007,Staff Turnover,4,20.83,20.8%,Middle,Lower,15.3%,28.0%
+13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1008,Stores,0,1,1,Count,,,
+13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1008,Sales vs Target,1,105.17,105.2%,Middle,Higher,105.6%,95.4%
+13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1008,Customer Satisfaction,2,90.26,90.3,Top 25%,Higher,89.5,77.6
+13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1008,On-Time Delivery,3,94.45,94.4%,Top 25%,Higher,94.0%,88.4%
+13,S1008,S1008 - Station Road,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1008,Staff Turnover,4,13.95,14.0%,Top 25%,Lower,15.3%,28.0%
+14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1009,Stores,0,1,1,Count,,,
+14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1009,Sales vs Target,1,96.86,96.9%,Middle,Higher,105.6%,95.4%
+14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1009,Customer Satisfaction,2,78.62,78.6,Middle,Higher,89.5,77.6
+14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1009,On-Time Delivery,3,97.68,97.7%,Top 25%,Higher,94.0%,88.4%
+14,S1009,S1009 - Willow Creek,5,Store,G1,North,D1,Lakes,R2,Lakes 02,S1009,Staff Turnover,4,25.00,25.0%,Middle,Lower,15.3%,28.0%
+15,R3,Lakes 03,4,Region,G1,North,D1,Lakes,R3,Lakes 03,,Stores,0,3,3,Count,,,
+15,R3,Lakes 03,4,Region,G1,North,D1,Lakes,R3,Lakes 03,,Sales vs Target,1,102.97,103.0%,Middle,Higher,104.1%,98.9%
+15,R3,Lakes 03,4,Region,G1,North,D1,Lakes,R3,Lakes 03,,Customer Satisfaction,2,75.63,75.6,Bottom 25%,Higher,85.5,82.3
+15,R3,Lakes 03,4,Region,G1,North,D1,Lakes,R3,Lakes 03,,On-Time Delivery,3,88.82,88.8%,Bottom 25%,Higher,92.8%,89.8%
+15,R3,Lakes 03,4,Region,G1,North,D1,Lakes,R3,Lakes 03,,Staff Turnover,4,29.63,29.6%,Bottom 25%,Lower,17.2%,26.8%
+16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1010,Stores,0,1,1,Count,,,
+16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1010,Sales vs Target,1,94.13,94.1%,Bottom 25%,Higher,105.6%,95.4%
+16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1010,Customer Satisfaction,2,72.08,72.1,Bottom 25%,Higher,89.5,77.6
+16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1010,On-Time Delivery,3,85.97,86.0%,Bottom 25%,Higher,94.0%,88.4%
+16,S1010,S1010 - Kings Cross,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1010,Staff Turnover,4,23.33,23.3%,Middle,Lower,15.3%,28.0%
+17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1011,Stores,0,1,1,Count,,,
+17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1011,Sales vs Target,1,108.98,109.0%,Top 25%,Higher,105.6%,95.4%
+17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1011,Customer Satisfaction,2,75.52,75.5,Bottom 25%,Higher,89.5,77.6
+17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1011,On-Time Delivery,3,87.89,87.9%,Bottom 25%,Higher,94.0%,88.4%
+17,S1011,S1011 - Sunset Plaza,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1011,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
+18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1012,Stores,0,1,1,Count,,,
+18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1012,Sales vs Target,1,101.51,101.5%,Middle,Higher,105.6%,95.4%
+18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1012,Customer Satisfaction,2,78.90,78.9,Middle,Higher,89.5,77.6
+18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1012,On-Time Delivery,3,95.78,95.8%,Top 25%,Higher,94.0%,88.4%
+18,S1012,S1012 - Parkside,5,Store,G1,North,D1,Lakes,R3,Lakes 03,S1012,Staff Turnover,4,31.11,31.1%,Bottom 25%,Lower,15.3%,28.0%
+19,D2,Highlands,3,Division,G1,North,D2,Highlands,,,,Stores,0,9,9,Count,,,
+19,D2,Highlands,3,Division,G1,North,D2,Highlands,,,,Sales vs Target,1,100.53,100.5%,Middle,Higher,103.3%,99.3%
+19,D2,Highlands,3,Division,G1,North,D2,Highlands,,,,Customer Satisfaction,2,84.10,84.1,Top 25%,Higher,84.1,82.1
+19,D2,Highlands,3,Division,G1,North,D2,Highlands,,,,On-Time Delivery,3,89.12,89.1%,Bottom 25%,Higher,92.1%,90.6%
+19,D2,Highlands,3,Division,G1,North,D2,Highlands,,,,Staff Turnover,4,19.95,19.9%,Top 25%,Lower,20.1%,24.1%
+20,R4,Highlands 01,4,Region,G1,North,D2,Highlands,R4,Highlands 01,,Stores,0,5,5,Count,,,
+20,R4,Highlands 01,4,Region,G1,North,D2,Highlands,R4,Highlands 01,,Sales vs Target,1,101.03,101.0%,Middle,Higher,104.1%,98.9%
+20,R4,Highlands 01,4,Region,G1,North,D2,Highlands,R4,Highlands 01,,Customer Satisfaction,2,84.32,84.3,Middle,Higher,85.5,82.3
+20,R4,Highlands 01,4,Region,G1,North,D2,Highlands,R4,Highlands 01,,On-Time Delivery,3,88.97,89.0%,Bottom 25%,Higher,92.8%,89.8%
+20,R4,Highlands 01,4,Region,G1,North,D2,Highlands,R4,Highlands 01,,Staff Turnover,4,22.58,22.6%,Middle,Lower,17.2%,26.8%
+21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1013,Stores,0,1,1,Count,,,
+21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1013,Sales vs Target,1,98.32,98.3%,Middle,Higher,105.6%,95.4%
+21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1013,Customer Satisfaction,2,85.35,85.3,Middle,Higher,89.5,77.6
+21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1013,On-Time Delivery,3,92.21,92.2%,Middle,Higher,94.0%,88.4%
+21,S1013,S1013 - Mill Road,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1013,Staff Turnover,4,24.14,24.1%,Middle,Lower,15.3%,28.0%
+22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1014,Stores,0,1,1,Count,,,
+22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1014,Sales vs Target,1,103.14,103.1%,Middle,Higher,105.6%,95.4%
+22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1014,Customer Satisfaction,2,91.09,91.1,Top 25%,Higher,89.5,77.6
+22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1014,On-Time Delivery,3,86.18,86.2%,Bottom 25%,Higher,94.0%,88.4%
+22,S1014,S1014 - Westgate,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1014,Staff Turnover,4,29.17,29.2%,Bottom 25%,Lower,15.3%,28.0%
+23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1015,Stores,0,1,1,Count,,,
+23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1015,Sales vs Target,1,101.70,101.7%,Middle,Higher,105.6%,95.4%
+23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1015,Customer Satisfaction,2,92.57,92.6,Top 25%,Higher,89.5,77.6
+23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1015,On-Time Delivery,3,88.85,88.9%,Middle,Higher,94.0%,88.4%
+23,S1015,S1015 - Hillcrest,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1015,Staff Turnover,4,17.50,17.5%,Middle,Lower,15.3%,28.0%
+24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1016,Stores,0,1,1,Count,,,
+24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1016,Sales vs Target,1,104.25,104.3%,Middle,Higher,105.6%,95.4%
+24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1016,Customer Satisfaction,2,73.73,73.7,Bottom 25%,Higher,89.5,77.6
+24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1016,On-Time Delivery,3,90.13,90.1%,Middle,Higher,94.0%,88.4%
+24,S1016,S1016 - Lakeshore,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1016,Staff Turnover,4,21.15,21.2%,Middle,Lower,15.3%,28.0%
+25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1017,Stores,0,1,1,Count,,,
+25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1017,Sales vs Target,1,99.65,99.7%,Middle,Higher,105.6%,95.4%
+25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1017,Customer Satisfaction,2,74.19,74.2,Bottom 25%,Higher,89.5,77.6
+25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1017,On-Time Delivery,3,86.66,86.7%,Bottom 25%,Higher,94.0%,88.4%
+25,S1017,S1017 - Bridge Street,5,Store,G1,North,D2,Highlands,R4,Highlands 01,S1017,Staff Turnover,4,20.83,20.8%,Middle,Lower,15.3%,28.0%
+26,R5,Highlands 02,4,Region,G1,North,D2,Highlands,R5,Highlands 02,,Stores,0,4,4,Count,,,
+26,R5,Highlands 02,4,Region,G1,North,D2,Highlands,R5,Highlands 02,,Sales vs Target,1,99.95,99.9%,Middle,Higher,104.1%,98.9%
+26,R5,Highlands 02,4,Region,G1,North,D2,Highlands,R5,Highlands 02,,Customer Satisfaction,2,83.81,83.8,Middle,Higher,85.5,82.3
+26,R5,Highlands 02,4,Region,G1,North,D2,Highlands,R5,Highlands 02,,On-Time Delivery,3,89.28,89.3%,Bottom 25%,Higher,92.8%,89.8%
+26,R5,Highlands 02,4,Region,G1,North,D2,Highlands,R5,Highlands 02,,Staff Turnover,4,16.67,16.7%,Top 25%,Lower,17.2%,26.8%
+27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1018,Stores,0,1,1,Count,,,
+27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1018,Sales vs Target,1,99.85,99.9%,Middle,Higher,105.6%,95.4%
+27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1018,Customer Satisfaction,2,86.78,86.8,Middle,Higher,89.5,77.6
+27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1018,On-Time Delivery,3,88.73,88.7%,Middle,Higher,94.0%,88.4%
+27,S1018,S1018 - Orchard Way,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1018,Staff Turnover,4,16.67,16.7%,Middle,Lower,15.3%,28.0%
+28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1019,Stores,0,1,1,Count,,,
+28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1019,Sales vs Target,1,109.03,109.0%,Top 25%,Higher,105.6%,95.4%
+28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1019,Customer Satisfaction,2,75.07,75.1,Bottom 25%,Higher,89.5,77.6
+28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1019,On-Time Delivery,3,88.04,88.0%,Bottom 25%,Higher,94.0%,88.4%
+28,S1019,S1019 - Northgate,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1019,Staff Turnover,4,11.32,11.3%,Top 25%,Lower,15.3%,28.0%
+29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1020,Stores,0,1,1,Count,,,
+29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1020,Sales vs Target,1,101.85,101.9%,Middle,Higher,105.6%,95.4%
+29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1020,Customer Satisfaction,2,84.99,85.0,Middle,Higher,89.5,77.6
+29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1020,On-Time Delivery,3,93.96,94.0%,Middle,Higher,94.0%,88.4%
+29,S1020,S1020 - Canal Street,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1020,Staff Turnover,4,12.96,13.0%,Top 25%,Lower,15.3%,28.0%
+30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1021,Stores,0,1,1,Count,,,
+30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1021,Sales vs Target,1,90.97,91.0%,Bottom 25%,Higher,105.6%,95.4%
+30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1021,Customer Satisfaction,2,89.40,89.4,Middle,Higher,89.5,77.6
+30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1021,On-Time Delivery,3,88.42,88.4%,Middle,Higher,94.0%,88.4%
+30,S1021,S1021 - Granite Falls,5,Store,G1,North,D2,Highlands,R5,Highlands 02,S1021,Staff Turnover,4,27.91,27.9%,Middle,Lower,15.3%,28.0%
 31,G2,South,2,Group,G2,South,,,,,,Stores,0,22,22,Count,,,
 31,G2,South,2,Group,G2,South,,,,,,Sales vs Target,1,100.68,100.7%,Middle,Higher,101.6%,100.4%
 31,G2,South,2,Group,G2,South,,,,,,Customer Satisfaction,2,82.71,82.7,Bottom 25%,Higher,84.2,82.8
 31,G2,South,2,Group,G2,South,,,,,,On-Time Delivery,3,90.79,90.8%,Bottom 25%,Higher,91.5%,90.9%
 31,G2,South,2,Group,G2,South,,,,,,Staff Turnover,4,23.95,24.0%,Bottom 25%,Lower,21.5%,23.5%
-32,D3,Coastal Division,3,Division,G2,South,D3,Coastal Division,,,,Stores,0,14,14,Count,,,
-32,D3,Coastal Division,3,Division,G2,South,D3,Coastal Division,,,,Sales vs Target,1,98.91,98.9%,Bottom 25%,Higher,103.3%,99.3%
-32,D3,Coastal Division,3,Division,G2,South,D3,Coastal Division,,,,Customer Satisfaction,2,81.91,81.9,Bottom 25%,Higher,84.1,82.1
-32,D3,Coastal Division,3,Division,G2,South,D3,Coastal Division,,,,On-Time Delivery,3,90.43,90.4%,Bottom 25%,Higher,92.1%,90.6%
-32,D3,Coastal Division,3,Division,G2,South,D3,Coastal Division,,,,Staff Turnover,4,23.82,23.8%,Middle,Lower,20.1%,24.1%
-33,R6,Coastal Region 01,4,Region,G2,South,D3,Coastal Division,R6,Coastal Region 01,,Stores,0,5,5,Count,,,
-33,R6,Coastal Region 01,4,Region,G2,South,D3,Coastal Division,R6,Coastal Region 01,,Sales vs Target,1,102.89,102.9%,Middle,Higher,104.1%,98.9%
-33,R6,Coastal Region 01,4,Region,G2,South,D3,Coastal Division,R6,Coastal Region 01,,Customer Satisfaction,2,82.37,82.4,Middle,Higher,85.5,82.3
-33,R6,Coastal Region 01,4,Region,G2,South,D3,Coastal Division,R6,Coastal Region 01,,On-Time Delivery,3,92.56,92.6%,Middle,Higher,92.8%,89.8%
-33,R6,Coastal Region 01,4,Region,G2,South,D3,Coastal Division,R6,Coastal Region 01,,Staff Turnover,4,21.43,21.4%,Middle,Lower,17.2%,26.8%
-34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1022,Stores,0,1,1,Count,,,
-34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1022,Sales vs Target,1,95.07,95.1%,Bottom 25%,Higher,105.6%,95.4%
-34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1022,Customer Satisfaction,2,91.74,91.7,Top 25%,Higher,89.5,77.6
-34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1022,On-Time Delivery,3,95.67,95.7%,Top 25%,Higher,94.0%,88.4%
-34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1022,Staff Turnover,4,25.00,25.0%,Middle,Lower,15.3%,28.0%
-35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1023,Stores,0,1,1,Count,,,
-35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1023,Sales vs Target,1,109.08,109.1%,Top 25%,Higher,105.6%,95.4%
-35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1023,Customer Satisfaction,2,72.81,72.8,Bottom 25%,Higher,89.5,77.6
-35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1023,On-Time Delivery,3,94.09,94.1%,Top 25%,Higher,94.0%,88.4%
-35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1023,Staff Turnover,4,34.38,34.4%,Bottom 25%,Lower,15.3%,28.0%
-36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1024,Stores,0,1,1,Count,,,
-36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1024,Sales vs Target,1,101.23,101.2%,Middle,Higher,105.6%,95.4%
-36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1024,Customer Satisfaction,2,74.77,74.8,Bottom 25%,Higher,89.5,77.6
-36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1024,On-Time Delivery,3,90.78,90.8%,Middle,Higher,94.0%,88.4%
-36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1024,Staff Turnover,4,17.50,17.5%,Middle,Lower,15.3%,28.0%
-37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1025,Stores,0,1,1,Count,,,
-37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1025,Sales vs Target,1,103.82,103.8%,Middle,Higher,105.6%,95.4%
-37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1025,Customer Satisfaction,2,92.09,92.1,Top 25%,Higher,89.5,77.6
-37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1025,On-Time Delivery,3,90.81,90.8%,Middle,Higher,94.0%,88.4%
-37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1025,Staff Turnover,4,11.11,11.1%,Top 25%,Lower,15.3%,28.0%
-38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1026,Stores,0,1,1,Count,,,
-38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1026,Sales vs Target,1,107.19,107.2%,Top 25%,Higher,105.6%,95.4%
-38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1026,Customer Satisfaction,2,92.14,92.1,Top 25%,Higher,89.5,77.6
-38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1026,On-Time Delivery,3,90.26,90.3%,Middle,Higher,94.0%,88.4%
-38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal Division,R6,Coastal Region 01,S1026,Staff Turnover,4,22.22,22.2%,Middle,Lower,15.3%,28.0%
-39,R7,Coastal Region 02,4,Region,G2,South,D3,Coastal Division,R7,Coastal Region 02,,Stores,0,4,4,Count,,,
-39,R7,Coastal Region 02,4,Region,G2,South,D3,Coastal Division,R7,Coastal Region 02,,Sales vs Target,1,99.85,99.8%,Middle,Higher,104.1%,98.9%
-39,R7,Coastal Region 02,4,Region,G2,South,D3,Coastal Division,R7,Coastal Region 02,,Customer Satisfaction,2,83.58,83.6,Middle,Higher,85.5,82.3
-39,R7,Coastal Region 02,4,Region,G2,South,D3,Coastal Division,R7,Coastal Region 02,,On-Time Delivery,3,90.65,90.7%,Middle,Higher,92.8%,89.8%
-39,R7,Coastal Region 02,4,Region,G2,South,D3,Coastal Division,R7,Coastal Region 02,,Staff Turnover,4,20.39,20.4%,Middle,Lower,17.2%,26.8%
-40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1027,Stores,0,1,1,Count,,,
-40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1027,Sales vs Target,1,113.01,113.0%,Top 25%,Higher,105.6%,95.4%
-40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1027,Customer Satisfaction,2,87.20,87.2,Middle,Higher,89.5,77.6
-40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1027,On-Time Delivery,3,87.98,88.0%,Bottom 25%,Higher,94.0%,88.4%
-40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1027,Staff Turnover,4,21.88,21.9%,Middle,Lower,15.3%,28.0%
-41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1028,Stores,0,1,1,Count,,,
-41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1028,Sales vs Target,1,91.93,91.9%,Bottom 25%,Higher,105.6%,95.4%
-41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1028,Customer Satisfaction,2,89.33,89.3,Middle,Higher,89.5,77.6
-41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1028,On-Time Delivery,3,92.96,93.0%,Middle,Higher,94.0%,88.4%
-41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1028,Staff Turnover,4,10.53,10.5%,Top 25%,Lower,15.3%,28.0%
-42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1029,Stores,0,1,1,Count,,,
-42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1029,Sales vs Target,1,92.34,92.3%,Bottom 25%,Higher,105.6%,95.4%
-42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1029,Customer Satisfaction,2,82.33,82.3,Middle,Higher,89.5,77.6
-42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1029,On-Time Delivery,3,95.91,95.9%,Top 25%,Higher,94.0%,88.4%
-42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1029,Staff Turnover,4,15.38,15.4%,Middle,Lower,15.3%,28.0%
-43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1030,Stores,0,1,1,Count,,,
-43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1030,Sales vs Target,1,109.89,109.9%,Top 25%,Higher,105.6%,95.4%
-43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1030,Customer Satisfaction,2,77.60,77.6,Bottom 25%,Higher,89.5,77.6
-43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1030,On-Time Delivery,3,87.25,87.3%,Bottom 25%,Higher,94.0%,88.4%
-43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal Division,R7,Coastal Region 02,S1030,Staff Turnover,4,30.77,30.8%,Bottom 25%,Lower,15.3%,28.0%
-44,R8,Coastal Region 03,4,Region,G2,South,D3,Coastal Division,R8,Coastal Region 03,,Stores,0,5,5,Count,,,
-44,R8,Coastal Region 03,4,Region,G2,South,D3,Coastal Division,R8,Coastal Region 03,,Sales vs Target,1,93.60,93.6%,Bottom 25%,Higher,104.1%,98.9%
-44,R8,Coastal Region 03,4,Region,G2,South,D3,Coastal Division,R8,Coastal Region 03,,Customer Satisfaction,2,79.10,79.1,Bottom 25%,Higher,85.5,82.3
-44,R8,Coastal Region 03,4,Region,G2,South,D3,Coastal Division,R8,Coastal Region 03,,On-Time Delivery,3,87.50,87.5%,Bottom 25%,Higher,92.8%,89.8%
-44,R8,Coastal Region 03,4,Region,G2,South,D3,Coastal Division,R8,Coastal Region 03,,Staff Turnover,4,28.76,28.8%,Bottom 25%,Lower,17.2%,26.8%
-45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1031,Stores,0,1,1,Count,,,
-45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1031,Sales vs Target,1,88.77,88.8%,Bottom 25%,Higher,105.6%,95.4%
-45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1031,Customer Satisfaction,2,84.41,84.4,Middle,Higher,89.5,77.6
-45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1031,On-Time Delivery,3,88.50,88.5%,Middle,Higher,94.0%,88.4%
-45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1031,Staff Turnover,4,34.04,34.0%,Bottom 25%,Lower,15.3%,28.0%
-46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1032,Stores,0,1,1,Count,,,
-46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1032,Sales vs Target,1,85.78,85.8%,Bottom 25%,Higher,105.6%,95.4%
-46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1032,Customer Satisfaction,2,75.38,75.4,Bottom 25%,Higher,89.5,77.6
-46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1032,On-Time Delivery,3,86.36,86.4%,Bottom 25%,Higher,94.0%,88.4%
-46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1032,Staff Turnover,4,28.13,28.1%,Bottom 25%,Lower,15.3%,28.0%
-47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1033,Stores,0,1,1,Count,,,
-47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1033,Sales vs Target,1,93.62,93.6%,Bottom 25%,Higher,105.6%,95.4%
-47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1033,Customer Satisfaction,2,74.68,74.7,Bottom 25%,Higher,89.5,77.6
-47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1033,On-Time Delivery,3,88.90,88.9%,Middle,Higher,94.0%,88.4%
-47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1033,Staff Turnover,4,27.59,27.6%,Middle,Lower,15.3%,28.0%
-48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1034,Stores,0,1,1,Count,,,
-48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1034,Sales vs Target,1,105.44,105.4%,Middle,Higher,105.6%,95.4%
-48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1034,Customer Satisfaction,2,77.90,77.9,Middle,Higher,89.5,77.6
-48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1034,On-Time Delivery,3,87.04,87.0%,Bottom 25%,Higher,94.0%,88.4%
-48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1034,Staff Turnover,4,11.11,11.1%,Top 25%,Lower,15.3%,28.0%
-49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1035,Stores,0,1,1,Count,,,
-49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1035,Sales vs Target,1,96.24,96.2%,Middle,Higher,105.6%,95.4%
-49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1035,Customer Satisfaction,2,89.18,89.2,Middle,Higher,89.5,77.6
-49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1035,On-Time Delivery,3,87.78,87.8%,Bottom 25%,Higher,94.0%,88.4%
-49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal Division,R8,Coastal Region 03,S1035,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
-50,D4,Delta Division,3,Division,G2,South,D4,Delta Division,,,,Stores,0,8,8,Count,,,
-50,D4,Delta Division,3,Division,G2,South,D4,Delta Division,,,,Sales vs Target,1,103.48,103.5%,Top 25%,Higher,103.3%,99.3%
-50,D4,Delta Division,3,Division,G2,South,D4,Delta Division,,,,Customer Satisfaction,2,83.97,84.0,Middle,Higher,84.1,82.1
-50,D4,Delta Division,3,Division,G2,South,D4,Delta Division,,,,On-Time Delivery,3,91.50,91.5%,Middle,Higher,92.1%,90.6%
-50,D4,Delta Division,3,Division,G2,South,D4,Delta Division,,,,Staff Turnover,4,24.16,24.2%,Bottom 25%,Lower,20.1%,24.1%
-51,R9,Delta Region 01,4,Region,G2,South,D4,Delta Division,R9,Delta Region 01,,Stores,0,5,5,Count,,,
-51,R9,Delta Region 01,4,Region,G2,South,D4,Delta Division,R9,Delta Region 01,,Sales vs Target,1,101.02,101.0%,Middle,Higher,104.1%,98.9%
-51,R9,Delta Region 01,4,Region,G2,South,D4,Delta Division,R9,Delta Region 01,,Customer Satisfaction,2,82.31,82.3,Bottom 25%,Higher,85.5,82.3
-51,R9,Delta Region 01,4,Region,G2,South,D4,Delta Division,R9,Delta Region 01,,On-Time Delivery,3,90.37,90.4%,Middle,Higher,92.8%,89.8%
-51,R9,Delta Region 01,4,Region,G2,South,D4,Delta Division,R9,Delta Region 01,,Staff Turnover,4,27.75,27.7%,Bottom 25%,Lower,17.2%,26.8%
-52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1036,Stores,0,1,1,Count,,,
-52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1036,Sales vs Target,1,100.85,100.9%,Middle,Higher,105.6%,95.4%
-52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1036,Customer Satisfaction,2,92.60,92.6,Top 25%,Higher,89.5,77.6
-52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1036,On-Time Delivery,3,90.29,90.3%,Middle,Higher,94.0%,88.4%
-52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1036,Staff Turnover,4,13.89,13.9%,Top 25%,Lower,15.3%,28.0%
-53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1037,Stores,0,1,1,Count,,,
-53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1037,Sales vs Target,1,95.47,95.5%,Middle,Higher,105.6%,95.4%
-53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1037,Customer Satisfaction,2,89.22,89.2,Middle,Higher,89.5,77.6
-53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1037,On-Time Delivery,3,87.85,87.9%,Bottom 25%,Higher,94.0%,88.4%
-53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1037,Staff Turnover,4,35.00,35.0%,Bottom 25%,Lower,15.3%,28.0%
-54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1038,Stores,0,1,1,Count,,,
-54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1038,Sales vs Target,1,113.50,113.5%,Top 25%,Higher,105.6%,95.4%
-54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1038,Customer Satisfaction,2,73.53,73.5,Bottom 25%,Higher,89.5,77.6
-54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1038,On-Time Delivery,3,91.90,91.9%,Middle,Higher,94.0%,88.4%
-54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1038,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
-55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1039,Stores,0,1,1,Count,,,
-55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1039,Sales vs Target,1,106.19,106.2%,Top 25%,Higher,105.6%,95.4%
-55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1039,Customer Satisfaction,2,74.28,74.3,Bottom 25%,Higher,89.5,77.6
-55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1039,On-Time Delivery,3,92.39,92.4%,Middle,Higher,94.0%,88.4%
-55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1039,Staff Turnover,4,34.04,34.0%,Bottom 25%,Lower,15.3%,28.0%
-56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1040,Stores,0,1,1,Count,,,
-56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1040,Sales vs Target,1,95.13,95.1%,Bottom 25%,Higher,105.6%,95.4%
-56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1040,Customer Satisfaction,2,77.22,77.2,Bottom 25%,Higher,89.5,77.6
-56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1040,On-Time Delivery,3,87.02,87.0%,Bottom 25%,Higher,94.0%,88.4%
-56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta Division,R9,Delta Region 01,S1040,Staff Turnover,4,25.45,25.5%,Middle,Lower,15.3%,28.0%
-57,R10,Delta Region 02,4,Region,G2,South,D4,Delta Division,R10,Delta Region 02,,Stores,0,3,3,Count,,,
-57,R10,Delta Region 02,4,Region,G2,South,D4,Delta Division,R10,Delta Region 02,,Sales vs Target,1,108.61,108.6%,Top 25%,Higher,104.1%,98.9%
-57,R10,Delta Region 02,4,Region,G2,South,D4,Delta Division,R10,Delta Region 02,,Customer Satisfaction,2,86.15,86.2,Top 25%,Higher,85.5,82.3
-57,R10,Delta Region 02,4,Region,G2,South,D4,Delta Division,R10,Delta Region 02,,On-Time Delivery,3,92.82,92.8%,Top 25%,Higher,92.8%,89.8%
-57,R10,Delta Region 02,4,Region,G2,South,D4,Delta Division,R10,Delta Region 02,,Staff Turnover,4,15.38,15.4%,Top 25%,Lower,17.2%,26.8%
-58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1041,Stores,0,1,1,Count,,,
-58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1041,Sales vs Target,1,98.81,98.8%,Middle,Higher,105.6%,95.4%
-58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1041,Customer Satisfaction,2,75.59,75.6,Bottom 25%,Higher,89.5,77.6
-58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1041,On-Time Delivery,3,98.18,98.2%,Top 25%,Higher,94.0%,88.4%
-58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1041,Staff Turnover,4,26.09,26.1%,Middle,Lower,15.3%,28.0%
-59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1042,Stores,0,1,1,Count,,,
-59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1042,Sales vs Target,1,116.24,116.2%,Top 25%,Higher,105.6%,95.4%
-59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1042,Customer Satisfaction,2,90.98,91.0,Top 25%,Higher,89.5,77.6
-59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1042,On-Time Delivery,3,88.79,88.8%,Middle,Higher,94.0%,88.4%
-59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1042,Staff Turnover,4,9.68,9.7%,Top 25%,Lower,15.3%,28.0%
-60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1043,Stores,0,1,1,Count,,,
-60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1043,Sales vs Target,1,107.71,107.7%,Top 25%,Higher,105.6%,95.4%
-60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1043,Customer Satisfaction,2,90.45,90.5,Top 25%,Higher,89.5,77.6
-60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1043,On-Time Delivery,3,91.90,91.9%,Middle,Higher,94.0%,88.4%
-60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta Division,R10,Delta Region 02,S1043,Staff Turnover,4,12.50,12.5%,Top 25%,Lower,15.3%,28.0%
+32,D3,Coastal,3,Division,G2,South,D3,Coastal,,,,Stores,0,14,14,Count,,,
+32,D3,Coastal,3,Division,G2,South,D3,Coastal,,,,Sales vs Target,1,98.91,98.9%,Bottom 25%,Higher,103.3%,99.3%
+32,D3,Coastal,3,Division,G2,South,D3,Coastal,,,,Customer Satisfaction,2,81.91,81.9,Bottom 25%,Higher,84.1,82.1
+32,D3,Coastal,3,Division,G2,South,D3,Coastal,,,,On-Time Delivery,3,90.43,90.4%,Bottom 25%,Higher,92.1%,90.6%
+32,D3,Coastal,3,Division,G2,South,D3,Coastal,,,,Staff Turnover,4,23.82,23.8%,Middle,Lower,20.1%,24.1%
+33,R6,Coastal 01,4,Region,G2,South,D3,Coastal,R6,Coastal 01,,Stores,0,5,5,Count,,,
+33,R6,Coastal 01,4,Region,G2,South,D3,Coastal,R6,Coastal 01,,Sales vs Target,1,102.89,102.9%,Middle,Higher,104.1%,98.9%
+33,R6,Coastal 01,4,Region,G2,South,D3,Coastal,R6,Coastal 01,,Customer Satisfaction,2,82.37,82.4,Middle,Higher,85.5,82.3
+33,R6,Coastal 01,4,Region,G2,South,D3,Coastal,R6,Coastal 01,,On-Time Delivery,3,92.56,92.6%,Middle,Higher,92.8%,89.8%
+33,R6,Coastal 01,4,Region,G2,South,D3,Coastal,R6,Coastal 01,,Staff Turnover,4,21.43,21.4%,Middle,Lower,17.2%,26.8%
+34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1022,Stores,0,1,1,Count,,,
+34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1022,Sales vs Target,1,95.07,95.1%,Bottom 25%,Higher,105.6%,95.4%
+34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1022,Customer Satisfaction,2,91.74,91.7,Top 25%,Higher,89.5,77.6
+34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1022,On-Time Delivery,3,95.67,95.7%,Top 25%,Higher,94.0%,88.4%
+34,S1022,S1022 - Pine Ridge,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1022,Staff Turnover,4,25.00,25.0%,Middle,Lower,15.3%,28.0%
+35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1023,Stores,0,1,1,Count,,,
+35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1023,Sales vs Target,1,109.08,109.1%,Top 25%,Higher,105.6%,95.4%
+35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1023,Customer Satisfaction,2,72.81,72.8,Bottom 25%,Higher,89.5,77.6
+35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1023,On-Time Delivery,3,94.09,94.1%,Top 25%,Higher,94.0%,88.4%
+35,S1023,S1023 - Fairview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1023,Staff Turnover,4,34.38,34.4%,Bottom 25%,Lower,15.3%,28.0%
+36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1024,Stores,0,1,1,Count,,,
+36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1024,Sales vs Target,1,101.23,101.2%,Middle,Higher,105.6%,95.4%
+36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1024,Customer Satisfaction,2,74.77,74.8,Bottom 25%,Higher,89.5,77.6
+36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1024,On-Time Delivery,3,90.78,90.8%,Middle,Higher,94.0%,88.4%
+36,S1024,S1024 - Old Town,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1024,Staff Turnover,4,17.50,17.5%,Middle,Lower,15.3%,28.0%
+37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1025,Stores,0,1,1,Count,,,
+37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1025,Sales vs Target,1,103.82,103.8%,Middle,Higher,105.6%,95.4%
+37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1025,Customer Satisfaction,2,92.09,92.1,Top 25%,Higher,89.5,77.6
+37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1025,On-Time Delivery,3,90.81,90.8%,Middle,Higher,94.0%,88.4%
+37,S1025,S1025 - Meadowbrook,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1025,Staff Turnover,4,11.11,11.1%,Top 25%,Lower,15.3%,28.0%
+38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1026,Stores,0,1,1,Count,,,
+38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1026,Sales vs Target,1,107.19,107.2%,Top 25%,Higher,105.6%,95.4%
+38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1026,Customer Satisfaction,2,92.14,92.1,Top 25%,Higher,89.5,77.6
+38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1026,On-Time Delivery,3,90.26,90.3%,Middle,Higher,94.0%,88.4%
+38,S1026,S1026 - Seaview,5,Store,G2,South,D3,Coastal,R6,Coastal 01,S1026,Staff Turnover,4,22.22,22.2%,Middle,Lower,15.3%,28.0%
+39,R7,Coastal 02,4,Region,G2,South,D3,Coastal,R7,Coastal 02,,Stores,0,4,4,Count,,,
+39,R7,Coastal 02,4,Region,G2,South,D3,Coastal,R7,Coastal 02,,Sales vs Target,1,99.85,99.8%,Middle,Higher,104.1%,98.9%
+39,R7,Coastal 02,4,Region,G2,South,D3,Coastal,R7,Coastal 02,,Customer Satisfaction,2,83.58,83.6,Middle,Higher,85.5,82.3
+39,R7,Coastal 02,4,Region,G2,South,D3,Coastal,R7,Coastal 02,,On-Time Delivery,3,90.65,90.7%,Middle,Higher,92.8%,89.8%
+39,R7,Coastal 02,4,Region,G2,South,D3,Coastal,R7,Coastal 02,,Staff Turnover,4,20.39,20.4%,Middle,Lower,17.2%,26.8%
+40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1027,Stores,0,1,1,Count,,,
+40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1027,Sales vs Target,1,113.01,113.0%,Top 25%,Higher,105.6%,95.4%
+40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1027,Customer Satisfaction,2,87.20,87.2,Middle,Higher,89.5,77.6
+40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1027,On-Time Delivery,3,87.98,88.0%,Bottom 25%,Higher,94.0%,88.4%
+40,S1027,S1027 - Highfield,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1027,Staff Turnover,4,21.88,21.9%,Middle,Lower,15.3%,28.0%
+41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1028,Stores,0,1,1,Count,,,
+41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1028,Sales vs Target,1,91.93,91.9%,Bottom 25%,Higher,105.6%,95.4%
+41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1028,Customer Satisfaction,2,89.33,89.3,Middle,Higher,89.5,77.6
+41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1028,On-Time Delivery,3,92.96,93.0%,Middle,Higher,94.0%,88.4%
+41,S1028,S1028 - Brookside,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1028,Staff Turnover,4,10.53,10.5%,Top 25%,Lower,15.3%,28.0%
+42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1029,Stores,0,1,1,Count,,,
+42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1029,Sales vs Target,1,92.34,92.3%,Bottom 25%,Higher,105.6%,95.4%
+42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1029,Customer Satisfaction,2,82.33,82.3,Middle,Higher,89.5,77.6
+42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1029,On-Time Delivery,3,95.91,95.9%,Top 25%,Higher,94.0%,88.4%
+42,S1029,S1029 - Ashford,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1029,Staff Turnover,4,15.38,15.4%,Middle,Lower,15.3%,28.0%
+43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1030,Stores,0,1,1,Count,,,
+43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1030,Sales vs Target,1,109.89,109.9%,Top 25%,Higher,105.6%,95.4%
+43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1030,Customer Satisfaction,2,77.60,77.6,Bottom 25%,Higher,89.5,77.6
+43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1030,On-Time Delivery,3,87.25,87.3%,Bottom 25%,Higher,94.0%,88.4%
+43,S1030,S1030 - Copper Hill,5,Store,G2,South,D3,Coastal,R7,Coastal 02,S1030,Staff Turnover,4,30.77,30.8%,Bottom 25%,Lower,15.3%,28.0%
+44,R8,Coastal 03,4,Region,G2,South,D3,Coastal,R8,Coastal 03,,Stores,0,5,5,Count,,,
+44,R8,Coastal 03,4,Region,G2,South,D3,Coastal,R8,Coastal 03,,Sales vs Target,1,93.60,93.6%,Bottom 25%,Higher,104.1%,98.9%
+44,R8,Coastal 03,4,Region,G2,South,D3,Coastal,R8,Coastal 03,,Customer Satisfaction,2,79.10,79.1,Bottom 25%,Higher,85.5,82.3
+44,R8,Coastal 03,4,Region,G2,South,D3,Coastal,R8,Coastal 03,,On-Time Delivery,3,87.50,87.5%,Bottom 25%,Higher,92.8%,89.8%
+44,R8,Coastal 03,4,Region,G2,South,D3,Coastal,R8,Coastal 03,,Staff Turnover,4,28.76,28.8%,Bottom 25%,Lower,17.2%,26.8%
+45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1031,Stores,0,1,1,Count,,,
+45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1031,Sales vs Target,1,88.77,88.8%,Bottom 25%,Higher,105.6%,95.4%
+45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1031,Customer Satisfaction,2,84.41,84.4,Middle,Higher,89.5,77.6
+45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1031,On-Time Delivery,3,88.50,88.5%,Middle,Higher,94.0%,88.4%
+45,S1031,S1031 - Greenway,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1031,Staff Turnover,4,34.04,34.0%,Bottom 25%,Lower,15.3%,28.0%
+46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1032,Stores,0,1,1,Count,,,
+46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1032,Sales vs Target,1,85.78,85.8%,Bottom 25%,Higher,105.6%,95.4%
+46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1032,Customer Satisfaction,2,75.38,75.4,Bottom 25%,Higher,89.5,77.6
+46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1032,On-Time Delivery,3,86.36,86.4%,Bottom 25%,Higher,94.0%,88.4%
+46,S1032,S1032 - Union Square,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1032,Staff Turnover,4,28.13,28.1%,Bottom 25%,Lower,15.3%,28.0%
+47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1033,Stores,0,1,1,Count,,,
+47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1033,Sales vs Target,1,93.62,93.6%,Bottom 25%,Higher,105.6%,95.4%
+47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1033,Customer Satisfaction,2,74.68,74.7,Bottom 25%,Higher,89.5,77.6
+47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1033,On-Time Delivery,3,88.90,88.9%,Middle,Higher,94.0%,88.4%
+47,S1033,S1033 - Silver Lake,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1033,Staff Turnover,4,27.59,27.6%,Middle,Lower,15.3%,28.0%
+48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1034,Stores,0,1,1,Count,,,
+48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1034,Sales vs Target,1,105.44,105.4%,Middle,Higher,105.6%,95.4%
+48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1034,Customer Satisfaction,2,77.90,77.9,Middle,Higher,89.5,77.6
+48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1034,On-Time Delivery,3,87.04,87.0%,Bottom 25%,Higher,94.0%,88.4%
+48,S1034,S1034 - Foxwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1034,Staff Turnover,4,11.11,11.1%,Top 25%,Lower,15.3%,28.0%
+49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1035,Stores,0,1,1,Count,,,
+49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1035,Sales vs Target,1,96.24,96.2%,Middle,Higher,105.6%,95.4%
+49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1035,Customer Satisfaction,2,89.18,89.2,Middle,Higher,89.5,77.6
+49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1035,On-Time Delivery,3,87.78,87.8%,Bottom 25%,Higher,94.0%,88.4%
+49,S1035,S1035 - Redwood,5,Store,G2,South,D3,Coastal,R8,Coastal 03,S1035,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
+50,D4,Delta,3,Division,G2,South,D4,Delta,,,,Stores,0,8,8,Count,,,
+50,D4,Delta,3,Division,G2,South,D4,Delta,,,,Sales vs Target,1,103.48,103.5%,Top 25%,Higher,103.3%,99.3%
+50,D4,Delta,3,Division,G2,South,D4,Delta,,,,Customer Satisfaction,2,83.97,84.0,Middle,Higher,84.1,82.1
+50,D4,Delta,3,Division,G2,South,D4,Delta,,,,On-Time Delivery,3,91.50,91.5%,Middle,Higher,92.1%,90.6%
+50,D4,Delta,3,Division,G2,South,D4,Delta,,,,Staff Turnover,4,24.16,24.2%,Bottom 25%,Lower,20.1%,24.1%
+51,R9,Delta 01,4,Region,G2,South,D4,Delta,R9,Delta 01,,Stores,0,5,5,Count,,,
+51,R9,Delta 01,4,Region,G2,South,D4,Delta,R9,Delta 01,,Sales vs Target,1,101.02,101.0%,Middle,Higher,104.1%,98.9%
+51,R9,Delta 01,4,Region,G2,South,D4,Delta,R9,Delta 01,,Customer Satisfaction,2,82.31,82.3,Bottom 25%,Higher,85.5,82.3
+51,R9,Delta 01,4,Region,G2,South,D4,Delta,R9,Delta 01,,On-Time Delivery,3,90.37,90.4%,Middle,Higher,92.8%,89.8%
+51,R9,Delta 01,4,Region,G2,South,D4,Delta,R9,Delta 01,,Staff Turnover,4,27.75,27.7%,Bottom 25%,Lower,17.2%,26.8%
+52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta,R9,Delta 01,S1036,Stores,0,1,1,Count,,,
+52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta,R9,Delta 01,S1036,Sales vs Target,1,100.85,100.9%,Middle,Higher,105.6%,95.4%
+52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta,R9,Delta 01,S1036,Customer Satisfaction,2,92.60,92.6,Top 25%,Higher,89.5,77.6
+52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta,R9,Delta 01,S1036,On-Time Delivery,3,90.29,90.3%,Middle,Higher,94.0%,88.4%
+52,S1036,S1036 - Baywater,5,Store,G2,South,D4,Delta,R9,Delta 01,S1036,Staff Turnover,4,13.89,13.9%,Top 25%,Lower,15.3%,28.0%
+53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta,R9,Delta 01,S1037,Stores,0,1,1,Count,,,
+53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta,R9,Delta 01,S1037,Sales vs Target,1,95.47,95.5%,Middle,Higher,105.6%,95.4%
+53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta,R9,Delta 01,S1037,Customer Satisfaction,2,89.22,89.2,Middle,Higher,89.5,77.6
+53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta,R9,Delta 01,S1037,On-Time Delivery,3,87.85,87.9%,Bottom 25%,Higher,94.0%,88.4%
+53,S1037,S1037 - Stonebridge,5,Store,G2,South,D4,Delta,R9,Delta 01,S1037,Staff Turnover,4,35.00,35.0%,Bottom 25%,Lower,15.3%,28.0%
+54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta,R9,Delta 01,S1038,Stores,0,1,1,Count,,,
+54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta,R9,Delta 01,S1038,Sales vs Target,1,113.50,113.5%,Top 25%,Higher,105.6%,95.4%
+54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta,R9,Delta 01,S1038,Customer Satisfaction,2,73.53,73.5,Bottom 25%,Higher,89.5,77.6
+54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta,R9,Delta 01,S1038,On-Time Delivery,3,91.90,91.9%,Middle,Higher,94.0%,88.4%
+54,S1038,S1038 - Elmhurst,5,Store,G2,South,D4,Delta,R9,Delta 01,S1038,Staff Turnover,4,33.33,33.3%,Bottom 25%,Lower,15.3%,28.0%
+55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta,R9,Delta 01,S1039,Stores,0,1,1,Count,,,
+55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta,R9,Delta 01,S1039,Sales vs Target,1,106.19,106.2%,Top 25%,Higher,105.6%,95.4%
+55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta,R9,Delta 01,S1039,Customer Satisfaction,2,74.28,74.3,Bottom 25%,Higher,89.5,77.6
+55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta,R9,Delta 01,S1039,On-Time Delivery,3,92.39,92.4%,Middle,Higher,94.0%,88.4%
+55,S1039,S1039 - Riverbend,5,Store,G2,South,D4,Delta,R9,Delta 01,S1039,Staff Turnover,4,34.04,34.0%,Bottom 25%,Lower,15.3%,28.0%
+56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta,R9,Delta 01,S1040,Stores,0,1,1,Count,,,
+56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta,R9,Delta 01,S1040,Sales vs Target,1,95.13,95.1%,Bottom 25%,Higher,105.6%,95.4%
+56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta,R9,Delta 01,S1040,Customer Satisfaction,2,77.22,77.2,Bottom 25%,Higher,89.5,77.6
+56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta,R9,Delta 01,S1040,On-Time Delivery,3,87.02,87.0%,Bottom 25%,Higher,94.0%,88.4%
+56,S1040,S1040 - Southpoint,5,Store,G2,South,D4,Delta,R9,Delta 01,S1040,Staff Turnover,4,25.45,25.5%,Middle,Lower,15.3%,28.0%
+57,R10,Delta 02,4,Region,G2,South,D4,Delta,R10,Delta 02,,Stores,0,3,3,Count,,,
+57,R10,Delta 02,4,Region,G2,South,D4,Delta,R10,Delta 02,,Sales vs Target,1,108.61,108.6%,Top 25%,Higher,104.1%,98.9%
+57,R10,Delta 02,4,Region,G2,South,D4,Delta,R10,Delta 02,,Customer Satisfaction,2,86.15,86.2,Top 25%,Higher,85.5,82.3
+57,R10,Delta 02,4,Region,G2,South,D4,Delta,R10,Delta 02,,On-Time Delivery,3,92.82,92.8%,Top 25%,Higher,92.8%,89.8%
+57,R10,Delta 02,4,Region,G2,South,D4,Delta,R10,Delta 02,,Staff Turnover,4,15.38,15.4%,Top 25%,Lower,17.2%,26.8%
+58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta,R10,Delta 02,S1041,Stores,0,1,1,Count,,,
+58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta,R10,Delta 02,S1041,Sales vs Target,1,98.81,98.8%,Middle,Higher,105.6%,95.4%
+58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta,R10,Delta 02,S1041,Customer Satisfaction,2,75.59,75.6,Bottom 25%,Higher,89.5,77.6
+58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta,R10,Delta 02,S1041,On-Time Delivery,3,98.18,98.2%,Top 25%,Higher,94.0%,88.4%
+58,S1041,S1041 - Beacon Hill,5,Store,G2,South,D4,Delta,R10,Delta 02,S1041,Staff Turnover,4,26.09,26.1%,Middle,Lower,15.3%,28.0%
+59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta,R10,Delta 02,S1042,Stores,0,1,1,Count,,,
+59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta,R10,Delta 02,S1042,Sales vs Target,1,116.24,116.2%,Top 25%,Higher,105.6%,95.4%
+59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta,R10,Delta 02,S1042,Customer Satisfaction,2,90.98,91.0,Top 25%,Higher,89.5,77.6
+59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta,R10,Delta 02,S1042,On-Time Delivery,3,88.79,88.8%,Middle,Higher,94.0%,88.4%
+59,S1042,S1042 - Glenwood,5,Store,G2,South,D4,Delta,R10,Delta 02,S1042,Staff Turnover,4,9.68,9.7%,Top 25%,Lower,15.3%,28.0%
+60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta,R10,Delta 02,S1043,Stores,0,1,1,Count,,,
+60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta,R10,Delta 02,S1043,Sales vs Target,1,107.71,107.7%,Top 25%,Higher,105.6%,95.4%
+60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta,R10,Delta 02,S1043,Customer Satisfaction,2,90.45,90.5,Top 25%,Higher,89.5,77.6
+60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta,R10,Delta 02,S1043,On-Time Delivery,3,91.90,91.9%,Middle,Higher,94.0%,88.4%
+60,S1043,S1043 - Clearwater,5,Store,G2,South,D4,Delta,R10,Delta 02,S1043,Staff Turnover,4,12.50,12.5%,Top 25%,Lower,15.3%,28.0%
 61,G3,West,2,Group,G3,West,,,,,,Stores,0,21,21,Count,,,
 61,G3,West,2,Group,G3,West,,,,,,Sales vs Target,1,100.05,100.1%,Bottom 25%,Higher,101.6%,100.4%
 61,G3,West,2,Group,G3,West,,,,,,Customer Satisfaction,2,85.42,85.4,Top 25%,Higher,84.2,82.8
 61,G3,West,2,Group,G3,West,,,,,,On-Time Delivery,3,91.90,91.9%,Top 25%,Higher,91.5%,90.9%
 61,G3,West,2,Group,G3,West,,,,,,Staff Turnover,4,23.01,23.0%,Middle,Lower,21.5%,23.5%
-62,D5,Mountain Division,3,Division,G3,West,D5,Mountain Division,,,,Stores,0,9,9,Count,,,
-62,D5,Mountain Division,3,Division,G3,West,D5,Mountain Division,,,,Sales vs Target,1,95.81,95.8%,Bottom 25%,Higher,103.3%,99.3%
-62,D5,Mountain Division,3,Division,G3,West,D5,Mountain Division,,,,Customer Satisfaction,2,82.55,82.5,Middle,Higher,84.1,82.1
-62,D5,Mountain Division,3,Division,G3,West,D5,Mountain Division,,,,On-Time Delivery,3,91.16,91.2%,Middle,Higher,92.1%,90.6%
-62,D5,Mountain Division,3,Division,G3,West,D5,Mountain Division,,,,Staff Turnover,4,27.30,27.3%,Bottom 25%,Lower,20.1%,24.1%
-63,R11,Mountain Region 01,4,Region,G3,West,D5,Mountain Division,R11,Mountain Region 01,,Stores,0,4,4,Count,,,
-63,R11,Mountain Region 01,4,Region,G3,West,D5,Mountain Division,R11,Mountain Region 01,,Sales vs Target,1,97.86,97.9%,Bottom 25%,Higher,104.1%,98.9%
-63,R11,Mountain Region 01,4,Region,G3,West,D5,Mountain Division,R11,Mountain Region 01,,Customer Satisfaction,2,84.99,85.0,Middle,Higher,85.5,82.3
-63,R11,Mountain Region 01,4,Region,G3,West,D5,Mountain Division,R11,Mountain Region 01,,On-Time Delivery,3,90.96,91.0%,Middle,Higher,92.8%,89.8%
-63,R11,Mountain Region 01,4,Region,G3,West,D5,Mountain Division,R11,Mountain Region 01,,Staff Turnover,4,30.00,30.0%,Bottom 25%,Lower,17.2%,26.8%
-64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1044,Stores,0,1,1,Count,,,
-64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1044,Sales vs Target,1,90.82,90.8%,Bottom 25%,Higher,105.6%,95.4%
-64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1044,Customer Satisfaction,2,91.27,91.3,Top 25%,Higher,89.5,77.6
-64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1044,On-Time Delivery,3,85.69,85.7%,Bottom 25%,Higher,94.0%,88.4%
-64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1044,Staff Turnover,4,35.71,35.7%,Bottom 25%,Lower,15.3%,28.0%
-65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1045,Stores,0,1,1,Count,,,
-65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1045,Sales vs Target,1,97.97,98.0%,Middle,Higher,105.6%,95.4%
-65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1045,Customer Satisfaction,2,85.25,85.2,Middle,Higher,89.5,77.6
-65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1045,On-Time Delivery,3,93.58,93.6%,Middle,Higher,94.0%,88.4%
-65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1045,Staff Turnover,4,34.62,34.6%,Bottom 25%,Lower,15.3%,28.0%
-66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1046,Stores,0,1,1,Count,,,
-66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1046,Sales vs Target,1,100.56,100.6%,Middle,Higher,105.6%,95.4%
-66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1046,Customer Satisfaction,2,83.80,83.8,Middle,Higher,89.5,77.6
-66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1046,On-Time Delivery,3,91.13,91.1%,Middle,Higher,94.0%,88.4%
-66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1046,Staff Turnover,4,20.00,20.0%,Middle,Lower,15.3%,28.0%
-67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1047,Stores,0,1,1,Count,,,
-67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1047,Sales vs Target,1,102.21,102.2%,Middle,Higher,105.6%,95.4%
-67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1047,Customer Satisfaction,2,79.95,80.0,Middle,Higher,89.5,77.6
-67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1047,On-Time Delivery,3,94.07,94.1%,Top 25%,Higher,94.0%,88.4%
-67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain Division,R11,Mountain Region 01,S1047,Staff Turnover,4,29.03,29.0%,Bottom 25%,Lower,15.3%,28.0%
-68,R12,Mountain Region 02,4,Region,G3,West,D5,Mountain Division,R12,Mountain Region 02,,Stores,0,5,5,Count,,,
-68,R12,Mountain Region 02,4,Region,G3,West,D5,Mountain Division,R12,Mountain Region 02,,Sales vs Target,1,94.04,94.0%,Bottom 25%,Higher,104.1%,98.9%
-68,R12,Mountain Region 02,4,Region,G3,West,D5,Mountain Division,R12,Mountain Region 02,,Customer Satisfaction,2,80.48,80.5,Bottom 25%,Higher,85.5,82.3
-68,R12,Mountain Region 02,4,Region,G3,West,D5,Mountain Division,R12,Mountain Region 02,,On-Time Delivery,3,91.34,91.3%,Middle,Higher,92.8%,89.8%
-68,R12,Mountain Region 02,4,Region,G3,West,D5,Mountain Division,R12,Mountain Region 02,,Staff Turnover,4,25.77,25.8%,Middle,Lower,17.2%,26.8%
-69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1048,Stores,0,1,1,Count,,,
-69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1048,Sales vs Target,1,93.62,93.6%,Bottom 25%,Higher,105.6%,95.4%
-69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1048,Customer Satisfaction,2,77.63,77.6,Middle,Higher,89.5,77.6
-69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1048,On-Time Delivery,3,89.90,89.9%,Middle,Higher,94.0%,88.4%
-69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1048,Staff Turnover,4,21.21,21.2%,Middle,Lower,15.3%,28.0%
-70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1049,Stores,0,1,1,Count,,,
-70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1049,Sales vs Target,1,93.11,93.1%,Bottom 25%,Higher,105.6%,95.4%
-70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1049,Customer Satisfaction,2,78.44,78.4,Middle,Higher,89.5,77.6
-70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1049,On-Time Delivery,3,89.08,89.1%,Middle,Higher,94.0%,88.4%
-70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1049,Staff Turnover,4,34.55,34.5%,Bottom 25%,Lower,15.3%,28.0%
-71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1050,Stores,0,1,1,Count,,,
-71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1050,Sales vs Target,1,96.30,96.3%,Middle,Higher,105.6%,95.4%
-71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1050,Customer Satisfaction,2,85.06,85.1,Middle,Higher,89.5,77.6
-71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1050,On-Time Delivery,3,97.92,97.9%,Top 25%,Higher,94.0%,88.4%
-71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1050,Staff Turnover,4,16.00,16.0%,Middle,Lower,15.3%,28.0%
-72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1051,Stores,0,1,1,Count,,,
-72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1051,Sales vs Target,1,93.95,94.0%,Bottom 25%,Higher,105.6%,95.4%
-72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1051,Customer Satisfaction,2,80.72,80.7,Middle,Higher,89.5,77.6
-72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1051,On-Time Delivery,3,87.31,87.3%,Bottom 25%,Higher,94.0%,88.4%
-72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1051,Staff Turnover,4,27.03,27.0%,Middle,Lower,15.3%,28.0%
-73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1052,Stores,0,1,1,Count,,,
-73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1052,Sales vs Target,1,91.74,91.7%,Bottom 25%,Higher,105.6%,95.4%
-73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1052,Customer Satisfaction,2,81.56,81.6,Middle,Higher,89.5,77.6
-73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1052,On-Time Delivery,3,94.66,94.7%,Top 25%,Higher,94.0%,88.4%
-73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain Division,R12,Mountain Region 02,S1052,Staff Turnover,4,22.73,22.7%,Middle,Lower,15.3%,28.0%
-74,D6,Pacific Division,3,Division,G3,West,D6,Pacific Division,,,,Stores,0,12,12,Count,,,
-74,D6,Pacific Division,3,Division,G3,West,D6,Pacific Division,,,,Sales vs Target,1,102.73,102.7%,Middle,Higher,103.3%,99.3%
-74,D6,Pacific Division,3,Division,G3,West,D6,Pacific Division,,,,Customer Satisfaction,2,87.71,87.7,Top 25%,Higher,84.1,82.1
-74,D6,Pacific Division,3,Division,G3,West,D6,Pacific Division,,,,On-Time Delivery,3,92.58,92.6%,Top 25%,Higher,92.1%,90.6%
-74,D6,Pacific Division,3,Division,G3,West,D6,Pacific Division,,,,Staff Turnover,4,20.05,20.0%,Top 25%,Lower,20.1%,24.1%
-75,R13,Pacific Region 01,4,Region,G3,West,D6,Pacific Division,R13,Pacific Region 01,,Stores,0,3,3,Count,,,
-75,R13,Pacific Region 01,4,Region,G3,West,D6,Pacific Division,R13,Pacific Region 01,,Sales vs Target,1,95.49,95.5%,Bottom 25%,Higher,104.1%,98.9%
-75,R13,Pacific Region 01,4,Region,G3,West,D6,Pacific Division,R13,Pacific Region 01,,Customer Satisfaction,2,87.71,87.7,Top 25%,Higher,85.5,82.3
-75,R13,Pacific Region 01,4,Region,G3,West,D6,Pacific Division,R13,Pacific Region 01,,On-Time Delivery,3,91.98,92.0%,Middle,Higher,92.8%,89.8%
-75,R13,Pacific Region 01,4,Region,G3,West,D6,Pacific Division,R13,Pacific Region 01,,Staff Turnover,4,24.30,24.3%,Middle,Lower,17.2%,26.8%
-76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1053,Stores,0,1,1,Count,,,
-76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1053,Sales vs Target,1,97.13,97.1%,Middle,Higher,105.6%,95.4%
-76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1053,Customer Satisfaction,2,89.51,89.5,Top 25%,Higher,89.5,77.6
-76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1053,On-Time Delivery,3,94.14,94.1%,Top 25%,Higher,94.0%,88.4%
-76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1053,Staff Turnover,4,13.33,13.3%,Top 25%,Lower,15.3%,28.0%
-77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1054,Stores,0,1,1,Count,,,
-77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1054,Sales vs Target,1,96.32,96.3%,Middle,Higher,105.6%,95.4%
-77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1054,Customer Satisfaction,2,90.57,90.6,Top 25%,Higher,89.5,77.6
-77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1054,On-Time Delivery,3,88.27,88.3%,Bottom 25%,Higher,94.0%,88.4%
-77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1054,Staff Turnover,4,19.44,19.4%,Middle,Lower,15.3%,28.0%
-78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1055,Stores,0,1,1,Count,,,
-78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1055,Sales vs Target,1,92.26,92.3%,Bottom 25%,Higher,105.6%,95.4%
-78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1055,Customer Satisfaction,2,83.72,83.7,Middle,Higher,89.5,77.6
-78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1055,On-Time Delivery,3,92.98,93.0%,Middle,Higher,94.0%,88.4%
-78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific Division,R13,Pacific Region 01,S1055,Staff Turnover,4,36.59,36.6%,Bottom 25%,Lower,15.3%,28.0%
-79,R14,Pacific Region 02,4,Region,G3,West,D6,Pacific Division,R14,Pacific Region 02,,Stores,0,4,4,Count,,,
-79,R14,Pacific Region 02,4,Region,G3,West,D6,Pacific Division,R14,Pacific Region 02,,Sales vs Target,1,104.47,104.5%,Top 25%,Higher,104.1%,98.9%
-79,R14,Pacific Region 02,4,Region,G3,West,D6,Pacific Division,R14,Pacific Region 02,,Customer Satisfaction,2,85.94,85.9,Top 25%,Higher,85.5,82.3
-79,R14,Pacific Region 02,4,Region,G3,West,D6,Pacific Division,R14,Pacific Region 02,,On-Time Delivery,3,92.74,92.7%,Middle,Higher,92.8%,89.8%
-79,R14,Pacific Region 02,4,Region,G3,West,D6,Pacific Division,R14,Pacific Region 02,,Staff Turnover,4,17.02,17.0%,Top 25%,Lower,17.2%,26.8%
-80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1056,Stores,0,1,1,Count,,,
-80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1056,Sales vs Target,1,98.33,98.3%,Middle,Higher,105.6%,95.4%
-80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1056,Customer Satisfaction,2,90.93,90.9,Top 25%,Higher,89.5,77.6
-80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1056,On-Time Delivery,3,91.69,91.7%,Middle,Higher,94.0%,88.4%
-80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1056,Staff Turnover,4,12.82,12.8%,Top 25%,Lower,15.3%,28.0%
-81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1057,Stores,0,1,1,Count,,,
-81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1057,Sales vs Target,1,110.40,110.4%,Top 25%,Higher,105.6%,95.4%
-81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1057,Customer Satisfaction,2,91.67,91.7,Top 25%,Higher,89.5,77.6
-81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1057,On-Time Delivery,3,92.35,92.3%,Middle,Higher,94.0%,88.4%
-81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1057,Staff Turnover,4,20.93,20.9%,Middle,Lower,15.3%,28.0%
-82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1058,Stores,0,1,1,Count,,,
-82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1058,Sales vs Target,1,102.34,102.3%,Middle,Higher,105.6%,95.4%
-82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1058,Customer Satisfaction,2,81.55,81.6,Middle,Higher,89.5,77.6
-82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1058,On-Time Delivery,3,91.87,91.9%,Middle,Higher,94.0%,88.4%
-82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1058,Staff Turnover,4,17.95,17.9%,Middle,Lower,15.3%,28.0%
-83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1059,Stores,0,1,1,Count,,,
-83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1059,Sales vs Target,1,106.35,106.3%,Top 25%,Higher,105.6%,95.4%
-83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1059,Customer Satisfaction,2,78.81,78.8,Middle,Higher,89.5,77.6
-83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1059,On-Time Delivery,3,94.20,94.2%,Top 25%,Higher,94.0%,88.4%
-83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific Division,R14,Pacific Region 02,S1059,Staff Turnover,4,15.00,15.0%,Top 25%,Lower,15.3%,28.0%
-84,R15,Pacific Region 03,4,Region,G3,West,D6,Pacific Division,R15,Pacific Region 03,,Stores,0,5,5,Count,,,
-84,R15,Pacific Region 03,4,Region,G3,West,D6,Pacific Division,R15,Pacific Region 03,,Sales vs Target,1,104.88,104.9%,Top 25%,Higher,104.1%,98.9%
-84,R15,Pacific Region 03,4,Region,G3,West,D6,Pacific Division,R15,Pacific Region 03,,Customer Satisfaction,2,88.98,89.0,Top 25%,Higher,85.5,82.3
-84,R15,Pacific Region 03,4,Region,G3,West,D6,Pacific Division,R15,Pacific Region 03,,On-Time Delivery,3,92.83,92.8%,Top 25%,Higher,92.8%,89.8%
-84,R15,Pacific Region 03,4,Region,G3,West,D6,Pacific Division,R15,Pacific Region 03,,Staff Turnover,4,19.90,19.9%,Middle,Lower,17.2%,26.8%
-85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1060,Stores,0,1,1,Count,,,
-85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1060,Sales vs Target,1,99.18,99.2%,Middle,Higher,105.6%,95.4%
-85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1060,Customer Satisfaction,2,83.37,83.4,Middle,Higher,89.5,77.6
-85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1060,On-Time Delivery,3,93.11,93.1%,Middle,Higher,94.0%,88.4%
-85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1060,Staff Turnover,4,23.91,23.9%,Middle,Lower,15.3%,28.0%
-86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1061,Stores,0,1,1,Count,,,
-86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1061,Sales vs Target,1,93.30,93.3%,Bottom 25%,Higher,105.6%,95.4%
-86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1061,Customer Satisfaction,2,92.76,92.8,Top 25%,Higher,89.5,77.6
-86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1061,On-Time Delivery,3,95.34,95.3%,Top 25%,Higher,94.0%,88.4%
-86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1061,Staff Turnover,4,26.92,26.9%,Middle,Lower,15.3%,28.0%
-87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1062,Stores,0,1,1,Count,,,
-87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1062,Sales vs Target,1,113.87,113.9%,Top 25%,Higher,105.6%,95.4%
-87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1062,Customer Satisfaction,2,90.62,90.6,Top 25%,Higher,89.5,77.6
-87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1062,On-Time Delivery,3,98.70,98.7%,Top 25%,Higher,94.0%,88.4%
-87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1062,Staff Turnover,4,13.64,13.6%,Top 25%,Lower,15.3%,28.0%
-88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1063,Stores,0,1,1,Count,,,
-88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1063,Sales vs Target,1,103.07,103.1%,Middle,Higher,105.6%,95.4%
-88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1063,Customer Satisfaction,2,82.62,82.6,Middle,Higher,89.5,77.6
-88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1063,On-Time Delivery,3,88.10,88.1%,Bottom 25%,Higher,94.0%,88.4%
-88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1063,Staff Turnover,4,15.79,15.8%,Middle,Lower,15.3%,28.0%
-89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1064,Stores,0,1,1,Count,,,
-89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1064,Sales vs Target,1,113.91,113.9%,Top 25%,Higher,105.6%,95.4%
-89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1064,Customer Satisfaction,2,89.48,89.5,Middle,Higher,89.5,77.6
-89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1064,On-Time Delivery,3,92.09,92.1%,Middle,Higher,94.0%,88.4%
-89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific Division,R15,Pacific Region 03,S1064,Staff Turnover,4,13.46,13.5%,Top 25%,Lower,15.3%,28.0%
+62,D5,Mountain,3,Division,G3,West,D5,Mountain,,,,Stores,0,9,9,Count,,,
+62,D5,Mountain,3,Division,G3,West,D5,Mountain,,,,Sales vs Target,1,95.81,95.8%,Bottom 25%,Higher,103.3%,99.3%
+62,D5,Mountain,3,Division,G3,West,D5,Mountain,,,,Customer Satisfaction,2,82.55,82.5,Middle,Higher,84.1,82.1
+62,D5,Mountain,3,Division,G3,West,D5,Mountain,,,,On-Time Delivery,3,91.16,91.2%,Middle,Higher,92.1%,90.6%
+62,D5,Mountain,3,Division,G3,West,D5,Mountain,,,,Staff Turnover,4,27.30,27.3%,Bottom 25%,Lower,20.1%,24.1%
+63,R11,Mountain 01,4,Region,G3,West,D5,Mountain,R11,Mountain 01,,Stores,0,4,4,Count,,,
+63,R11,Mountain 01,4,Region,G3,West,D5,Mountain,R11,Mountain 01,,Sales vs Target,1,97.86,97.9%,Bottom 25%,Higher,104.1%,98.9%
+63,R11,Mountain 01,4,Region,G3,West,D5,Mountain,R11,Mountain 01,,Customer Satisfaction,2,84.99,85.0,Middle,Higher,85.5,82.3
+63,R11,Mountain 01,4,Region,G3,West,D5,Mountain,R11,Mountain 01,,On-Time Delivery,3,90.96,91.0%,Middle,Higher,92.8%,89.8%
+63,R11,Mountain 01,4,Region,G3,West,D5,Mountain,R11,Mountain 01,,Staff Turnover,4,30.00,30.0%,Bottom 25%,Lower,17.2%,26.8%
+64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1044,Stores,0,1,1,Count,,,
+64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1044,Sales vs Target,1,90.82,90.8%,Bottom 25%,Higher,105.6%,95.4%
+64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1044,Customer Satisfaction,2,91.27,91.3,Top 25%,Higher,89.5,77.6
+64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1044,On-Time Delivery,3,85.69,85.7%,Bottom 25%,Higher,94.0%,88.4%
+64,S1044,S1044 - Ironbridge,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1044,Staff Turnover,4,35.71,35.7%,Bottom 25%,Lower,15.3%,28.0%
+65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1045,Stores,0,1,1,Count,,,
+65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1045,Sales vs Target,1,97.97,98.0%,Middle,Higher,105.6%,95.4%
+65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1045,Customer Satisfaction,2,85.25,85.2,Middle,Higher,89.5,77.6
+65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1045,On-Time Delivery,3,93.58,93.6%,Middle,Higher,94.0%,88.4%
+65,S1045,S1045 - Sandpiper,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1045,Staff Turnover,4,34.62,34.6%,Bottom 25%,Lower,15.3%,28.0%
+66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1046,Stores,0,1,1,Count,,,
+66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1046,Sales vs Target,1,100.56,100.6%,Middle,Higher,105.6%,95.4%
+66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1046,Customer Satisfaction,2,83.80,83.8,Middle,Higher,89.5,77.6
+66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1046,On-Time Delivery,3,91.13,91.1%,Middle,Higher,94.0%,88.4%
+66,S1046,S1046 - Windmill Lane,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1046,Staff Turnover,4,20.00,20.0%,Middle,Lower,15.3%,28.0%
+67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1047,Stores,0,1,1,Count,,,
+67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1047,Sales vs Target,1,102.21,102.2%,Middle,Higher,105.6%,95.4%
+67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1047,Customer Satisfaction,2,79.95,80.0,Middle,Higher,89.5,77.6
+67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1047,On-Time Delivery,3,94.07,94.1%,Top 25%,Higher,94.0%,88.4%
+67,S1047,S1047 - Thornbury,5,Store,G3,West,D5,Mountain,R11,Mountain 01,S1047,Staff Turnover,4,29.03,29.0%,Bottom 25%,Lower,15.3%,28.0%
+68,R12,Mountain 02,4,Region,G3,West,D5,Mountain,R12,Mountain 02,,Stores,0,5,5,Count,,,
+68,R12,Mountain 02,4,Region,G3,West,D5,Mountain,R12,Mountain 02,,Sales vs Target,1,94.04,94.0%,Bottom 25%,Higher,104.1%,98.9%
+68,R12,Mountain 02,4,Region,G3,West,D5,Mountain,R12,Mountain 02,,Customer Satisfaction,2,80.48,80.5,Bottom 25%,Higher,85.5,82.3
+68,R12,Mountain 02,4,Region,G3,West,D5,Mountain,R12,Mountain 02,,On-Time Delivery,3,91.34,91.3%,Middle,Higher,92.8%,89.8%
+68,R12,Mountain 02,4,Region,G3,West,D5,Mountain,R12,Mountain 02,,Staff Turnover,4,25.77,25.8%,Middle,Lower,17.2%,26.8%
+69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1048,Stores,0,1,1,Count,,,
+69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1048,Sales vs Target,1,93.62,93.6%,Bottom 25%,Higher,105.6%,95.4%
+69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1048,Customer Satisfaction,2,77.63,77.6,Middle,Higher,89.5,77.6
+69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1048,On-Time Delivery,3,89.90,89.9%,Middle,Higher,94.0%,88.4%
+69,S1048,S1048 - Larkspur,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1048,Staff Turnover,4,21.21,21.2%,Middle,Lower,15.3%,28.0%
+70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1049,Stores,0,1,1,Count,,,
+70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1049,Sales vs Target,1,93.11,93.1%,Bottom 25%,Higher,105.6%,95.4%
+70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1049,Customer Satisfaction,2,78.44,78.4,Middle,Higher,89.5,77.6
+70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1049,On-Time Delivery,3,89.08,89.1%,Middle,Higher,94.0%,88.4%
+70,S1049,S1049 - Hawthorne,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1049,Staff Turnover,4,34.55,34.5%,Bottom 25%,Lower,15.3%,28.0%
+71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1050,Stores,0,1,1,Count,,,
+71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1050,Sales vs Target,1,96.30,96.3%,Middle,Higher,105.6%,95.4%
+71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1050,Customer Satisfaction,2,85.06,85.1,Middle,Higher,89.5,77.6
+71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1050,On-Time Delivery,3,97.92,97.9%,Top 25%,Higher,94.0%,88.4%
+71,S1050,S1050 - Briarwood,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1050,Staff Turnover,4,16.00,16.0%,Middle,Lower,15.3%,28.0%
+72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1051,Stores,0,1,1,Count,,,
+72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1051,Sales vs Target,1,93.95,94.0%,Bottom 25%,Higher,105.6%,95.4%
+72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1051,Customer Satisfaction,2,80.72,80.7,Middle,Higher,89.5,77.6
+72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1051,On-Time Delivery,3,87.31,87.3%,Bottom 25%,Higher,94.0%,88.4%
+72,S1051,S1051 - Crown Point,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1051,Staff Turnover,4,27.03,27.0%,Middle,Lower,15.3%,28.0%
+73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1052,Stores,0,1,1,Count,,,
+73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1052,Sales vs Target,1,91.74,91.7%,Bottom 25%,Higher,105.6%,95.4%
+73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1052,Customer Satisfaction,2,81.56,81.6,Middle,Higher,89.5,77.6
+73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1052,On-Time Delivery,3,94.66,94.7%,Top 25%,Higher,94.0%,88.4%
+73,S1052,S1052 - Eastfield,5,Store,G3,West,D5,Mountain,R12,Mountain 02,S1052,Staff Turnover,4,22.73,22.7%,Middle,Lower,15.3%,28.0%
+74,D6,Pacific,3,Division,G3,West,D6,Pacific,,,,Stores,0,12,12,Count,,,
+74,D6,Pacific,3,Division,G3,West,D6,Pacific,,,,Sales vs Target,1,102.73,102.7%,Middle,Higher,103.3%,99.3%
+74,D6,Pacific,3,Division,G3,West,D6,Pacific,,,,Customer Satisfaction,2,87.71,87.7,Top 25%,Higher,84.1,82.1
+74,D6,Pacific,3,Division,G3,West,D6,Pacific,,,,On-Time Delivery,3,92.58,92.6%,Top 25%,Higher,92.1%,90.6%
+74,D6,Pacific,3,Division,G3,West,D6,Pacific,,,,Staff Turnover,4,20.05,20.0%,Top 25%,Lower,20.1%,24.1%
+75,R13,Pacific 01,4,Region,G3,West,D6,Pacific,R13,Pacific 01,,Stores,0,3,3,Count,,,
+75,R13,Pacific 01,4,Region,G3,West,D6,Pacific,R13,Pacific 01,,Sales vs Target,1,95.49,95.5%,Bottom 25%,Higher,104.1%,98.9%
+75,R13,Pacific 01,4,Region,G3,West,D6,Pacific,R13,Pacific 01,,Customer Satisfaction,2,87.71,87.7,Top 25%,Higher,85.5,82.3
+75,R13,Pacific 01,4,Region,G3,West,D6,Pacific,R13,Pacific 01,,On-Time Delivery,3,91.98,92.0%,Middle,Higher,92.8%,89.8%
+75,R13,Pacific 01,4,Region,G3,West,D6,Pacific,R13,Pacific 01,,Staff Turnover,4,24.30,24.3%,Middle,Lower,17.2%,26.8%
+76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1053,Stores,0,1,1,Count,,,
+76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1053,Sales vs Target,1,97.13,97.1%,Middle,Higher,105.6%,95.4%
+76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1053,Customer Satisfaction,2,89.51,89.5,Top 25%,Higher,89.5,77.6
+76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1053,On-Time Delivery,3,94.14,94.1%,Top 25%,Higher,94.0%,88.4%
+76,S1053,S1053 - Valley Road,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1053,Staff Turnover,4,13.33,13.3%,Top 25%,Lower,15.3%,28.0%
+77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1054,Stores,0,1,1,Count,,,
+77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1054,Sales vs Target,1,96.32,96.3%,Middle,Higher,105.6%,95.4%
+77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1054,Customer Satisfaction,2,90.57,90.6,Top 25%,Higher,89.5,77.6
+77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1054,On-Time Delivery,3,88.27,88.3%,Bottom 25%,Higher,94.0%,88.4%
+77,S1054,S1054 - Moorgate,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1054,Staff Turnover,4,19.44,19.4%,Middle,Lower,15.3%,28.0%
+78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1055,Stores,0,1,1,Count,,,
+78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1055,Sales vs Target,1,92.26,92.3%,Bottom 25%,Higher,105.6%,95.4%
+78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1055,Customer Satisfaction,2,83.72,83.7,Middle,Higher,89.5,77.6
+78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1055,On-Time Delivery,3,92.98,93.0%,Middle,Higher,94.0%,88.4%
+78,S1055,S1055 - Kingsway,5,Store,G3,West,D6,Pacific,R13,Pacific 01,S1055,Staff Turnover,4,36.59,36.6%,Bottom 25%,Lower,15.3%,28.0%
+79,R14,Pacific 02,4,Region,G3,West,D6,Pacific,R14,Pacific 02,,Stores,0,4,4,Count,,,
+79,R14,Pacific 02,4,Region,G3,West,D6,Pacific,R14,Pacific 02,,Sales vs Target,1,104.47,104.5%,Top 25%,Higher,104.1%,98.9%
+79,R14,Pacific 02,4,Region,G3,West,D6,Pacific,R14,Pacific 02,,Customer Satisfaction,2,85.94,85.9,Top 25%,Higher,85.5,82.3
+79,R14,Pacific 02,4,Region,G3,West,D6,Pacific,R14,Pacific 02,,On-Time Delivery,3,92.74,92.7%,Middle,Higher,92.8%,89.8%
+79,R14,Pacific 02,4,Region,G3,West,D6,Pacific,R14,Pacific 02,,Staff Turnover,4,17.02,17.0%,Top 25%,Lower,17.2%,26.8%
+80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1056,Stores,0,1,1,Count,,,
+80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1056,Sales vs Target,1,98.33,98.3%,Middle,Higher,105.6%,95.4%
+80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1056,Customer Satisfaction,2,90.93,90.9,Top 25%,Higher,89.5,77.6
+80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1056,On-Time Delivery,3,91.69,91.7%,Middle,Higher,94.0%,88.4%
+80,S1056,S1056 - Rosewood,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1056,Staff Turnover,4,12.82,12.8%,Top 25%,Lower,15.3%,28.0%
+81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1057,Stores,0,1,1,Count,,,
+81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1057,Sales vs Target,1,110.40,110.4%,Top 25%,Higher,105.6%,95.4%
+81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1057,Customer Satisfaction,2,91.67,91.7,Top 25%,Higher,89.5,77.6
+81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1057,On-Time Delivery,3,92.35,92.3%,Middle,Higher,94.0%,88.4%
+81,S1057,S1057 - Falcon Ridge,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1057,Staff Turnover,4,20.93,20.9%,Middle,Lower,15.3%,28.0%
+82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1058,Stores,0,1,1,Count,,,
+82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1058,Sales vs Target,1,102.34,102.3%,Middle,Higher,105.6%,95.4%
+82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1058,Customer Satisfaction,2,81.55,81.6,Middle,Higher,89.5,77.6
+82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1058,On-Time Delivery,3,91.87,91.9%,Middle,Higher,94.0%,88.4%
+82,S1058,S1058 - Juniper,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1058,Staff Turnover,4,17.95,17.9%,Middle,Lower,15.3%,28.0%
+83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1059,Stores,0,1,1,Count,,,
+83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1059,Sales vs Target,1,106.35,106.3%,Top 25%,Higher,105.6%,95.4%
+83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1059,Customer Satisfaction,2,78.81,78.8,Middle,Higher,89.5,77.6
+83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1059,On-Time Delivery,3,94.20,94.2%,Top 25%,Higher,94.0%,88.4%
+83,S1059,S1059 - Dockside,5,Store,G3,West,D6,Pacific,R14,Pacific 02,S1059,Staff Turnover,4,15.00,15.0%,Top 25%,Lower,15.3%,28.0%
+84,R15,Pacific 03,4,Region,G3,West,D6,Pacific,R15,Pacific 03,,Stores,0,5,5,Count,,,
+84,R15,Pacific 03,4,Region,G3,West,D6,Pacific,R15,Pacific 03,,Sales vs Target,1,104.88,104.9%,Top 25%,Higher,104.1%,98.9%
+84,R15,Pacific 03,4,Region,G3,West,D6,Pacific,R15,Pacific 03,,Customer Satisfaction,2,88.98,89.0,Top 25%,Higher,85.5,82.3
+84,R15,Pacific 03,4,Region,G3,West,D6,Pacific,R15,Pacific 03,,On-Time Delivery,3,92.83,92.8%,Top 25%,Higher,92.8%,89.8%
+84,R15,Pacific 03,4,Region,G3,West,D6,Pacific,R15,Pacific 03,,Staff Turnover,4,19.90,19.9%,Middle,Lower,17.2%,26.8%
+85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1060,Stores,0,1,1,Count,,,
+85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1060,Sales vs Target,1,99.18,99.2%,Middle,Higher,105.6%,95.4%
+85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1060,Customer Satisfaction,2,83.37,83.4,Middle,Higher,89.5,77.6
+85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1060,On-Time Delivery,3,93.11,93.1%,Middle,Higher,94.0%,88.4%
+85,S1060,S1060 - Garden City,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1060,Staff Turnover,4,23.91,23.9%,Middle,Lower,15.3%,28.0%
+86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1061,Stores,0,1,1,Count,,,
+86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1061,Sales vs Target,1,93.30,93.3%,Bottom 25%,Higher,105.6%,95.4%
+86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1061,Customer Satisfaction,2,92.76,92.8,Top 25%,Higher,89.5,77.6
+86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1061,On-Time Delivery,3,95.34,95.3%,Top 25%,Higher,94.0%,88.4%
+86,S1061,S1061 - Heathrow Road,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1061,Staff Turnover,4,26.92,26.9%,Middle,Lower,15.3%,28.0%
+87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1062,Stores,0,1,1,Count,,,
+87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1062,Sales vs Target,1,113.87,113.9%,Top 25%,Higher,105.6%,95.4%
+87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1062,Customer Satisfaction,2,90.62,90.6,Top 25%,Higher,89.5,77.6
+87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1062,On-Time Delivery,3,98.70,98.7%,Top 25%,Higher,94.0%,88.4%
+87,S1062,S1062 - Ambleside,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1062,Staff Turnover,4,13.64,13.6%,Top 25%,Lower,15.3%,28.0%
+88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1063,Stores,0,1,1,Count,,,
+88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1063,Sales vs Target,1,103.07,103.1%,Middle,Higher,105.6%,95.4%
+88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1063,Customer Satisfaction,2,82.62,82.6,Middle,Higher,89.5,77.6
+88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1063,On-Time Delivery,3,88.10,88.1%,Bottom 25%,Higher,94.0%,88.4%
+88,S1063,S1063 - Maple Street,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1063,Staff Turnover,4,15.79,15.8%,Middle,Lower,15.3%,28.0%
+89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1064,Stores,0,1,1,Count,,,
+89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1064,Sales vs Target,1,113.91,113.9%,Top 25%,Higher,105.6%,95.4%
+89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1064,Customer Satisfaction,2,89.48,89.5,Middle,Higher,89.5,77.6
+89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1064,On-Time Delivery,3,92.09,92.1%,Middle,Higher,94.0%,88.4%
+89,S1064,S1064 - Oak Avenue,5,Store,G3,West,D6,Pacific,R15,Pacific 03,S1064,Staff Turnover,4,13.46,13.5%,Top 25%,Lower,15.3%,28.0%
