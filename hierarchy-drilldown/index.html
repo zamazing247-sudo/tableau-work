@@ -311,7 +311,7 @@ const VIZ_URL = "";   // paste the Tableau Public link here once published
   const pathOf = u => '|Company|' + (u.level >= 2 ? u.g + '|' : '') + (u.level >= 3 ? u.d + '|' : '') + (u.level >= 4 ? u.r + '|' : '') + (u.level >= 5 ? u.s + '|' : '');
   units.forEach(u => u.path = pathOf(u));
   const labelOf = u => u.level === 1 ? 'Company' : u.lvl + ': ' + u.name;
-  let selected = 'Company', opened = '~|Company|G1|~', last = '';
+  let selected = 'Company', opened = '~', last = '';
   const sel = document.getElementById('sel-unit');
   units.filter(u => u.level < 5).forEach(u => { const o = document.createElement('option'); o.value = u.no; o.textContent = labelOf(u); sel.appendChild(o); });
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
