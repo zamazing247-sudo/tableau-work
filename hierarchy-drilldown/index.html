@@ -275,7 +275,9 @@ ELSE [p_OpenedRows] END</code></pre>
     <li>Build the table: <code>Sort</code> (hidden header) and a label field on Rows, the metrics on Columns, <code>dd_ShowRow</code> on Filters set to True.</li>
     <li>Add the label: indent by level and add ▸ / ▾ from a <code>flg_IsOpen</code> test (<code>CONTAINS(p_OpenedRows, '~' + dd_Path + '~')</code>).</li>
     <li>Put <code>dd_ClickResult</code> on Detail and add the Change Parameter action.</li>
-    <li>Add a "Start over" button: a one-mark sheet whose two parameter actions write <code>~</code> into <code>p_OpenedRows</code> and <code>Company</code> into <code>p_SelectedUnit</code>.</li>
+    <li>Add the controls. Tableau parameters can't cascade, so use a <strong>Level</strong> parameter plus a <strong>Unit</strong> dropdown filter (single value, only relevant values) on a one-mark <strong>Apply</strong> sheet that is filtered to the chosen level. Apply's parameter actions copy the chosen <code>Unit No</code> into <code>p_SelectedUnit</code> and reset <code>p_OpenedRows</code> to <code>~</code>.</li>
+    <li>Add a <strong>Collapse all</strong> button: a one-mark sheet whose parameter action writes <code>~</code> into <code>p_OpenedRows</code>. Give each button a self-filter action that clears its selection, so it can be pressed again.</li>
+    <li>For cell colours that fill the whole cell, add a <code>MIN(1.0)</code> measure after the metric on Columns, fix its axis to 0–1, hide the axis and use a Bar mark coloured by the band.</li>
   </ol>
 
   <h2 id="explainer">The "How the Drill Works" dashboard</h2>
