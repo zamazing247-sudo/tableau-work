@@ -51,6 +51,9 @@ figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
 table.doc{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper)}
 table.doc th,table.doc td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
 table.doc th{background:var(--soft);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+table.doc.data{font-size:.8rem;white-space:nowrap}
+table.doc.data td.e{color:var(--muted);background:var(--soft)}
+table.doc.data td.k{font-family:var(--f-mono);font-size:.78rem}
 .lesson{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 14px}
 .lesson h3{margin:0 0 .3em;font-size:1rem}
 .lesson p{margin:0;font-size:.95rem}
@@ -109,6 +112,8 @@ table.grid{border-collapse:collapse;width:100%;min-width:860px;font-size:.88rem}
     <strong>Contents</strong>
     <ol>
       <li><a href="#idea">The big idea</a></li>
+      <li><a href="#why">Why not Tableau's built-in drill-down?</a></li>
+      <li><a href="#data">How the data is laid out</a></li>
       <li><a href="#try">Try it here</a></li>
       <li><a href="#rules">The three rules</a></li>
       <li><a href="#build">The building blocks</a></li>
@@ -127,6 +132,49 @@ table.grid{border-collapse:collapse;width:100%;min-width:860px;font-size:.88rem}
     <li><strong>One yes/no test per row</strong> decides whether it shows. That test is the only filter on the table.</li>
   </ol>
   <div class="callout"><p>Think of the Explorer panel in VS Code or Windows: a folder's contents only appear when you open that folder <em>and</em> every folder above it.</p></div>
+
+  <h2 id="why">Why not Tableau's built-in drill-down?</h2>
+  <p>In many reporting systems the rollups are <strong>already calculated upstream</strong>. The warehouse or ETL produces one row per unit at every level (the company, each group, each division, each region, each store), and each row carries that unit's own finished values: its sales against target, its satisfaction score, its rank among peers. That is the shape of the data here, and it is the reason Tableau's built-in drill-down does not fit.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Built-in drill-down (+ / − on a hierarchy)</th><th>What pre-calculated rollup rows need</th></tr></thead>
+      <tbody>
+        <tr><td>Starts from the lowest level and <strong>aggregates up</strong> (SUM, AVG…) as you collapse.</td><td>The values are already rolled up. Re-aggregating would double-count: the company row, the group rows and the store rows would all be added together.</td></tr>
+        <tr><td>Ratios, scores and percentiles are recalculated from the rows below, which is often wrong (an average of percentages is not the group's percentage).</td><td>Each unit's value comes from the source exactly as calculated there: weighted the right way, with the right business rules.</td></tr>
+        <tr><td>Expands a <strong>whole level at once</strong>: drill into one group and every group opens.</td><td>Open <strong>one row at a time</strong>, like a folder, and close it again with its whole branch.</td></tr>
+        <tr><td>Each level becomes its own column (Group | Division | Region | Store), so the table gets wider as you drill.</td><td>One indented column, so a company row, a division row and a store row sit under each other and share the same metric columns.</td></tr>
+        <tr><td>Peer comparisons (top / bottom 25% of divisions) have no natural place.</td><td>Bands and thresholds computed per level upstream simply ride along on each row.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>So the job is not to <em>calculate</em> the hierarchy but to <em>show and hide</em> rows that already exist. Every row is a finished unit; the drill-down only decides which units are visible. That is a filter problem, which is why the whole technique is one yes/no field plus a parameter that remembers what is open. As a bonus nothing is re-aggregated or re-queried when you click, so it stays fast however big the hierarchy gets.</p>
+
+  <h2 id="data">How the data is laid out</h2>
+  <p>One row per unit, at every level, with its finished values. Every row also carries the numbers of all its parents, and leaves the columns below its own level empty. Here are the first rows of the sample data, shown one row per unit:</p>
+  <div class="table-wrap"><table class="doc data"><thead><tr><th>Sort</th><th>Unit No</th><th>Unit Name</th><th>Level</th><th>Level Name</th><th>Group No</th><th>Division No</th><th>Region No</th><th>Store No</th><th>Stores</th><th>Sales vs Target</th><th>Customer Satisfaction</th><th>On-Time Delivery</th><th>Staff Turnover</th></tr></thead><tbody><tr><td>1</td><td class="k">Company</td><td>Brightline Retail</td><td>1</td><td>Company</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>64</td><td>101.1%</td><td>83.7</td><td>91.3%</td><td>22.2%</td></tr>
+<tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td>Group</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>21</td><td>102.5%</td><td>82.9</td><td>91.1%</td><td>20.1%</td></tr>
+<tr><td>3</td><td class="k">D1</td><td>Lakes Division</td><td>3</td><td>Division</td><td class="k">G1</td><td class="k">D1</td><td class="e">–</td><td class="e">–</td><td>12</td><td>103.8%</td><td>81.9</td><td>92.3%</td><td>20.2%</td></tr>
+<tr><td>4</td><td class="k">R1</td><td>Lakes Region 01</td><td>4</td><td>Region</td><td class="k">G1</td><td class="k">D1</td><td class="k">R1</td><td class="e">–</td><td>4</td><td>103.9%</td><td>83.2</td><td>93.0%</td><td>17.3%</td></tr>
+<tr><td>5</td><td class="k">S1001</td><td>S1001 - Maple Street</td><td>5</td><td>Store</td><td class="k">G1</td><td class="k">D1</td><td class="k">R1</td><td class="k">S1001</td><td>1</td><td>97.8%</td><td>86.4</td><td>93.4%</td><td>10.3%</td></tr>
+<tr><td>6</td><td class="k">S1002</td><td>S1002 - Oak Avenue</td><td>5</td><td>Store</td><td class="k">G1</td><td class="k">D1</td><td class="k">R1</td><td class="k">S1002</td><td>1</td><td>105.3%</td><td>81.2</td><td>92.2%</td><td>16.1%</td></tr>
+<tr><td>7</td><td class="k">S1003</td><td>S1003 - Riverside</td><td>5</td><td>Store</td><td class="k">G1</td><td class="k">D1</td><td class="k">R1</td><td class="k">S1003</td><td>1</td><td>112.3%</td><td>89.0</td><td>95.2%</td><td>27.3%</td></tr>
+<tr><td>8</td><td class="k">S1004</td><td>S1004 - Market Square</td><td>5</td><td>Store</td><td class="k">G1</td><td class="k">D1</td><td class="k">R1</td><td class="k">S1004</td><td>1</td><td>103.0%</td><td>77.5</td><td>91.0%</td><td>16.7%</td></tr></tbody></table></div>
+  <p>The rules the data has to follow:</p>
+  <ul>
+    <li><strong>Every level is a row.</strong> The company, every group, division, region and store each have their own row with their own values.</li>
+    <li><strong><code>Level</code> is a number</strong>: 1 for the company down to 5 for a store. The formulas use it to know how deep a row is.</li>
+    <li><strong>Each row carries its parents' numbers</strong> (<code>Group No</code>, <code>Division No</code>, <code>Region No</code>), and only down to its own level. A division has a Group No and a Division No but no Region No. That is what lets every row build its own address.</li>
+    <li><strong>Unit numbers are unique</strong> across the whole hierarchy, so the selected unit can be found by number alone.</li>
+    <li><strong><code>Sort</code> lists parents before their children</strong> (company, then North, then Lakes Division, then its regions and stores…). The table sorts by it, so rows always appear in tree order.</li>
+    <li><strong>The values are final.</strong> Rates, scores and bands are calculated upstream; Tableau only displays them.</li>
+  </ul>
+  <p>The actual file is in <strong>long format</strong>: one row per unit <em>and</em> metric, so that the metric columns can be coloured and formatted from the data. The same unit as above, North, looks like this in the file:</p>
+  <div class="table-wrap"><table class="doc data"><thead><tr><th>Sort</th><th>Unit No</th><th>Unit Name</th><th>Level</th><th>Group No</th><th>Division No</th><th>Region No</th><th>Store No</th><th>Metric</th><th>Metric Order</th><th>Value</th><th>Value Text</th><th>Band</th><th>Better</th><th>Top Threshold</th><th>Bottom Threshold</th></tr></thead><tbody><tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>Stores</td><td>0</td><td>21</td><td>21</td><td>Count</td><td class="e">–</td><td class="e">–</td><td class="e">–</td></tr>
+<tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>Sales vs Target</td><td>1</td><td>102.47</td><td>102.5%</td><td>Top 25%</td><td>Higher</td><td>101.6%</td><td>100.4%</td></tr>
+<tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>Customer Satisfaction</td><td>2</td><td>82.92</td><td>82.9</td><td>Middle</td><td>Higher</td><td>84.2</td><td>82.8</td></tr>
+<tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>On-Time Delivery</td><td>3</td><td>91.07</td><td>91.1%</td><td>Middle</td><td>Higher</td><td>91.5%</td><td>90.9%</td></tr>
+<tr><td>2</td><td class="k">G1</td><td>North</td><td>2</td><td class="k">G1</td><td class="e">–</td><td class="e">–</td><td class="e">–</td><td>Staff Turnover</td><td>4</td><td>20.07</td><td>20.1%</td><td>Top 25%</td><td>Lower</td><td>21.5%</td><td>23.5%</td></tr></tbody></table></div>
+  <p><a href="data/brightline-hierarchy.csv" download>Download the sample data (CSV, 445 rows)</a>. It is fictional: Brightline Retail, 1 company, 3 groups, 6 divisions, 15 regions and 64 stores.</p>
 </main>
 
 <section class="wide" id="try" aria-label="Interactive simulation">
