@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drill-Down Tables in Tableau</title>
+<meta name="description" content="How an operating-rollup drill-down (expand and collapse rows in a Tableau table) works: one address per row, one parameter as memory, three rules, one click action.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~68ch); the simulator and screenshots get a wider band */
+:root{
+  --bg:#f6f7f9; --paper:#ffffff; --ink:#1b2430; --muted:#5d6977; --line:#dde2e9; --soft:#eef2f6;
+  --accent:#1f5a8c; --accent-soft:#e3edf6; --good:#2e7d32; --good-bg:#d4ebd6; --bad:#c62828; --bad-bg:#f6d7d5; --code-bg:#f1f4f8;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#11151b; --paper:#171c24; --ink:#e6eaef; --muted:#9aa6b2; --line:#2a323d; --soft:#1d2430;
+  --accent:#7cb2e3; --accent-soft:#1f3249; --good:#6cc070; --good-bg:#1f3a24; --bad:#f07a7a; --bad-bg:#43242a; --code-bg:#1d2430; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--f-body);padding:0 max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.col{max-width:720px;margin:0 auto}
+.wide{max-width:1180px;margin:0 auto}
+header.top{padding:56px 0 8px}
+.kicker{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.kicker a{color:inherit}
+h1{font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.12;margin:.35em 0 .3em;letter-spacing:-.015em;text-wrap:balance}
+.dek{font-size:1.18rem;color:var(--muted);margin:0 0 1.2em;max-width:60ch}
+.byline{font-size:.9rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+h2{font-size:1.55rem;line-height:1.25;margin:2.4em 0 .5em;text-wrap:balance;letter-spacing:-.01em}
+h3{font-size:1.1rem;margin:1.6em 0 .4em}
+p{margin:0 0 1em}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);padding:.1em .35em;border-radius:4px}
+pre{font-family:var(--f-mono);font-size:.83rem;line-height:1.55;background:var(--code-bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;overflow-x:auto;margin:0 0 1.3em}
+pre code{background:none;padding:0;font-size:inherit}
+ol,ul{padding-left:1.4em;margin:0 0 1.1em}
+li{margin:.25em 0}
+figure{margin:28px 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 20px;margin:28px 0}
+.toc strong{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.toc ol{margin:0}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 1.3em}
+.callout p:last-child{margin:0}
+.rules{display:grid;gap:10px;margin:0 0 1.3em}
+.rule{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 16px}
+.rule b{color:var(--accent)}
+.table-wrap{overflow-x:auto;margin:0 0 1.4em}
+table.doc{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper)}
+table.doc th,table.doc td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+table.doc th{background:var(--soft);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lesson{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 14px}
+.lesson h3{margin:0 0 .3em;font-size:1rem}
+.lesson p{margin:0;font-size:.95rem}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-size:.88rem;color:var(--muted)}
+
+/* simulator */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin:28px auto}
+.sim-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:12px}
+.sim-bar label{display:grid;gap:3px;font-size:.78rem;color:var(--muted);font-weight:600}
+.sim select{font:inherit;font-size:.9rem;padding:5px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink)}
+.btn{font:inherit;font-size:.88rem;font-weight:600;padding:6px 14px;border-radius:5px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,.sim select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toggle{display:flex;gap:6px;align-items:center;font-size:.85rem;color:var(--muted);font-weight:500}
+.state{font-family:var(--f-mono);font-size:.82rem;background:var(--code-bg);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:12px;overflow-x:auto;white-space:nowrap}
+.state b{color:var(--accent);font-weight:500}
+.last{font-size:.85rem;color:var(--muted);margin:0 0 10px;min-height:1.4em}
+.grid-wrap{overflow-x:auto}
+table.grid{border-collapse:collapse;width:100%;min-width:860px;font-size:.88rem}
+.grid th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:2px solid var(--line);text-align:center;white-space:nowrap}
+.grid th.l{text-align:left}
+.grid td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:center;font-variant-numeric:tabular-nums}
+.grid td.unit{text-align:left;white-space:nowrap}
+.grid tr.row{cursor:pointer}
+.grid tr.row:hover td{background:var(--accent-soft)}
+.grid tr.row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.grid tr.hidden td{opacity:.45}
+.grid tr.sel td.unit{font-weight:700}
+.chip{display:inline-block;min-width:64px;padding:2px 8px;border-radius:4px}
+.chip.top{background:var(--good-bg);color:var(--good);font-weight:600}
+.chip.bottom{background:var(--bad-bg);color:var(--bad);font-weight:600}
+.why{text-align:left!important;font-size:.8rem;color:var(--muted);white-space:normal;min-width:260px}
+.pill{font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.pill.on{background:var(--good-bg);color:var(--good)} .pill.off{background:var(--bad-bg);color:var(--bad)}
+.mono{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);text-align:left!important;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="top col">
+  <div class="kicker"><a href="../">Tableau Work</a> · Drill-down tables</div>
+  <h1>Drill-Down Tables in Tableau</h1>
+  <p class="dek">An operating rollup you can expand and collapse row by row, like folders in a file explorer, built with two parameters, a handful of calculated fields and one click action. No extensions, no data reloads.</p>
+  <div class="byline"><span>Zameer Sayed</span><span>Data: fictional (Brightline Retail)</span><span>Tableau 2020.1+ (parameter actions)</span></div>
+</header>
+
+<section class="wide" aria-label="Live dashboard">
+  <figure style="margin:24px 0 0">
+    <img src="images/rollup-dashboard.png" alt="Operating Rollup dashboard: a table of company, groups and divisions with Stores, Sales vs Target, Customer Satisfaction, On-Time Delivery and Staff Turnover, cells coloured green or red by quartile">
+    <figcaption>The Operating Rollup dashboard. Click a row to open or close it; the colours compare each unit with its peers at the same level. <span id="viz-link"></span></figcaption>
+  </figure>
+</section>
+
+<main class="col">
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#idea">The big idea</a></li>
+      <li><a href="#try">Try it here</a></li>
+      <li><a href="#rules">The three rules</a></li>
+      <li><a href="#build">The building blocks</a></li>
+      <li><a href="#click">The click</a></li>
+      <li><a href="#steps">Build it yourself</a></li>
+      <li><a href="#explainer">The "How the Drill Works" dashboard</a></li>
+      <li><a href="#lessons">Gotchas</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="idea">The big idea</h2>
+  <p>Tableau has no built-in "expand this row" for a table that spans several hierarchy levels at once. You can rebuild it with three ideas:</p>
+  <ol>
+    <li><strong>Every row has an address</strong>, like a folder path. A region's address is <code>|Company|G1|D1|R1|</code>. A child's address always starts with its parent's address.</li>
+    <li><strong>One parameter is the memory.</strong> <code>p_OpenedRows</code> holds the address of every opened row, each wrapped in <code>~</code>.</li>
+    <li><strong>One yes/no test per row</strong> decides whether it shows. That test is the only filter on the table.</li>
+  </ol>
+  <div class="callout"><p>Think of the Explorer panel in VS Code or Windows: a folder's contents only appear when you open that folder <em>and</em> every folder above it.</p></div>
+</main>
+
+<section class="wide" id="try" aria-label="Interactive simulation">
+  <div class="sim">
+    <div class="sim-bar">
+      <label for="sel-unit">p_SelectedUnit (where the tree starts)
+        <select id="sel-unit"></select>
+      </label>
+      <button class="btn" id="start-over" type="button">↺ Start over</button>
+      <label class="toggle" for="show-all"><input type="checkbox" id="show-all"> Show hidden rows and why</label>
+    </div>
+    <div class="state" id="state"></div>
+    <p class="last" id="last" aria-live="polite">Click a row with ▸ to open it, or ▾ to close it.</p>
+    <div class="grid-wrap"><table class="grid" id="grid"></table></div>
+  </div>
+</section>
+
+<main class="col">
+  <p>This runs the workbook's formulas, word for word, in your browser on the same fictional data. Open a few rows, then tick <strong>Show hidden rows and why</strong> to see the rule that decides each one.</p>
+
+  <h2 id="rules">The three rules</h2>
+  <div class="rules">
+    <div class="rule"><b>Rule 1 · ⬆</b> The selected unit and everything above it always show.</div>
+    <div class="rule"><b>Rule 2 · ⬇</b> Rows directly under the selected unit always show.</div>
+    <div class="rule"><b>Rule 3 · 📂</b> A deeper row shows only when every row between it and the selected unit is opened. One closed row in between hides it.</div>
+  </div>
+  <p>Rows in a different branch (neither above nor below the selected unit) never show.</p>
+
+  <h2 id="build">The building blocks</h2>
+  <p>Two parameters and six calculated fields. The data needs one row per unit with its level and its parents' numbers. The rollup values are already computed for every unit, so nothing is aggregated on the fly.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Name</th><th>Kind</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>p_SelectedUnit</code></td><td>parameter</td><td>Where the tree starts. Default <code>Company</code>.</td></tr>
+        <tr><td><code>p_OpenedRows</code></td><td>parameter</td><td>The memory: every opened row's address, wrapped in <code>~</code>. Default <code>~</code> (nothing open).</td></tr>
+        <tr><td><code>dd_Path</code></td><td>calc, per row</td><td>The row's address.</td></tr>
+        <tr><td><code>lod_SelectedPath</code></td><td>calc, FIXED LOD</td><td>The selected unit's address, copied onto every row so each row can compare itself with it.</td></tr>
+        <tr><td><code>dd_SelectedLevel</code></td><td>calc</td><td>The selected unit's level: the number of <code>|</code> in its address, minus 1.</td></tr>
+        <tr><td><code>flg_IsSelectedOrAbove</code> / <code>flg_IsBelowSelected</code></td><td>calc, per row</td><td>Two <code>STARTSWITH</code> tests between the row's address and the selected one.</td></tr>
+        <tr><td><code>dd_ShowRow</code></td><td>calc, the filter</td><td>The three rules in one yes/no answer.</td></tr>
+        <tr><td><code>dd_ClickResult</code></td><td>calc, per row</td><td>What <code>p_OpenedRows</code> becomes if you click this row.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The address and the comparisons</h3>
+<pre><code>// dd_Path
+'|Company|'
+ + IIF([Level] >= 2, [Group No] + '|', '')
+ + IIF([Level] >= 3, [Division No] + '|', '')
+ + IIF([Level] >= 4, [Region No] + '|', '')
+ + IIF([Level] >= 5, [Store No] + '|', '')
+
+// lod_SelectedPath
+{ FIXED : MAX(IF [Unit No] = [p_SelectedUnit] THEN [dd_Path] END) }
+
+// dd_SelectedLevel
+LEN([lod_SelectedPath]) - LEN(REPLACE([lod_SelectedPath], '|', '')) - 1
+
+// flg_IsSelectedOrAbove
+STARTSWITH([lod_SelectedPath], [dd_Path])
+
+// flg_IsBelowSelected
+STARTSWITH([dd_Path], [lod_SelectedPath]) AND [dd_Path] &lt;&gt; [lod_SelectedPath]</code></pre>
+
+  <h3>The filter: three rules in one test</h3>
+<pre><code>// dd_ShowRow  (filter the table to True)
+[flg_IsSelectedOrAbove]                                   // rule 1
+OR ( [flg_IsBelowSelected]
+ AND ([dd_SelectedLevel] >= 2 OR [Level] &lt;= 2
+      OR CONTAINS([p_OpenedRows], '~|Company|' + [Group No] + '|~'))
+ AND ([dd_SelectedLevel] >= 3 OR [Level] &lt;= 3
+      OR CONTAINS([p_OpenedRows], '~|Company|' + [Group No] + '|' + [Division No] + '|~'))
+ AND ([dd_SelectedLevel] >= 4 OR [Level] &lt;= 4
+      OR CONTAINS([p_OpenedRows], '~|Company|' + [Group No] + '|' + [Division No] + '|' + [Region No] + '|~')) )</code></pre>
+  <p>Each <code>AND</code> line checks one parent (group, division, region). A parent is fine when it is the selected unit or above it, when the row is too shallow to have that parent, or when the parent is opened. Direct children are too shallow to fail any line, which is rule 2.</p>
+
+  <h2 id="click">The click</h2>
+  <p>A parameter action can only <em>copy</em> a value from the clicked row. It can't add to or remove from a list. So every row works out in advance what the memory should become if it is clicked:</p>
+<pre><code>// dd_ClickResult
+IF [flg_IsBelowSelected] AND [Level] &lt; 5 THEN
+  IF CONTAINS([p_OpenedRows], '~' + [dd_Path] + '~')
+  THEN REGEXP_REPLACE([p_OpenedRows],
+         '~' + REPLACE([dd_Path], '|', '\|') + '[^~]*', '')   // close it and everything under it
+  ELSE [p_OpenedRows] + [dd_Path] + '~'                       // open it
+  END
+ELSE [p_OpenedRows] END</code></pre>
+  <p>Closing removes the row's address <em>and</em> every address that starts with it, because the pattern matches the longer addresses too. That is why closing a group also closes its divisions and regions. The <code>|</code> has to be escaped because it means "or" in a regular expression.</p>
+  <p>The action itself: <strong>Dashboard › Actions › Add Action › Change Parameter</strong>, run on <strong>Select</strong>, source sheet = the table, source field = <code>dd_ClickResult</code>, target = <code>p_OpenedRows</code>, and on clearing the selection, keep the current value. Put <code>dd_ClickResult</code> on the table's Detail shelf so the action can read it.</p>
+
+  <h2 id="steps">Build it yourself</h2>
+  <ol>
+    <li>Shape the data: one row per unit with <code>Unit No</code>, <code>Unit Name</code>, <code>Level</code> (1–5), the parent numbers, a <code>Sort</code> order (parent before children) and the metric values.</li>
+    <li>Create the two parameters (strings). Make <code>p_SelectedUnit</code> a list of the units at levels 1–4.</li>
+    <li>Create the six calculated fields above.</li>
+    <li>Build the table: <code>Sort</code> (hidden header) and a label field on Rows, the metrics on Columns, <code>dd_ShowRow</code> on Filters set to True.</li>
+    <li>Add the label: indent by level and add ▸ / ▾ from a <code>flg_IsOpen</code> test (<code>CONTAINS(p_OpenedRows, '~' + dd_Path + '~')</code>).</li>
+    <li>Put <code>dd_ClickResult</code> on Detail and add the Change Parameter action.</li>
+    <li>Add a "Start over" button: a one-mark sheet whose two parameter actions write <code>~</code> into <code>p_OpenedRows</code> and <code>Company</code> into <code>p_SelectedUnit</code>.</li>
+  </ol>
+
+  <h2 id="explainer">The "How the Drill Works" dashboard</h2>
+  <p>The workbook has a second dashboard that teaches the logic inside Tableau. It shows the drill-down, every parameter and calculation with its current value, and a table of every row with the rule that shows or hides it. Click around and watch the values change.</p>
+</main>
+<section class="wide">
+  <figure>
+    <img src="images/how-the-drill-works.png" alt="How the Drill Works dashboard: a small drill-down, a list of parameters and calculations with current values, a formula panel and a table of every row with its path and show/hide result" loading="lazy">
+    <figcaption>The explainer dashboard: the drill-down, the parameters and calculations, the selected formula, and every row with the rule that decides it.</figcaption>
+  </figure>
+</section>
+<main class="col">
+  <h2 id="lessons">Gotchas</h2>
+  <div class="lesson"><h3>Wrap addresses in ~</h3><p>Without a delimiter on both sides, <code>|Company|G1|</code> would match inside <code>|Company|G1|D1|</code> and <code>G1</code> inside <code>G12</code>. Testing for <code>~address~</code> only matches whole entries.</p></div>
+  <div class="lesson"><h3>Don't put dimensions on the Tooltip shelf</h3><p>A row-level text field on Tooltip turns the pill red and blanks the whole sheet. Put it on Detail and reference it from the tooltip text instead.</p></div>
+  <div class="lesson"><h3>Selection clears itself</h3><p>After a click the row's label changes (▸ becomes ▾), so Tableau sees a new mark and drops the selection. You can click the same row again straight away, with no deselect action needed.</p></div>
+  <div class="lesson"><h3>Pre-compute the rollups</h3><p>Each unit's values come from the data, not from aggregating the visible rows. That keeps every row correct whatever is open, and the table never re-queries when you drill.</p></div>
+
+  <footer>
+    <p>Fictional data: Brightline Retail, 1 company, 3 groups, 6 divisions, 15 regions and 64 stores, generated for this article. Cell colours compare each unit with its peers at the same level (top and bottom 25%).</p>
+    <p><a href="../">More Tableau work</a></p>
+  </footer>
+</main>
+
+<script>
+const DATA = {"metrics":["Stores","Sales vs Target","Customer Satisfaction","On-Time Delivery","Staff Turnover"],"units":[{"no":"Company","name":"Brightline Retail","level":1,"g":"","d":"","r":"","s":"","vals":{"Stores":{"text":"64","band":"Count"},"Sales vs Target":{"text":"101.1%","band":"Company total"},"Customer Satisfaction":{"text":"83.7","band":"Company total"},"On-Time Delivery":{"text":"91.3%","band":"Company total"},"Staff Turnover":{"text":"22.2%","band":"Company total"}}},{"no":"G1","name":"North","level":2,"g":"G1","d":"","r":"","s":"","vals":{"Stores":{"text":"21","band":"Count"},"Sales vs Target":{"text":"102.5%","band":"Top 25%"},"Customer Satisfaction":{"text":"82.9","band":"Middle"},"On-Time Delivery":{"text":"91.1%","band":"Middle"},"Staff Turnover":{"text":"20.1%","band":"Top 25%"}}},{"no":"D1","name":"Lakes Division","level":3,"g":"G1","d":"D1","r":"","s":"","vals":{"Stores":{"text":"12","band":"Count"},"Sales vs Target":{"text":"103.8%","band":"Top 25%"},"Customer Satisfaction":{"text":"81.9","band":"Bottom 25%"},"On-Time Delivery":{"text":"92.3%","band":"Top 25%"},"Staff Turnover":{"text":"20.2%","band":"Middle"}}},{"no":"R1","name":"Lakes Region 01","level":4,"g":"G1","d":"D1","r":"R1","s":"","vals":{"Stores":{"text":"4","band":"Count"},"Sales vs Target":{"text":"103.9%","band":"Middle"},"Customer Satisfaction":{"text":"83.2","band":"Middle"},"On-Time Delivery":{"text":"93.0%","band":"Top 25%"},"Staff Turnover":{"text":"17.3%","band":"Middle"}}},{"no":"S1001","name":"S1001 - Maple Street","level":5,"g":"G1","d":"D1","r":"R1","s":"S1001","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"97.8%","band":"Middle"},"Customer Satisfaction":{"text":"86.4","band":"Middle"},"On-Time Delivery":{"text":"93.4%","band":"Middle"},"Staff Turnover":{"text":"10.3%","band":"Top 25%"}}},{"no":"S1002","name":"S1002 - Oak Avenue","level":5,"g":"G1","d":"D1","r":"R1","s":"S1002","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"105.3%","band":"Middle"},"Customer Satisfaction":{"text":"81.2","band":"Middle"},"On-Time Delivery":{"text":"92.2%","band":"Middle"},"Staff Turnover":{"text":"16.1%","band":"Middle"}}},{"no":"S1003","name":"S1003 - Riverside","level":5,"g":"G1","d":"D1","r":"R1","s":"S1003","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"112.3%","band":"Top 25%"},"Customer Satisfaction":{"text":"89.0","band":"Middle"},"On-Time Delivery":{"text":"95.2%","band":"Top 25%"},"Staff Turnover":{"text":"27.3%","band":"Middle"}}},{"no":"S1004","name":"S1004 - Market Square","level":5,"g":"G1","d":"D1","r":"R1","s":"S1004","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"103.0%","band":"Middle"},"Customer Satisfaction":{"text":"77.5","band":"Bottom 25%"},"On-Time Delivery":{"text":"91.0%","band":"Middle"},"Staff Turnover":{"text":"16.7%","band":"Middle"}}},{"no":"R2","name":"Lakes Region 02","level":4,"g":"G1","d":"D1","r":"R2","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"104.3%","band":"Top 25%"},"Customer Satisfaction":{"text":"84.5","band":"Middle"},"On-Time Delivery":{"text":"93.8%","band":"Top 25%"},"Staff Turnover":{"text":"16.8%","band":"Top 25%"}}},{"no":"S1005","name":"S1005 - Elm Park","level":5,"g":"G1","d":"D1","r":"R2","s":"S1005","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"115.6%","band":"Top 25%"},"Customer Satisfaction":{"text":"89.3","band":"Middle"},"On-Time Delivery":{"text":"90.8%","band":"Middle"},"Staff Turnover":{"text":"17.2%","band":"Middle"}}},{"no":"S1006","name":"S1006 - Harbor View","level":5,"g":"G1","d":"D1","r":"R2","s":"S1006","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"102.8%","band":"Middle"},"Customer Satisfaction":{"text":"77.0","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.3%","band":"Middle"},"Staff Turnover":{"text":"12.0%","band":"Top 25%"}}},{"no":"S1007","name":"S1007 - Cedar Lane","level":5,"g":"G1","d":"D1","r":"R2","s":"S1007","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"105.1%","band":"Middle"},"Customer Satisfaction":{"text":"87.0","band":"Middle"},"On-Time Delivery":{"text":"96.2%","band":"Top 25%"},"Staff Turnover":{"text":"20.8%","band":"Middle"}}},{"no":"S1008","name":"S1008 - Station Road","level":5,"g":"G1","d":"D1","r":"R2","s":"S1008","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"105.2%","band":"Middle"},"Customer Satisfaction":{"text":"90.3","band":"Top 25%"},"On-Time Delivery":{"text":"94.4%","band":"Top 25%"},"Staff Turnover":{"text":"14.0%","band":"Top 25%"}}},{"no":"S1009","name":"S1009 - Willow Creek","level":5,"g":"G1","d":"D1","r":"R2","s":"S1009","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"96.9%","band":"Middle"},"Customer Satisfaction":{"text":"78.6","band":"Middle"},"On-Time Delivery":{"text":"97.7%","band":"Top 25%"},"Staff Turnover":{"text":"25.0%","band":"Middle"}}},{"no":"R3","name":"Lakes Region 03","level":4,"g":"G1","d":"D1","r":"R3","s":"","vals":{"Stores":{"text":"3","band":"Count"},"Sales vs Target":{"text":"103.0%","band":"Middle"},"Customer Satisfaction":{"text":"75.6","band":"Bottom 25%"},"On-Time Delivery":{"text":"88.8%","band":"Bottom 25%"},"Staff Turnover":{"text":"29.6%","band":"Bottom 25%"}}},{"no":"S1010","name":"S1010 - Kings Cross","level":5,"g":"G1","d":"D1","r":"R3","s":"S1010","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"94.1%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"72.1","band":"Bottom 25%"},"On-Time Delivery":{"text":"86.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"23.3%","band":"Middle"}}},{"no":"S1011","name":"S1011 - Sunset Plaza","level":5,"g":"G1","d":"D1","r":"R3","s":"S1011","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"109.0%","band":"Top 25%"},"Customer Satisfaction":{"text":"75.5","band":"Bottom 25%"},"On-Time Delivery":{"text":"87.9%","band":"Bottom 25%"},"Staff Turnover":{"text":"33.3%","band":"Bottom 25%"}}},{"no":"S1012","name":"S1012 - Parkside","level":5,"g":"G1","d":"D1","r":"R3","s":"S1012","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"101.5%","band":"Middle"},"Customer Satisfaction":{"text":"78.9","band":"Middle"},"On-Time Delivery":{"text":"95.8%","band":"Top 25%"},"Staff Turnover":{"text":"31.1%","band":"Bottom 25%"}}},{"no":"D2","name":"Highlands Division","level":3,"g":"G1","d":"D2","r":"","s":"","vals":{"Stores":{"text":"9","band":"Count"},"Sales vs Target":{"text":"100.5%","band":"Middle"},"Customer Satisfaction":{"text":"84.1","band":"Top 25%"},"On-Time Delivery":{"text":"89.1%","band":"Bottom 25%"},"Staff Turnover":{"text":"19.9%","band":"Top 25%"}}},{"no":"R4","name":"Highlands Region 01","level":4,"g":"G1","d":"D2","r":"R4","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"101.0%","band":"Middle"},"Customer Satisfaction":{"text":"84.3","band":"Middle"},"On-Time Delivery":{"text":"89.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"22.6%","band":"Middle"}}},{"no":"S1013","name":"S1013 - Mill Road","level":5,"g":"G1","d":"D2","r":"R4","s":"S1013","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"98.3%","band":"Middle"},"Customer Satisfaction":{"text":"85.3","band":"Middle"},"On-Time Delivery":{"text":"92.2%","band":"Middle"},"Staff Turnover":{"text":"24.1%","band":"Middle"}}},{"no":"S1014","name":"S1014 - Westgate","level":5,"g":"G1","d":"D2","r":"R4","s":"S1014","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"103.1%","band":"Middle"},"Customer Satisfaction":{"text":"91.1","band":"Top 25%"},"On-Time Delivery":{"text":"86.2%","band":"Bottom 25%"},"Staff Turnover":{"text":"29.2%","band":"Bottom 25%"}}},{"no":"S1015","name":"S1015 - Hillcrest","level":5,"g":"G1","d":"D2","r":"R4","s":"S1015","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"101.7%","band":"Middle"},"Customer Satisfaction":{"text":"92.6","band":"Top 25%"},"On-Time Delivery":{"text":"88.9%","band":"Middle"},"Staff Turnover":{"text":"17.5%","band":"Middle"}}},{"no":"S1016","name":"S1016 - Lakeshore","level":5,"g":"G1","d":"D2","r":"R4","s":"S1016","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"104.3%","band":"Middle"},"Customer Satisfaction":{"text":"73.7","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.1%","band":"Middle"},"Staff Turnover":{"text":"21.2%","band":"Middle"}}},{"no":"S1017","name":"S1017 - Bridge Street","level":5,"g":"G1","d":"D2","r":"R4","s":"S1017","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"99.7%","band":"Middle"},"Customer Satisfaction":{"text":"74.2","band":"Bottom 25%"},"On-Time Delivery":{"text":"86.7%","band":"Bottom 25%"},"Staff Turnover":{"text":"20.8%","band":"Middle"}}},{"no":"R5","name":"Highlands Region 02","level":4,"g":"G1","d":"D2","r":"R5","s":"","vals":{"Stores":{"text":"4","band":"Count"},"Sales vs Target":{"text":"99.9%","band":"Middle"},"Customer Satisfaction":{"text":"83.8","band":"Middle"},"On-Time Delivery":{"text":"89.3%","band":"Bottom 25%"},"Staff Turnover":{"text":"16.7%","band":"Top 25%"}}},{"no":"S1018","name":"S1018 - Orchard Way","level":5,"g":"G1","d":"D2","r":"R5","s":"S1018","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"99.9%","band":"Middle"},"Customer Satisfaction":{"text":"86.8","band":"Middle"},"On-Time Delivery":{"text":"88.7%","band":"Middle"},"Staff Turnover":{"text":"16.7%","band":"Middle"}}},{"no":"S1019","name":"S1019 - Northgate","level":5,"g":"G1","d":"D2","r":"R5","s":"S1019","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"109.0%","band":"Top 25%"},"Customer Satisfaction":{"text":"75.1","band":"Bottom 25%"},"On-Time Delivery":{"text":"88.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"11.3%","band":"Top 25%"}}},{"no":"S1020","name":"S1020 - Canal Street","level":5,"g":"G1","d":"D2","r":"R5","s":"S1020","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"101.9%","band":"Middle"},"Customer Satisfaction":{"text":"85.0","band":"Middle"},"On-Time Delivery":{"text":"94.0%","band":"Middle"},"Staff Turnover":{"text":"13.0%","band":"Top 25%"}}},{"no":"S1021","name":"S1021 - Granite Falls","level":5,"g":"G1","d":"D2","r":"R5","s":"S1021","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"91.0%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"89.4","band":"Middle"},"On-Time Delivery":{"text":"88.4%","band":"Middle"},"Staff Turnover":{"text":"27.9%","band":"Middle"}}},{"no":"G2","name":"South","level":2,"g":"G2","d":"","r":"","s":"","vals":{"Stores":{"text":"22","band":"Count"},"Sales vs Target":{"text":"100.7%","band":"Middle"},"Customer Satisfaction":{"text":"82.7","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.8%","band":"Bottom 25%"},"Staff Turnover":{"text":"24.0%","band":"Bottom 25%"}}},{"no":"D3","name":"Coastal Division","level":3,"g":"G2","d":"D3","r":"","s":"","vals":{"Stores":{"text":"14","band":"Count"},"Sales vs Target":{"text":"98.9%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"81.9","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.4%","band":"Bottom 25%"},"Staff Turnover":{"text":"23.8%","band":"Middle"}}},{"no":"R6","name":"Coastal Region 01","level":4,"g":"G2","d":"D3","r":"R6","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"102.9%","band":"Middle"},"Customer Satisfaction":{"text":"82.4","band":"Middle"},"On-Time Delivery":{"text":"92.6%","band":"Middle"},"Staff Turnover":{"text":"21.4%","band":"Middle"}}},{"no":"S1022","name":"S1022 - Pine Ridge","level":5,"g":"G2","d":"D3","r":"R6","s":"S1022","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"95.1%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"91.7","band":"Top 25%"},"On-Time Delivery":{"text":"95.7%","band":"Top 25%"},"Staff Turnover":{"text":"25.0%","band":"Middle"}}},{"no":"S1023","name":"S1023 - Fairview","level":5,"g":"G2","d":"D3","r":"R6","s":"S1023","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"109.1%","band":"Top 25%"},"Customer Satisfaction":{"text":"72.8","band":"Bottom 25%"},"On-Time Delivery":{"text":"94.1%","band":"Top 25%"},"Staff Turnover":{"text":"34.4%","band":"Bottom 25%"}}},{"no":"S1024","name":"S1024 - Old Town","level":5,"g":"G2","d":"D3","r":"R6","s":"S1024","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"101.2%","band":"Middle"},"Customer Satisfaction":{"text":"74.8","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.8%","band":"Middle"},"Staff Turnover":{"text":"17.5%","band":"Middle"}}},{"no":"S1025","name":"S1025 - Meadowbrook","level":5,"g":"G2","d":"D3","r":"R6","s":"S1025","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"103.8%","band":"Middle"},"Customer Satisfaction":{"text":"92.1","band":"Top 25%"},"On-Time Delivery":{"text":"90.8%","band":"Middle"},"Staff Turnover":{"text":"11.1%","band":"Top 25%"}}},{"no":"S1026","name":"S1026 - Seaview","level":5,"g":"G2","d":"D3","r":"R6","s":"S1026","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"107.2%","band":"Top 25%"},"Customer Satisfaction":{"text":"92.1","band":"Top 25%"},"On-Time Delivery":{"text":"90.3%","band":"Middle"},"Staff Turnover":{"text":"22.2%","band":"Middle"}}},{"no":"R7","name":"Coastal Region 02","level":4,"g":"G2","d":"D3","r":"R7","s":"","vals":{"Stores":{"text":"4","band":"Count"},"Sales vs Target":{"text":"99.8%","band":"Middle"},"Customer Satisfaction":{"text":"83.6","band":"Middle"},"On-Time Delivery":{"text":"90.7%","band":"Middle"},"Staff Turnover":{"text":"20.4%","band":"Middle"}}},{"no":"S1027","name":"S1027 - Highfield","level":5,"g":"G2","d":"D3","r":"R7","s":"S1027","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"113.0%","band":"Top 25%"},"Customer Satisfaction":{"text":"87.2","band":"Middle"},"On-Time Delivery":{"text":"88.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"21.9%","band":"Middle"}}},{"no":"S1028","name":"S1028 - Brookside","level":5,"g":"G2","d":"D3","r":"R7","s":"S1028","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"91.9%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"89.3","band":"Middle"},"On-Time Delivery":{"text":"93.0%","band":"Middle"},"Staff Turnover":{"text":"10.5%","band":"Top 25%"}}},{"no":"S1029","name":"S1029 - Ashford","level":5,"g":"G2","d":"D3","r":"R7","s":"S1029","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"92.3%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"82.3","band":"Middle"},"On-Time Delivery":{"text":"95.9%","band":"Top 25%"},"Staff Turnover":{"text":"15.4%","band":"Middle"}}},{"no":"S1030","name":"S1030 - Copper Hill","level":5,"g":"G2","d":"D3","r":"R7","s":"S1030","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"109.9%","band":"Top 25%"},"Customer Satisfaction":{"text":"77.6","band":"Bottom 25%"},"On-Time Delivery":{"text":"87.3%","band":"Bottom 25%"},"Staff Turnover":{"text":"30.8%","band":"Bottom 25%"}}},{"no":"R8","name":"Coastal Region 03","level":4,"g":"G2","d":"D3","r":"R8","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"93.6%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"79.1","band":"Bottom 25%"},"On-Time Delivery":{"text":"87.5%","band":"Bottom 25%"},"Staff Turnover":{"text":"28.8%","band":"Bottom 25%"}}},{"no":"S1031","name":"S1031 - Greenway","level":5,"g":"G2","d":"D3","r":"R8","s":"S1031","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"88.8%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"84.4","band":"Middle"},"On-Time Delivery":{"text":"88.5%","band":"Middle"},"Staff Turnover":{"text":"34.0%","band":"Bottom 25%"}}},{"no":"S1032","name":"S1032 - Union Square","level":5,"g":"G2","d":"D3","r":"R8","s":"S1032","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"85.8%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"75.4","band":"Bottom 25%"},"On-Time Delivery":{"text":"86.4%","band":"Bottom 25%"},"Staff Turnover":{"text":"28.1%","band":"Bottom 25%"}}},{"no":"S1033","name":"S1033 - Silver Lake","level":5,"g":"G2","d":"D3","r":"R8","s":"S1033","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"93.6%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"74.7","band":"Bottom 25%"},"On-Time Delivery":{"text":"88.9%","band":"Middle"},"Staff Turnover":{"text":"27.6%","band":"Middle"}}},{"no":"S1034","name":"S1034 - Foxwood","level":5,"g":"G2","d":"D3","r":"R8","s":"S1034","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"105.4%","band":"Middle"},"Customer Satisfaction":{"text":"77.9","band":"Middle"},"On-Time Delivery":{"text":"87.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"11.1%","band":"Top 25%"}}},{"no":"S1035","name":"S1035 - Redwood","level":5,"g":"G2","d":"D3","r":"R8","s":"S1035","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"96.2%","band":"Middle"},"Customer Satisfaction":{"text":"89.2","band":"Middle"},"On-Time Delivery":{"text":"87.8%","band":"Bottom 25%"},"Staff Turnover":{"text":"33.3%","band":"Bottom 25%"}}},{"no":"D4","name":"Delta Division","level":3,"g":"G2","d":"D4","r":"","s":"","vals":{"Stores":{"text":"8","band":"Count"},"Sales vs Target":{"text":"103.5%","band":"Top 25%"},"Customer Satisfaction":{"text":"84.0","band":"Middle"},"On-Time Delivery":{"text":"91.5%","band":"Middle"},"Staff Turnover":{"text":"24.2%","band":"Bottom 25%"}}},{"no":"R9","name":"Delta Region 01","level":4,"g":"G2","d":"D4","r":"R9","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"101.0%","band":"Middle"},"Customer Satisfaction":{"text":"82.3","band":"Bottom 25%"},"On-Time Delivery":{"text":"90.4%","band":"Middle"},"Staff Turnover":{"text":"27.7%","band":"Bottom 25%"}}},{"no":"S1036","name":"S1036 - Baywater","level":5,"g":"G2","d":"D4","r":"R9","s":"S1036","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"100.9%","band":"Middle"},"Customer Satisfaction":{"text":"92.6","band":"Top 25%"},"On-Time Delivery":{"text":"90.3%","band":"Middle"},"Staff Turnover":{"text":"13.9%","band":"Top 25%"}}},{"no":"S1037","name":"S1037 - Stonebridge","level":5,"g":"G2","d":"D4","r":"R9","s":"S1037","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"95.5%","band":"Middle"},"Customer Satisfaction":{"text":"89.2","band":"Middle"},"On-Time Delivery":{"text":"87.9%","band":"Bottom 25%"},"Staff Turnover":{"text":"35.0%","band":"Bottom 25%"}}},{"no":"S1038","name":"S1038 - Elmhurst","level":5,"g":"G2","d":"D4","r":"R9","s":"S1038","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"113.5%","band":"Top 25%"},"Customer Satisfaction":{"text":"73.5","band":"Bottom 25%"},"On-Time Delivery":{"text":"91.9%","band":"Middle"},"Staff Turnover":{"text":"33.3%","band":"Bottom 25%"}}},{"no":"S1039","name":"S1039 - Riverbend","level":5,"g":"G2","d":"D4","r":"R9","s":"S1039","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"106.2%","band":"Top 25%"},"Customer Satisfaction":{"text":"74.3","band":"Bottom 25%"},"On-Time Delivery":{"text":"92.4%","band":"Middle"},"Staff Turnover":{"text":"34.0%","band":"Bottom 25%"}}},{"no":"S1040","name":"S1040 - Southpoint","level":5,"g":"G2","d":"D4","r":"R9","s":"S1040","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"95.1%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"77.2","band":"Bottom 25%"},"On-Time Delivery":{"text":"87.0%","band":"Bottom 25%"},"Staff Turnover":{"text":"25.5%","band":"Middle"}}},{"no":"R10","name":"Delta Region 02","level":4,"g":"G2","d":"D4","r":"R10","s":"","vals":{"Stores":{"text":"3","band":"Count"},"Sales vs Target":{"text":"108.6%","band":"Top 25%"},"Customer Satisfaction":{"text":"86.2","band":"Top 25%"},"On-Time Delivery":{"text":"92.8%","band":"Top 25%"},"Staff Turnover":{"text":"15.4%","band":"Top 25%"}}},{"no":"S1041","name":"S1041 - Beacon Hill","level":5,"g":"G2","d":"D4","r":"R10","s":"S1041","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"98.8%","band":"Middle"},"Customer Satisfaction":{"text":"75.6","band":"Bottom 25%"},"On-Time Delivery":{"text":"98.2%","band":"Top 25%"},"Staff Turnover":{"text":"26.1%","band":"Middle"}}},{"no":"S1042","name":"S1042 - Glenwood","level":5,"g":"G2","d":"D4","r":"R10","s":"S1042","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"116.2%","band":"Top 25%"},"Customer Satisfaction":{"text":"91.0","band":"Top 25%"},"On-Time Delivery":{"text":"88.8%","band":"Middle"},"Staff Turnover":{"text":"9.7%","band":"Top 25%"}}},{"no":"S1043","name":"S1043 - Clearwater","level":5,"g":"G2","d":"D4","r":"R10","s":"S1043","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"107.7%","band":"Top 25%"},"Customer Satisfaction":{"text":"90.5","band":"Top 25%"},"On-Time Delivery":{"text":"91.9%","band":"Middle"},"Staff Turnover":{"text":"12.5%","band":"Top 25%"}}},{"no":"G3","name":"West","level":2,"g":"G3","d":"","r":"","s":"","vals":{"Stores":{"text":"21","band":"Count"},"Sales vs Target":{"text":"100.1%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"85.4","band":"Top 25%"},"On-Time Delivery":{"text":"91.9%","band":"Top 25%"},"Staff Turnover":{"text":"23.0%","band":"Middle"}}},{"no":"D5","name":"Mountain Division","level":3,"g":"G3","d":"D5","r":"","s":"","vals":{"Stores":{"text":"9","band":"Count"},"Sales vs Target":{"text":"95.8%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"82.5","band":"Middle"},"On-Time Delivery":{"text":"91.2%","band":"Middle"},"Staff Turnover":{"text":"27.3%","band":"Bottom 25%"}}},{"no":"R11","name":"Mountain Region 01","level":4,"g":"G3","d":"D5","r":"R11","s":"","vals":{"Stores":{"text":"4","band":"Count"},"Sales vs Target":{"text":"97.9%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"85.0","band":"Middle"},"On-Time Delivery":{"text":"91.0%","band":"Middle"},"Staff Turnover":{"text":"30.0%","band":"Bottom 25%"}}},{"no":"S1044","name":"S1044 - Ironbridge","level":5,"g":"G3","d":"D5","r":"R11","s":"S1044","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"90.8%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"91.3","band":"Top 25%"},"On-Time Delivery":{"text":"85.7%","band":"Bottom 25%"},"Staff Turnover":{"text":"35.7%","band":"Bottom 25%"}}},{"no":"S1045","name":"S1045 - Sandpiper","level":5,"g":"G3","d":"D5","r":"R11","s":"S1045","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"98.0%","band":"Middle"},"Customer Satisfaction":{"text":"85.2","band":"Middle"},"On-Time Delivery":{"text":"93.6%","band":"Middle"},"Staff Turnover":{"text":"34.6%","band":"Bottom 25%"}}},{"no":"S1046","name":"S1046 - Windmill Lane","level":5,"g":"G3","d":"D5","r":"R11","s":"S1046","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"100.6%","band":"Middle"},"Customer Satisfaction":{"text":"83.8","band":"Middle"},"On-Time Delivery":{"text":"91.1%","band":"Middle"},"Staff Turnover":{"text":"20.0%","band":"Middle"}}},{"no":"S1047","name":"S1047 - Thornbury","level":5,"g":"G3","d":"D5","r":"R11","s":"S1047","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"102.2%","band":"Middle"},"Customer Satisfaction":{"text":"80.0","band":"Middle"},"On-Time Delivery":{"text":"94.1%","band":"Top 25%"},"Staff Turnover":{"text":"29.0%","band":"Bottom 25%"}}},{"no":"R12","name":"Mountain Region 02","level":4,"g":"G3","d":"D5","r":"R12","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"94.0%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"80.5","band":"Bottom 25%"},"On-Time Delivery":{"text":"91.3%","band":"Middle"},"Staff Turnover":{"text":"25.8%","band":"Middle"}}},{"no":"S1048","name":"S1048 - Larkspur","level":5,"g":"G3","d":"D5","r":"R12","s":"S1048","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"93.6%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"77.6","band":"Middle"},"On-Time Delivery":{"text":"89.9%","band":"Middle"},"Staff Turnover":{"text":"21.2%","band":"Middle"}}},{"no":"S1049","name":"S1049 - Hawthorne","level":5,"g":"G3","d":"D5","r":"R12","s":"S1049","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"93.1%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"78.4","band":"Middle"},"On-Time Delivery":{"text":"89.1%","band":"Middle"},"Staff Turnover":{"text":"34.5%","band":"Bottom 25%"}}},{"no":"S1050","name":"S1050 - Briarwood","level":5,"g":"G3","d":"D5","r":"R12","s":"S1050","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"96.3%","band":"Middle"},"Customer Satisfaction":{"text":"85.1","band":"Middle"},"On-Time Delivery":{"text":"97.9%","band":"Top 25%"},"Staff Turnover":{"text":"16.0%","band":"Middle"}}},{"no":"S1051","name":"S1051 - Crown Point","level":5,"g":"G3","d":"D5","r":"R12","s":"S1051","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"94.0%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"80.7","band":"Middle"},"On-Time Delivery":{"text":"87.3%","band":"Bottom 25%"},"Staff Turnover":{"text":"27.0%","band":"Middle"}}},{"no":"S1052","name":"S1052 - Eastfield","level":5,"g":"G3","d":"D5","r":"R12","s":"S1052","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"91.7%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"81.6","band":"Middle"},"On-Time Delivery":{"text":"94.7%","band":"Top 25%"},"Staff Turnover":{"text":"22.7%","band":"Middle"}}},{"no":"D6","name":"Pacific Division","level":3,"g":"G3","d":"D6","r":"","s":"","vals":{"Stores":{"text":"12","band":"Count"},"Sales vs Target":{"text":"102.7%","band":"Middle"},"Customer Satisfaction":{"text":"87.7","band":"Top 25%"},"On-Time Delivery":{"text":"92.6%","band":"Top 25%"},"Staff Turnover":{"text":"20.0%","band":"Top 25%"}}},{"no":"R13","name":"Pacific Region 01","level":4,"g":"G3","d":"D6","r":"R13","s":"","vals":{"Stores":{"text":"3","band":"Count"},"Sales vs Target":{"text":"95.5%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"87.7","band":"Top 25%"},"On-Time Delivery":{"text":"92.0%","band":"Middle"},"Staff Turnover":{"text":"24.3%","band":"Middle"}}},{"no":"S1053","name":"S1053 - Valley Road","level":5,"g":"G3","d":"D6","r":"R13","s":"S1053","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"97.1%","band":"Middle"},"Customer Satisfaction":{"text":"89.5","band":"Top 25%"},"On-Time Delivery":{"text":"94.1%","band":"Top 25%"},"Staff Turnover":{"text":"13.3%","band":"Top 25%"}}},{"no":"S1054","name":"S1054 - Moorgate","level":5,"g":"G3","d":"D6","r":"R13","s":"S1054","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"96.3%","band":"Middle"},"Customer Satisfaction":{"text":"90.6","band":"Top 25%"},"On-Time Delivery":{"text":"88.3%","band":"Bottom 25%"},"Staff Turnover":{"text":"19.4%","band":"Middle"}}},{"no":"S1055","name":"S1055 - Kingsway","level":5,"g":"G3","d":"D6","r":"R13","s":"S1055","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"92.3%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"83.7","band":"Middle"},"On-Time Delivery":{"text":"93.0%","band":"Middle"},"Staff Turnover":{"text":"36.6%","band":"Bottom 25%"}}},{"no":"R14","name":"Pacific Region 02","level":4,"g":"G3","d":"D6","r":"R14","s":"","vals":{"Stores":{"text":"4","band":"Count"},"Sales vs Target":{"text":"104.5%","band":"Top 25%"},"Customer Satisfaction":{"text":"85.9","band":"Top 25%"},"On-Time Delivery":{"text":"92.7%","band":"Middle"},"Staff Turnover":{"text":"17.0%","band":"Top 25%"}}},{"no":"S1056","name":"S1056 - Rosewood","level":5,"g":"G3","d":"D6","r":"R14","s":"S1056","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"98.3%","band":"Middle"},"Customer Satisfaction":{"text":"90.9","band":"Top 25%"},"On-Time Delivery":{"text":"91.7%","band":"Middle"},"Staff Turnover":{"text":"12.8%","band":"Top 25%"}}},{"no":"S1057","name":"S1057 - Falcon Ridge","level":5,"g":"G3","d":"D6","r":"R14","s":"S1057","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"110.4%","band":"Top 25%"},"Customer Satisfaction":{"text":"91.7","band":"Top 25%"},"On-Time Delivery":{"text":"92.3%","band":"Middle"},"Staff Turnover":{"text":"20.9%","band":"Middle"}}},{"no":"S1058","name":"S1058 - Juniper","level":5,"g":"G3","d":"D6","r":"R14","s":"S1058","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"102.3%","band":"Middle"},"Customer Satisfaction":{"text":"81.6","band":"Middle"},"On-Time Delivery":{"text":"91.9%","band":"Middle"},"Staff Turnover":{"text":"17.9%","band":"Middle"}}},{"no":"S1059","name":"S1059 - Dockside","level":5,"g":"G3","d":"D6","r":"R14","s":"S1059","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"106.3%","band":"Top 25%"},"Customer Satisfaction":{"text":"78.8","band":"Middle"},"On-Time Delivery":{"text":"94.2%","band":"Top 25%"},"Staff Turnover":{"text":"15.0%","band":"Top 25%"}}},{"no":"R15","name":"Pacific Region 03","level":4,"g":"G3","d":"D6","r":"R15","s":"","vals":{"Stores":{"text":"5","band":"Count"},"Sales vs Target":{"text":"104.9%","band":"Top 25%"},"Customer Satisfaction":{"text":"89.0","band":"Top 25%"},"On-Time Delivery":{"text":"92.8%","band":"Top 25%"},"Staff Turnover":{"text":"19.9%","band":"Middle"}}},{"no":"S1060","name":"S1060 - Garden City","level":5,"g":"G3","d":"D6","r":"R15","s":"S1060","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"99.2%","band":"Middle"},"Customer Satisfaction":{"text":"83.4","band":"Middle"},"On-Time Delivery":{"text":"93.1%","band":"Middle"},"Staff Turnover":{"text":"23.9%","band":"Middle"}}},{"no":"S1061","name":"S1061 - Heathrow Road","level":5,"g":"G3","d":"D6","r":"R15","s":"S1061","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"93.3%","band":"Bottom 25%"},"Customer Satisfaction":{"text":"92.8","band":"Top 25%"},"On-Time Delivery":{"text":"95.3%","band":"Top 25%"},"Staff Turnover":{"text":"26.9%","band":"Middle"}}},{"no":"S1062","name":"S1062 - Ambleside","level":5,"g":"G3","d":"D6","r":"R15","s":"S1062","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"113.9%","band":"Top 25%"},"Customer Satisfaction":{"text":"90.6","band":"Top 25%"},"On-Time Delivery":{"text":"98.7%","band":"Top 25%"},"Staff Turnover":{"text":"13.6%","band":"Top 25%"}}},{"no":"S1063","name":"S1063 - Maple Street","level":5,"g":"G3","d":"D6","r":"R15","s":"S1063","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"103.1%","band":"Middle"},"Customer Satisfaction":{"text":"82.6","band":"Middle"},"On-Time Delivery":{"text":"88.1%","band":"Bottom 25%"},"Staff Turnover":{"text":"15.8%","band":"Middle"}}},{"no":"S1064","name":"S1064 - Oak Avenue","level":5,"g":"G3","d":"D6","r":"R15","s":"S1064","vals":{"Stores":{"text":"1","band":"Count"},"Sales vs Target":{"text":"113.9%","band":"Top 25%"},"Customer Satisfaction":{"text":"89.5","band":"Middle"},"On-Time Delivery":{"text":"92.1%","band":"Middle"},"Staff Turnover":{"text":"13.5%","band":"Top 25%"}}}]};
+const VIZ_URL = "";   // paste the Tableau Public link here once published
+(function () {
+  if (VIZ_URL) document.getElementById('viz-link').innerHTML = '<a href="' + VIZ_URL + '">Open the live dashboard on Tableau Public</a>.';
+  const units = DATA.units, metrics = DATA.metrics;
+  const pathOf = u => '|Company|' + (u.level >= 2 ? u.g + '|' : '') + (u.level >= 3 ? u.d + '|' : '') + (u.level >= 4 ? u.r + '|' : '') + (u.level >= 5 ? u.s + '|' : '');
+  units.forEach(u => u.path = pathOf(u));
+  let selected = 'Company', opened = '~|Company|G1|~', last = '';
+  const sel = document.getElementById('sel-unit');
+  units.filter(u => u.level < 5).forEach(u => { const o = document.createElement('option'); o.value = u.no; o.textContent = (u.level === 2 ? u.name + ' (group)' : u.name); sel.appendChild(o); });
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  function evaluate() {
+    const selPath = (units.find(u => u.no === selected) || units[0]).path;
+    const selLevel = selPath.split('|').length - 2;
+    return units.map(u => {
+      const above = selPath.startsWith(u.path), below = u.path.startsWith(selPath) && u.path !== selPath;
+      const has = p => opened.includes('~' + p + '~');
+      const gP = '|Company|' + u.g + '|', dP = gP + u.d + '|', rP = dP + u.r + '|';
+      const okG = selLevel >= 2 || u.level <= 2 || has(gP), okD = selLevel >= 3 || u.level <= 3 || has(dP), okR = selLevel >= 4 || u.level <= 4 || has(rP);
+      const show = above || (below && okG && okD && okR);
+      const isOpen = has(u.path) || (above && u.level < 5);
+      let click = opened;
+      if (below && u.level < 5) click = has(u.path) ? opened.replace(new RegExp('~' + esc(u.path) + '[^~]*', 'g'), '') : opened + u.path + '~';
+      let why;
+      if (u.path === selPath) why = '⬆ Rule 1 · the selected unit';
+      else if (above) why = '⬆ Rule 1 · above the selected unit: ' + selPath + ' starts with ' + u.path;
+      else if (!below) why = '↔ Hidden · different branch';
+      else if (u.level === selLevel + 1) why = '⬇ Rule 2 · directly under the selected unit';
+      else if (show) why = '📂 Rule 3 · every row in between is opened';
+      else { const closed = !okG ? gP : !okD ? dP : rP; why = '📁 Rule 3 · hidden: ' + closed + ' (in between) is not in p_OpenedRows'; }
+      return { u, show, isOpen, click, why, clickable: below && u.level < 5 };
+    });
+  }
+  function render() {
+    const rows = evaluate(), all = document.getElementById('show-all').checked;
+    document.getElementById('state').innerHTML = 'p_SelectedUnit = <b>' + selected + '</b> &nbsp;·&nbsp; p_OpenedRows = <b>' + opened + '</b>';
+    document.getElementById('last').textContent = last || 'Click a row with ▸ to open it, or ▾ to close it.';
+    let h = '<thead><tr><th class="l">Unit</th>' + metrics.map(m => '<th>' + m + '</th>').join('') + (all ? '<th>Shown?</th><th class="l">Why</th><th class="l">dd_Path</th>' : '') + '</tr></thead><tbody>';
+    rows.filter(r => all || r.show).forEach((r, i) => {
+      const u = r.u, pad = (u.level - 1) * 18;
+      const arrow = u.level === 1 ? '' : u.level === 5 ? '•&nbsp;&nbsp;' : (r.isOpen ? '▾&nbsp;&nbsp;' : '▸&nbsp;&nbsp;');
+      h += '<tr class="row' + (r.show ? '' : ' hidden') + (u.no === selected ? ' sel' : '') + '" tabindex="0" data-i="' + units.indexOf(u) + '">';
+      h += '<td class="unit"><span style="padding-left:' + pad + 'px">' + arrow + u.name + '</span></td>';
+      h += metrics.map(m => { const c = u.vals[m]; const cls = c.band === 'Top 25%' ? 'top' : c.band === 'Bottom 25%' ? 'bottom' : ''; return '<td><span class="chip ' + cls + '" title="' + c.band + '">' + c.text + '</span></td>'; }).join('');
+      if (all) h += '<td><span class="pill ' + (r.show ? 'on' : 'off') + '">' + (r.show ? 'Shown' : 'Hidden') + '</span></td><td class="why">' + r.why + '</td><td class="mono">' + u.path + '</td>';
+      h += '</tr>';
+    });
+    document.getElementById('grid').innerHTML = h + '</tbody>';
+  }
+  function clickRow(i) {
+    const r = evaluate()[i];
+    if (!r.clickable) { last = r.u.name + ': not clickable (it is the selected unit, above it, or a store) — p_OpenedRows unchanged.'; render(); return; }
+    const before = opened; opened = r.click;
+    last = 'Clicked ' + r.u.name + ': dd_ClickResult was copied into p_OpenedRows (' + (opened.length > before.length ? 'opened' : 'closed, with everything under it') + ').';
+    render();
+  }
+  const grid = document.getElementById('grid');
+  grid.addEventListener('click', e => { const tr = e.target.closest('tr[data-i]'); if (tr) clickRow(+tr.dataset.i); });
+  grid.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr[data-i]')) { e.preventDefault(); clickRow(+e.target.dataset.i); } });
+  sel.addEventListener('change', () => { selected = sel.value; last = 'p_SelectedUnit changed: the tree now starts at ' + sel.options[sel.selectedIndex].text + '.'; render(); });
+  document.getElementById('start-over').addEventListener('click', () => { selected = 'Company'; opened = '~'; sel.value = 'Company'; last = 'Start over: p_OpenedRows = ~ and p_SelectedUnit = Company.'; render(); });
+  document.getElementById('show-all').addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
