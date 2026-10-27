@@ -68,7 +68,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
   <header class="top">
     <div class="kicker"><a href="../">Tableau Work</a> · World Bank data</div>
     <h1>Who Lives Longest?</h1>
-    <p class="dek">Since 1960 the world has gained 22 years of life. This dashboard shows where those years went: life expectancy for 217 countries, from the world down to region, sub-region, income group and country.</p>
+    <p class="dek">Since 1960 the world has gained 23 years of life. This dashboard shows where those years went: life expectancy for 217 countries, from the world down to region, sub-region, income group and country.</p>
     <div class="byline"><span>Zameer Sayed</span><span>October 2026</span><span>Tableau Desktop 2026.3 · Tableau Public</span></div>
   </header>
 
@@ -78,6 +78,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
       <li><a href="#viz">The live dashboard</a></li>
       <li><a href="#story">What the data says</a></li>
       <li><a href="#explore">How to explore it</a></li>
+      <li><a href="#predictor">How long might you live?</a></li>
       <li><a href="#data">The data and its hierarchy</a></li>
       <li><a href="#build">How it is built</a></li>
       <li><a href="#design">Design choices</a></li>
@@ -93,7 +94,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
       (function () {
         var divElement = document.getElementById('vizWhoLivesLongest');
         var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '1280px'; vizElement.style.height = '2380px';
+        vizElement.style.width = '1280px'; vizElement.style.height = '2300px';
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
@@ -106,27 +107,46 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
 <div class="col">
   <h2 id="story">What the data says</h2>
   <div class="facts">
-    <div class="fact"><b>+22 years</b><span>world life expectancy, 50.9 in 1960 to 73.3 in 2023</span></div>
-    <div class="fact orange"><b>31 years</b><span>between Hong Kong (85.2) and Nigeria (54.5), among countries of 1M+ people</span></div>
-    <div class="fact blue"><b>+11.0 years</b><span>gained by Sub-Saharan Africa since 2000, the fastest of any region; North America gained 1.8</span></div>
-    <div class="fact"><b>217 of 217</b><span>countries where women outlive men; the widest gap is Ukraine, 13.3 years</span></div>
+    <div class="fact"><b>+23 years</b><span>world life expectancy, 50.9 in 1960 to 73.5 in 2024</span></div>
+    <div class="fact orange"><b>31 years</b><span>between Hong Kong (85.4) and Nigeria (54.6), among countries of 1M+ people</span></div>
+    <div class="fact blue"><b>+11.2 years</b><span>gained by Sub-Saharan Africa since 2000, the fastest of any region; North America gained 2.4</span></div>
+    <div class="fact"><b>217 of 217</b><span>countries where women outlive men; the widest gap is Russia, 10.6 years</span></div>
   </div>
-  <p>People in high-income countries live 80.1 years on average, 15.1 years longer than people in low-income countries (65.0). The gap is narrowing: the regions that started lowest gained the most since 2000. The trend chart marks the dips that interrupt the climb: COVID-19 almost everywhere in 2021, HIV/AIDS across southern Africa in the late 1990s and early 2000s, the Rwandan genocide in 1994, and the Khmer Rouge years in Cambodia.</p>
+  <p>People in high-income countries live 80.4 years on average, 15.2 years longer than people in low-income countries (65.2). The gap is narrowing: the regions that started lowest gained the most since 2000. The trend chart marks the dips that interrupt the climb: COVID-19 almost everywhere in 2021, HIV/AIDS across southern Africa in the late 1990s and early 2000s, the Rwandan genocide in 1994, and the Khmer Rouge years in Cambodia.</p>
 
   <h2 id="explore">How to explore it</h2>
   <ol>
     <li><b>Click a tile.</b> The strip under the headline shows one tile per region with its life expectancy, coloured blue (top 25% of its peers) or orange (bottom 25%). A click focuses the whole page on that region, and its sub-regions become the next tiles. The <b>‹</b> tile goes back up.</li>
     <li><b>Read the map.</b> It zooms to the countries inside your pick, shaded in five-year bands from orange (under 60) to blue (80+).</li>
     <li><b>Compare.</b> “#1 in …” and the longest/shortest lists rank countries of 1M+ people inside your pick; the trend line compares it with the world average; the dot plot shows women and men for each part of it.</li>
-    <li><b>Drill.</b> At the bottom, click any row of the table to open it, all the way down to individual countries. <b>Collapse all</b> closes everything.</li>
+    <li><b>Drill.</b> At the bottom, click any row of the table (the blue <b>+</b>) to open it, all the way down to individual countries; <b>–</b> closes it, and <b>Collapse all</b> closes everything. <span style="color:var(--blue)">↗</span> marks the top 25% of a row's peers, <span style="color:var(--orange)">↘</span> the bottom 25%.</li>
   </ol>
+  <figure>
+    <img src="images/drill-table.png" alt="The drill-down table opened from Sub-Saharan Africa to Western Africa, its income groups and low-income countries" loading="lazy">
+    <figcaption>The table drilled down five levels: Sub-Saharan Africa › Western Africa › Low income › countries.</figcaption>
+  </figure>
   <figure>
     <img src="images/dashboard-top.png" alt="The dashboard: a navy header with the title and an arc of life, three insight cards, region tiles, a world map coloured by life expectancy, the #1 country and headline numbers" loading="lazy">
     <figcaption>The top of the dashboard: the header, three insights, the region tiles and the map.</figcaption>
   </figure>
 
+  <h2 id="predictor">How long might you live?</h2>
+  <p>The gold button in the header opens a panel of questions: age, sex, country, smoking, exercise, sleep, BMI, alcohol, diet, outlook, fasting glucose, LDL and HDL cholesterol. The estimate updates as you answer.</p>
+  <figure>
+    <img src="images/predictor.png" alt="The predictor panel: questions on the left, the estimate (88 years) on the right with how it is built up" loading="lazy">
+    <figcaption>A 40-year-old woman in the United States: 81.4 years at birth, +4.3 for already reaching 40, +2.5 for her habits.</figcaption>
+  </figure>
+  <p>The model is deliberately simple and shows its working:</p>
+  <ol>
+    <li><b>Start:</b> life expectancy at birth for your country and sex (World Bank, 2024).</li>
+    <li><b>Add the years you have already survived:</b> someone who has reached 40 has, on average, a later age at death than a newborn. This is an approximation of the WHO global life table.</li>
+    <li><b>Add or subtract for each answer,</b> using effect sizes from large cohort studies: smoking (Doll et al., <i>BMJ</i> 2004), activity (Moore et al., <i>PLoS Medicine</i> 2012), BMI (Prospective Studies Collaboration, <i>Lancet</i> 2009), the combined habits (Li et al., <i>Circulation</i> 2018), diabetes (Emerging Risk Factors Collaboration, <i>NEJM</i> 2011), cholesterol (Prospective Studies Collaboration, <i>Lancet</i> 2007) and optimism (Lee et al., <i>PNAS</i> 2019). The lab effects are small, rounded estimates.</li>
+  </ol>
+  <div class="callout"><p>It is for fun, not medical advice. It knows nothing about your genes, your medical history or the bus you didn't see.</p></div>
+  <p>In Tableau, every question is a parameter, the panel is a set of floating zones shown with dynamic zone visibility, and the estimate is a single calculation over the country's row.</p>
+
   <h2 id="data">The data and its hierarchy</h2>
-  <p>All numbers come from <a href="https://data.worldbank.org">World Bank Open Data</a> (CC BY 4.0): life expectancy at birth (total, female, male) and population, 1960 to 2023. Regions are the World Bank’s seven; sub-regions come from the <a href="https://unstats.un.org/unsd/methodology/m49/">UN M49</a> standard. That gives a five-level hierarchy:</p>
+  <p>All numbers come from <a href="https://data.worldbank.org">World Bank Open Data</a> (CC BY 4.0): life expectancy at birth (total, female, male) and population, 1960 to 2024 (the latest year with life-expectancy figures). Regions are the World Bank’s seven; sub-regions come from the <a href="https://unstats.un.org/unsd/methodology/m49/">UN M49</a> standard. That gives a five-level hierarchy:</p>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Level</th><th>Units</th><th>Example</th></tr></thead>
@@ -140,7 +160,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
     </table>
   </div>
   <p>Every unit above country level is a <b>population-weighted</b> average, recomputed for every year from the countries reporting that year. Each value is banded against its peers at the same level: top 25%, bottom 25%, or the middle. Rankings leave out countries under 1M people (otherwise Monaco and San Marino top every list), except in the few groups that have none.</p>
-  <p>The two CSV files the workbook reads are here: <a href="data/World%20Life%20Expectancy%20-%20Units.csv">units</a> (one row per unit and metric) and <a href="data/World%20Life%20Expectancy%20-%20Charts.csv">charts</a> (yearly trends, women and men, rankings and map rows).</p>
+  <p>The two CSV files the workbook reads are here: <a href="data/World%20Life%20Expectancy%202024%20-%20Units.csv">units</a> (one row per unit and metric) and <a href="data/World%20Life%20Expectancy%202024%20-%20Charts.csv">charts</a> (yearly trends, women and men, rankings and map rows).</p>
 
   <h2 id="build">How it is built</h2>
   <h3>The drill-down</h3>
@@ -168,17 +188,19 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
     <li><b>One colour language.</b> Blue always means longer lives and orange shorter ones: in the table text, the tiles, the map and the rankings. Women and men get their own pair (raspberry and teal) so blue never means two things.</li>
     <li><b>Tiles instead of dropdowns.</b> Exploring by clicking the data itself feels lighter than picking from lists and pressing Apply.</li>
     <li><b>Rounded cards on a navy page</b> (Tableau 2024.3+ <code>corner-radius</code> on dashboard zones), with serif headings that match the header.</li>
+    <li><b>A clear tree.</b> Each row says what it holds (“Western Africa · 16 countries”) and carries a bold blue <b>+</b> or <b>–</b>, indented with its level.</li>
     <li><b>Context under every number.</b> Each headline figure has a reference line: “−10.7 yrs vs the world”, “15.7% of world · 48 countries”.</li>
   </ul>
 
   <h2 id="lessons">Lessons learned</h2>
   <div class="lesson"><h3>A NULL inside IIF blanks the whole result</h3><p>The tile label compares each unit with the selected unit’s parent. World has no parent, so the comparison was NULL, and <code>IIF(NULL, …)</code> returns NULL: every World-level tile lost its label. Wrapping the lookup in <code>IFNULL(…, '')</code> fixed it.</p></div>
-  <div class="lesson"><h3>Tableau caches a text file’s columns</h3><p>After adding columns to a CSV, Tableau kept reporting them as missing: it reuses a cached copy of the file, keyed by its path. Renaming the files (or refreshing the data source) clears it.</p></div>
+  <div class="lesson"><h3>Tableau caches a text file’s columns</h3><p>After adding columns to a CSV, Tableau kept reporting them as missing: it reuses a cached copy of the file, keyed by its path. Putting the data year in the file name means new data always gets a fresh file.</p></div>
+  <div class="lesson"><h3>Floating zones keep out of each other’s way</h3><p>Tableau Desktop would not paint one large floating box behind other floating zones, and pushed floating sheets out of other sheets’ slots. The predictor panel therefore takes the map’s exact slot (the map, numbers and charts hide while it is open) and is built from white zones that meet edge to edge.</p></div>
   <div class="lesson"><h3>Microstates win every ranking</h3><p>Ranking all 217 countries puts Monaco, San Marino and Liechtenstein on top. Limiting rankings to countries of 1M+ people tells a more useful story: Hong Kong, Switzerland, Japan.</p></div>
   <div class="lesson"><h3>Integer maths in calculations</h3><p><code>%</code> needs integers (wrap the value in <code>INT</code>), and dividing two integers returns a decimal: use <code>DIV()</code> for whole-number division.</p></div>
 
   <footer>
-    Data: World Bank Open Data (CC BY 4.0), UN M49 regions. Habits: Li et al., <i>Circulation</i>, 2018; WHO Europe, 2023; Lee et al., <i>PNAS</i>, 2019.
+    Data: World Bank Open Data (CC BY 4.0), UN M49 regions. Habits and predictor: Li et al., <i>Circulation</i>, 2018; Doll et al., <i>BMJ</i>, 2004; Moore et al., <i>PLoS Medicine</i>, 2012; Prospective Studies Collaboration, <i>Lancet</i>, 2007 and 2009; Emerging Risk Factors Collaboration, <i>NEJM</i>, 2011; WHO Europe, 2023; Lee et al., <i>PNAS</i>, 2019.
     · <a href="../">All projects</a>
   </footer>
 </div>

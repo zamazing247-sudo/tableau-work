@@ -7,7 +7,7 @@ Tableau dashboards and how-to write-ups, published with GitHub Pages.
 | Project | Folder | What it is |
 | --- | --- | --- |
 | Custom Tables with Tableau Map Layers | [`custom-table-map-layers/`](custom-table-map-layers/) | A category scorecard built entirely from map layers on one sheet, with a step-by-step guide · [live viz](https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard) |
-| Who Lives Longest? | [`who-lives-longest/`](who-lives-longest/) | Life expectancy for 217 countries (World Bank, 1960–2023): region tiles, a zooming map and a five-level drill-down, with a write-up of how it is built · [live viz](https://public.tableau.com/views/WhoLivesLongest/WhoLivesLongest) |
+| Who Lives Longest? | [`who-lives-longest/`](who-lives-longest/) | Life expectancy for 217 countries (World Bank, 1960–2024): region tiles, a zooming map, a five-level drill-down and a ‘how long might you live?’ predictor, with a write-up of how it is built · [live viz](https://public.tableau.com/views/WhoLivesLongest/WhoLivesLongest) |
 | Parameter-Driven Hierarchy Drill-Down | [`hierarchy-drilldown/`](hierarchy-drilldown/) | A multi-level hierarchy table that expands and collapses row by row, with an in-browser simulator of the logic · [live viz](https://public.tableau.com/views/Parameter-DrivenHierarchyDrill-Down/HierarchyDrill-Down) |
 
 ## Adding a project
