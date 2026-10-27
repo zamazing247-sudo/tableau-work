@@ -68,7 +68,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
   <header class="top">
     <div class="kicker"><a href="../">Tableau Work</a> · World Bank data</div>
     <h1>Who Lives Longest?</h1>
-    <p class="dek">Since 1960 the world has gained 23 years of life. This dashboard shows where those years went: life expectancy for 217 countries, from the world down to region, sub-region, income group and country.</p>
+    <p class="dek">A technical walkthrough of a Tableau Public dashboard on 64 years of World Bank data: parameter-action navigation, a five-level drill-down, a map that follows the selection, and a “how long might you live?” predictor built from parameters and dynamic zone visibility.</p>
     <div class="byline"><span>Zameer Sayed</span><span>October 2026</span><span>Tableau Desktop 2026.3 · Tableau Public</span></div>
   </header>
 
@@ -77,11 +77,14 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
     <ol>
       <li><a href="#viz">The live dashboard</a></li>
       <li><a href="#story">What the data says</a></li>
-      <li><a href="#explore">How to explore it</a></li>
-      <li><a href="#predictor">How long might you live?</a></li>
-      <li><a href="#data">The data and its hierarchy</a></li>
-      <li><a href="#build">How it is built</a></li>
-      <li><a href="#design">Design choices</a></li>
+      <li><a href="#features">Tableau features at a glance</a></li>
+      <li><a href="#data">The data model: two tall tables</a></li>
+      <li><a href="#tiles">Navigation with parameter actions and FIXED LOD</a></li>
+      <li><a href="#drill">The five-level drill-down table</a></li>
+      <li><a href="#map">A filled map that follows the selection</a></li>
+      <li><a href="#trend">Calculated labels on the trend chart</a></li>
+      <li><a href="#predictor">The predictor: parameters + dynamic zone visibility</a></li>
+      <li><a href="#design">Dashboard design techniques</a></li>
       <li><a href="#lessons">Lessons learned</a></li>
     </ol>
   </nav>
@@ -112,95 +115,142 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px;font-si
     <div class="fact blue"><b>+11.2 years</b><span>gained by Sub-Saharan Africa since 2000, the fastest of any region; North America gained 2.4</span></div>
     <div class="fact"><b>217 of 217</b><span>countries where women outlive men; the widest gap is Russia, 10.6 years</span></div>
   </div>
-  <p>People in high-income countries live 80.4 years on average, 15.2 years longer than people in low-income countries (65.2). The gap is narrowing: the regions that started lowest gained the most since 2000. The trend chart marks the dips that interrupt the climb: COVID-19 almost everywhere in 2021, HIV/AIDS across southern Africa in the late 1990s and early 2000s, the Rwandan genocide in 1994, and the Khmer Rouge years in Cambodia.</p>
+  <p>That is the story. The rest of this post is about how it is built: which Tableau features carry each part of the page, the calculations behind them, and the traps I hit along the way.</p>
 
-  <h2 id="explore">How to explore it</h2>
-  <ol>
-    <li><b>Click a tile.</b> The strip under the headline shows one tile per region with its life expectancy, coloured blue (top 25% of its peers) or orange (bottom 25%). A click focuses the whole page on that region, and its sub-regions become the next tiles. The <b>‹</b> tile goes back up.</li>
-    <li><b>Read the map.</b> It zooms to the countries inside your pick, shaded in five-year bands from orange (under 60) to blue (80+).</li>
-    <li><b>Compare.</b> “#1 in …” and the longest/shortest lists rank countries of 1M+ people inside your pick; the trend line compares it with the world average; the dot plot shows women and men for each part of it.</li>
-    <li><b>Drill.</b> At the bottom, click any row of the table (the blue <b>+</b>) to open it, all the way down to individual countries; <b>–</b> closes it, and <b>Collapse all</b> closes everything. <span style="color:var(--blue)">↗</span> marks the top 25% of a row's peers, <span style="color:var(--orange)">↘</span> the bottom 25%.</li>
-  </ol>
+  <h2 id="features">Tableau features at a glance</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Feature</th><th>Where it is used</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td><b>Parameter actions</b></td><td>Region tiles, drill table, Collapse all, predictor button</td><td>Every click writes a parameter; every sheet reads it. No filters or dashboard actions in the navigation.</td></tr>
+        <tr><td><b>FIXED LOD expressions</b></td><td>Region tiles</td><td>Look up the selected unit's level and parents once, on every row.</td></tr>
+        <tr><td><b>Parameter-driven drill-down</b></td><td>Explore-the-hierarchy table</td><td>Opens and closes rows five levels deep with one parameter and one click action.</td></tr>
+        <tr><td><b>Dynamic zone visibility</b></td><td>“How long might you live?” panel</td><td>Shows the panel and hides the map, numbers and charts from one boolean field.</td></tr>
+        <tr><td><b>Range and list parameters</b></td><td>Predictor questions</td><td>13 inputs (a slider and 12 dropdowns) feed a single calculation.</td></tr>
+        <tr><td><b>Filled map + geographic role</b></td><td>“Where lives are longest”</td><td>ISO alpha-2 codes with the Country role; one filter zooms the map to the selection.</td></tr>
+        <tr><td><b>Calculated labels</b></td><td>Trend chart</td><td>Labels the line ends and the dips (COVID-19, HIV/AIDS) from a single field.</td></tr>
+        <tr><td><b>Multi-field formatted labels</b></td><td>KPI band, spotlight, predictor result</td><td>Big number, unit and context line in one Text mark, each in its own size and colour.</td></tr>
+        <tr><td><b>Rounded corners</b> (2024.3+)</td><td>Every card, the buttons</td><td><code>corner-radius</code> on dashboard zones.</td></tr>
+        <tr><td><b>Image objects</b></td><td>Header arc, habits wheel</td><td>Custom artwork drawn from the data, placed as dashboard images.</td></tr>
+        <tr><td><b>Floating layout</b></td><td>The whole page</td><td>Every zone has an exact position on a 1280 px wide canvas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="data">1 · The data model: two tall tables</h2>
+  <p>The source is <a href="https://data.worldbank.org">World Bank Open Data</a> (CC BY 4.0): life expectancy at birth (total, female, male) and population, 1960–2024. Regions are the World Bank's seven; sub-regions come from the <a href="https://unstats.un.org/unsd/methodology/m49/">UN M49</a> standard. That gives five levels: World (1) › Region (7) › Sub-region (28) › Income group (62) › Country (217).</p>
+  <p>Instead of one wide extract, a small script reshapes everything into two tall CSV files. Each one is shaped for the sheets that read it:</p>
+  <ul>
+    <li><a href="data/World%20Life%20Expectancy%202024%20-%20Units.csv"><b>Units</b></a>: one row per unit and metric (population, life expectancy, gain since 2000, women vs men). Every value is pre-computed and pre-banded against its peers at the same level (top 25%, bottom 25%, middle). Rollups are <b>population-weighted</b>. This feeds the table, tiles and KPI band.</li>
+    <li><a href="data/World%20Life%20Expectancy%202024%20-%20Charts.csv"><b>Charts</b></a>: rows stacked by a <code>Kind</code> column: <code>Trend</code> (one row per unit and year), <code>Sex</code>, <code>Rank</code> and <code>Map</code>. Each chart filters to its own <code>Kind</code>, so one data source serves the map, trend, dot plot, rankings, spotlight and predictor.</li>
+  </ul>
+  <div class="callout"><p>Doing the hard maths (weighted rollups, quartile bands, rankings) before Tableau keeps every calculation in the workbook short and fast. Tableau's job is the interaction.</p></div>
+
+  <h2 id="tiles">2 · Navigation with parameter actions and FIXED LOD</h2>
+  <p>The tile strip replaces dropdowns. One sheet shows the selected unit (gold), its parent as a “‹” tile, and its children. A click runs <b>two parameter actions</b>: one writes the tile's unit to <code>p_SelectedUnit</code>, the other resets the table's open rows. Every other sheet reads <code>p_SelectedUnit</code>, so the whole page follows one click.</p>
+  <p>To know which tiles to show, every row needs the <i>selected</i> unit's level and parents. A <b>FIXED LOD</b> looks them up once, for the whole table:</p>
+  <pre><code>// Sel Level: the selected unit's level, on every row
+{FIXED : MAX(IIF([Unit No] = [p_SelectedUnit], [Level], NULL))}
+
+// Show Tile: the selected unit, its parent, and its children
+[Metric Order] = 1 AND (
+     [Unit No] = [p_SelectedUnit]
+  OR [Unit No] = CASE [Sel Level] WHEN 2 THEN 'World'
+                                  WHEN 3 THEN [Sel Group]
+                                  WHEN 4 THEN [Sel Division] END
+  OR ([Level] = [Sel Level] + 1 AND [the row sits under the selected unit])
+)</code></pre>
+  <p>Each tile is a Bar mark on a fixed 0–1 axis, so it fills its cell; its colour is a <code>Tile</code> field (Back / Current / Top 25% / Bottom 25% / Middle). A self-deselecting action (a filter action that targets a <code>TRUE</code>/<code>FALSE</code> pair) clears the selection highlight after each click, so the tiles never look greyed out.</p>
+
+  <h2 id="drill">3 · The five-level drill-down table</h2>
   <figure>
     <img src="images/drill-table.png" alt="The drill-down table opened from Sub-Saharan Africa to Western Africa, its income groups and low-income countries" loading="lazy">
-    <figcaption>The table drilled down five levels: Sub-Saharan Africa › Western Africa › Low income › countries.</figcaption>
+    <figcaption>Sub-Saharan Africa › Western Africa › Low income › countries, opened row by row.</figcaption>
   </figure>
-  <figure>
-    <img src="images/dashboard-top.png" alt="The dashboard: a navy header with the title and an arc of life, three insight cards, region tiles, a world map coloured by life expectancy, the #1 country and headline numbers" loading="lazy">
-    <figcaption>The top of the dashboard: the header, three insights, the region tiles and the map.</figcaption>
-  </figure>
+  <p>The table uses the parameter-driven drill-down from my <a href="../hierarchy-drilldown/">hierarchy drill-down write-up</a>, here on real data and five levels deep:</p>
+  <ul>
+    <li>Every row carries its path, like <code>|World|SSF|SSF-WesternAfric|</code>.</li>
+    <li>A string parameter, <code>p_OpenedRows</code>, remembers which paths are open.</li>
+    <li>A click action writes the row's toggled result back into that parameter. A row is shown when its parent's path is open.</li>
+  </ul>
+  <p>Two formatting techniques make it read as a tree:</p>
+  <pre><code>// Toggle: its own row field, so it can be styled blue and bold on its own;
+// the indent grows with the level, so the sign stays next to its name
+REPLACE(SPACE(([Level] - 1) * 2), ' ', CHAR(160))
+  + IIF([Level] = 1 OR [Level] = 5, CHAR(160), IIF([Is Open], '–', '+'))
 
-  <h2 id="predictor">How long might you live?</h2>
-  <p>The gold button in the header opens a panel of questions: age, sex, country, smoking, exercise, sleep, BMI, alcohol, diet, outlook, fasting glucose, LDL and HDL cholesterol. The estimate updates as you answer.</p>
+// Band Marker: a direction against peers, coloured by the Band palette
+IF [Band] = 'Top 25%' THEN '↗  ' ELSEIF [Band] = 'Bottom 25%' THEN '↘  ' ELSE '' END</code></pre>
+  <p>A header can only take one style, so the +/– lives in its own row field (styled blue and bold), and the name with “· 16 countries” in the next. The indent is built from non-breaking spaces (<code>CHAR(160)</code>), which hold their width in a header.</p>
+
+  <h2 id="map">4 · A filled map that follows the selection</h2>
+  <p>Country rows carry an ISO alpha-2 code with Tableau's <b>Country (ISO 3166-1 alpha-2)</b> geographic role, which gives a Multipolygon mark with generated latitude and longitude. The same <code>Path</code> column the drill uses also filters the map:</p>
+  <pre><code>// Show Map: countries inside the selected unit, at any level
+[Kind] = 'Map' AND CONTAINS([Path], '|' + [p_SelectedUnit] + '|')</code></pre>
+  <p>Because the filter changes the marks, Tableau re-zooms the map automatically: pick Western Africa and the map shows those 16 countries. The colour is a six-step band (orange under 60 → blue 80+). It uses the same two colours as the table text and the tiles: blue always means longer lives, orange shorter.</p>
+
+  <h2 id="trend">5 · Calculated labels on the trend chart</h2>
+  <p>The trend compares the selected unit (blue) with the world (grey). One calculated field labels the start, the end and the dips:</p>
+  <pre><code>// End Label (on Label, never on Tooltip)
+IF MIN([Year]) = 2024 THEN ATTR([Unit Name]) + '  ' + STR(ROUND(AVG([Life Expectancy]), 1))
+ELSEIF MIN([Year]) = 1960 THEN STR(ROUND(AVG([Life Expectancy]), 1))
+ELSEIF ATTR([Unit No]) = [p_SelectedUnit] AND MAX([Note]) &lt;&gt; '' THEN MAX([Note])
+END</code></pre>
+  <p>The notes are found in the data, not placed by hand. A known event (COVID-19, HIV/AIDS, the Rwandan genocide, the Khmer Rouge years) is noted only if the unit contains the countries affected and its own line drops clearly inside that event's window. World shows only COVID-19; southern Africa shows HIV/AIDS.</p>
+
+  <h2 id="predictor">6 · The predictor: parameters + dynamic zone visibility</h2>
   <figure>
     <img src="images/predictor.png" alt="The predictor panel: questions on the left, the estimate (88 years) on the right with how it is built up" loading="lazy">
     <figcaption>A 40-year-old woman in the United States: 81.4 years at birth, +4.3 for already reaching 40, +2.5 for her habits.</figcaption>
   </figure>
-  <p>The model is deliberately simple and shows its working:</p>
+  <h3>The inputs</h3>
+  <p>13 parameters: a <b>range parameter</b> shown as a slider (age), and list parameters for sex, country (217 values with display aliases), smoking, exercise, sleep, BMI, alcohol, diet, outlook, fasting glucose, LDL and HDL.</p>
+  <h3>The model</h3>
+  <p>One calculation over the chosen country's row (filtered by <code>[Unit No] = [p_Country] AND [Series] = [p_Sex]</code>):</p>
+  <pre><code>// Pred Estimate
+MAX([p_Age] + 1,
+    AVG([Life Expectancy])        // at birth, country and sex (World Bank 2024)
+  + MIN([Pred Survived])          // years already survived (approx. WHO global life table)
+  + MIN([Pred Habits]))           // sum of CASE [p_Smoking] WHEN 'Smoke now' THEN -9 ... END, capped -20..+12
+
+// Pred Survived: piecewise-linear in age
+IF [p_Age] &lt;= 20 THEN [p_Age] * 0.05
+ELSEIF [p_Age] &lt;= 50 THEN 1 + ([p_Age] - 20) * 5 / 30
+ELSEIF [p_Age] &lt;= 65 THEN 6 + ([p_Age] - 50) * 3.5 / 15
+ELSEIF [p_Age] &lt;= 80 THEN 9.5 + ([p_Age] - 65) * 5.5 / 15
+ELSE 15 + ([p_Age] - 80) * 0.6 END</code></pre>
+  <p>The effect sizes come from large cohort studies: smoking (Doll et al., <i>BMJ</i> 2004), activity (Moore et al., <i>PLoS Medicine</i> 2012), BMI (Prospective Studies Collaboration, <i>Lancet</i> 2009), the combined habits (Li et al., <i>Circulation</i> 2018), diabetes (Emerging Risk Factors Collaboration, <i>NEJM</i> 2011), cholesterol (Prospective Studies Collaboration, <i>Lancet</i> 2007) and optimism (Lee et al., <i>PNAS</i> 2019). The lab effects are small, rounded estimates. It is for fun, not medical advice.</p>
+  <h3>The pop-up</h3>
   <ol>
-    <li><b>Start:</b> life expectancy at birth for your country and sex (World Bank, 2024).</li>
-    <li><b>Add the years you have already survived:</b> someone who has reached 40 has, on average, a later age at death than a newborn. This is an approximation of the WHO global life table.</li>
-    <li><b>Add or subtract for each answer,</b> using effect sizes from large cohort studies: smoking (Doll et al., <i>BMJ</i> 2004), activity (Moore et al., <i>PLoS Medicine</i> 2012), BMI (Prospective Studies Collaboration, <i>Lancet</i> 2009), the combined habits (Li et al., <i>Circulation</i> 2018), diabetes (Emerging Risk Factors Collaboration, <i>NEJM</i> 2011), cholesterol (Prospective Studies Collaboration, <i>Lancet</i> 2007) and optimism (Lee et al., <i>PNAS</i> 2019). The lab effects are small, rounded estimates.</li>
+    <li>A parameter <code>p_ShowPredictor</code> holds <code>"Y"</code> or <code>"N"</code>. The gold button and the Close button are one-mark sheets; their parameter actions write <code>"Y"</code> and <code>"N"</code>.</li>
+    <li>Two boolean fields drive <b>dynamic zone visibility</b>: <code>[p_ShowPredictor] = "Y"</code> shows the 18 panel zones, and <code>[p_ShowPredictor] &lt;&gt; "Y"</code> keeps the map, spotlight, numbers and charts.</li>
+    <li>Both fields sit on the button sheet (on Detail), because DZV only offers fields that are used on a sheet in the dashboard.</li>
   </ol>
-  <div class="callout"><p>It is for fun, not medical advice. It knows nothing about your genes, your medical history or the bus you didn't see.</p></div>
-  <p>In Tableau, every question is a parameter, the panel is a set of floating zones shown with dynamic zone visibility, and the estimate is a single calculation over the country's row.</p>
 
-  <h2 id="data">The data and its hierarchy</h2>
-  <p>All numbers come from <a href="https://data.worldbank.org">World Bank Open Data</a> (CC BY 4.0): life expectancy at birth (total, female, male) and population, 1960 to 2024 (the latest year with life-expectancy figures). Regions are the World Bank’s seven; sub-regions come from the <a href="https://unstats.un.org/unsd/methodology/m49/">UN M49</a> standard. That gives a five-level hierarchy:</p>
-  <div class="table-wrap">
-    <table class="doc">
-      <thead><tr><th>Level</th><th>Units</th><th>Example</th></tr></thead>
-      <tbody>
-        <tr><td>1 World</td><td>1</td><td>World</td></tr>
-        <tr><td>2 Region</td><td>7</td><td>Sub-Saharan Africa</td></tr>
-        <tr><td>3 Sub-region</td><td>28</td><td>Western Africa</td></tr>
-        <tr><td>4 Income group</td><td>62</td><td>Western Africa · Low income</td></tr>
-        <tr><td>5 Country</td><td>217</td><td>Burkina Faso</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Every unit above country level is a <b>population-weighted</b> average, recomputed for every year from the countries reporting that year. Each value is banded against its peers at the same level: top 25%, bottom 25%, or the middle. Rankings leave out countries under 1M people (otherwise Monaco and San Marino top every list), except in the few groups that have none.</p>
-  <p>The two CSV files the workbook reads are here: <a href="data/World%20Life%20Expectancy%202024%20-%20Units.csv">units</a> (one row per unit and metric) and <a href="data/World%20Life%20Expectancy%202024%20-%20Charts.csv">charts</a> (yearly trends, women and men, rankings and map rows).</p>
-
-  <h2 id="build">How it is built</h2>
-  <h3>The drill-down</h3>
-  <p>The table uses the same parameter-driven drill-down as my <a href="../hierarchy-drilldown/">hierarchy drill-down write-up</a>: each row carries its path (<code>|World|SSF|SSF-WesternAfric|</code>), a parameter remembers which rows are open, and one click action adds or removes a row’s path. Here it runs five levels deep on real data.</p>
-  <h3>The tiles</h3>
-  <p>The tiles are one sheet: a bar on a fixed 0–1 axis fills each cell, coloured by band. A calculation picks what to show from the selected unit (the <code>p_SelectedUnit</code> parameter): its parent as a “‹” tile, plus its children (or, at the income-group level, its siblings). Two parameter actions on that sheet set the selected unit and reset the open rows, so every chart, the map and the table follow one click.</p>
-  <pre><code>// Show Tile: the parent, then the children of the selected unit
-[Metric Order] = 1 AND (
-  [Unit No] = [Parent of selected]
-  OR ([Level] = [Selected level] + 1 AND [unit sits under the selected unit])
-)</code></pre>
-  <h3>The map</h3>
-  <p>A filled map on each country’s ISO alpha-2 code, with Tableau’s country geographic role. A path column holds every country’s ancestors, so one filter, <code>CONTAINS([Path], '|' + [p_SelectedUnit] + '|')</code>, keeps only the countries inside the selection, and the map zooms to them.</p>
-  <h3>The trend notes</h3>
-  <p>The labels on the trend line are found in the data, not placed by hand. For each unit, a known event (COVID-19, HIV/AIDS, the Rwandan genocide, the Khmer Rouge years) is noted only if the unit contains the affected countries and its own line drops clearly inside that event’s window.</p>
-  <h3>The images</h3>
-  <p>The header (an arc of life, with the world’s average lifespan in 1960 and today marked on it) and the closing habits wheel are drawn in code, so there is no stock art to license.</p>
+  <h2 id="design">7 · Dashboard design techniques</h2>
+  <ul>
+    <li><b>Floating layout on a fixed 1280 px canvas.</b> Every zone has exact coordinates, so cards line up to the pixel and the page reads like an article from top to bottom.</li>
+    <li><b>Rounded cards.</b> <code>corner-radius</code> (Tableau 2024.3+) on each card, the tiles' container and the buttons, on a navy page.</li>
+    <li><b>Formatted labels instead of BANs.</b> The KPI band is one Text sheet; each label has three fields in three styles (metric name, big value, reference line such as “−10.7 yrs vs the world”).</li>
+    <li><b>Spotlight as typography.</b> “#1 in World” is a Text mark list: the #1 value in blue, the runners-up in grey. Rankings use countries of 1M+ people, so Monaco and San Marino don't top every list.</li>
+    <li><b>Custom images.</b> The header arc (the world's average lifespan in 1960 and today, on a 0–90 scale) and the habits wheel are drawn from the data in code, so there is no stock art to license.</li>
+    <li><b>One colour language.</b> Blue = longer lives, orange = shorter, in tints for cells, tiles and legends and in strong shades for marks. Women and men get their own pair (raspberry, teal) so blue never means two things.</li>
+  </ul>
   <figure>
-    <img src="images/habits-wheel.png" alt="A wheel of six habits linked to longer lives, with the years they add for women and men" loading="lazy">
-    <figcaption>The closing section: what adds years to a life, with its sources (Li et al., <i>Circulation</i> 2018; WHO Europe 2023; Lee et al., <i>PNAS</i> 2019).</figcaption>
+    <img src="images/dashboard-top.png" alt="The dashboard: a navy header with the title and an arc of life, three insight cards, region tiles, a world map coloured by life expectancy" loading="lazy">
+    <figcaption>The top of the page: header image, insight cards, tile navigation and the map.</figcaption>
   </figure>
 
-  <h2 id="design">Design choices</h2>
-  <ul>
-    <li><b>One colour language.</b> Blue always means longer lives and orange shorter ones: in the table text, the tiles, the map and the rankings. Women and men get their own pair (raspberry and teal) so blue never means two things.</li>
-    <li><b>Tiles instead of dropdowns.</b> Exploring by clicking the data itself feels lighter than picking from lists and pressing Apply.</li>
-    <li><b>Rounded cards on a navy page</b> (Tableau 2024.3+ <code>corner-radius</code> on dashboard zones), with serif headings that match the header.</li>
-    <li><b>A clear tree.</b> Each row says what it holds (“Western Africa · 16 countries”) and carries a bold blue <b>+</b> or <b>–</b>, indented with its level.</li>
-    <li><b>Context under every number.</b> Each headline figure has a reference line: “−10.7 yrs vs the world”, “15.7% of world · 48 countries”.</li>
-  </ul>
-
   <h2 id="lessons">Lessons learned</h2>
-  <div class="lesson"><h3>A NULL inside IIF blanks the whole result</h3><p>The tile label compares each unit with the selected unit’s parent. World has no parent, so the comparison was NULL, and <code>IIF(NULL, …)</code> returns NULL: every World-level tile lost its label. Wrapping the lookup in <code>IFNULL(…, '')</code> fixed it.</p></div>
-  <div class="lesson"><h3>Tableau caches a text file’s columns</h3><p>After adding columns to a CSV, Tableau kept reporting them as missing: it reuses a cached copy of the file, keyed by its path. Putting the data year in the file name means new data always gets a fresh file.</p></div>
-  <div class="lesson"><h3>Floating zones keep out of each other’s way</h3><p>Tableau Desktop would not paint one large floating box behind other floating zones, and pushed floating sheets out of other sheets’ slots. The predictor panel therefore takes the map’s exact slot (the map, numbers and charts hide while it is open) and is built from white zones that meet edge to edge.</p></div>
-  <div class="lesson"><h3>Microstates win every ranking</h3><p>Ranking all 217 countries puts Monaco, San Marino and Liechtenstein on top. Limiting rankings to countries of 1M+ people tells a more useful story: Hong Kong, Switzerland, Japan.</p></div>
-  <div class="lesson"><h3>Integer maths in calculations</h3><p><code>%</code> needs integers (wrap the value in <code>INT</code>), and dividing two integers returns a decimal: use <code>DIV()</code> for whole-number division.</p></div>
+  <div class="lesson"><h3>A NULL inside IIF blanks the whole result</h3><p>The tile label compares each unit with the selected unit's parent. World has no parent, so the comparison was NULL, and <code>IIF(NULL, …)</code> returns NULL: every World-level tile lost its label. <code>IFNULL(…, '')</code> fixed it.</p></div>
+  <div class="lesson"><h3>Tableau caches a text file's columns</h3><p>After new columns were added to a CSV, Tableau kept reporting them as missing, because it reuses a cached copy keyed by the file path. Putting the data year in the file name gives new data a fresh file.</p></div>
+  <div class="lesson"><h3>Floating zones keep out of each other's way</h3><p>Tableau Desktop would not paint one large floating box behind other floating zones, and pushed floating sheets out of other sheets' slots. So the predictor panel takes the map's exact slot (with the map hidden) and is built from white zones that meet edge to edge.</p></div>
+  <div class="lesson"><h3>Header styles live in the label rule</h3><p>Colour, weight and alignment for a row header go on the field's <i>label</i> format; the <i>header</i> format only sets its width and size. That is why the +/– needed its own field.</p></div>
+  <div class="lesson"><h3>Integer maths in calculations</h3><p><code>%</code> needs integers (wrap in <code>INT</code>), and dividing two integers returns a decimal; use <code>DIV()</code> for whole-number division.</p></div>
+  <div class="lesson"><h3>Microstates win every ranking</h3><p>Ranking all 217 countries puts Monaco, San Marino and Liechtenstein on top. Limiting rankings to countries of 1M+ people gives a more useful story: Hong Kong, Kuwait, Switzerland.</p></div>
 
   <footer>
-    Data: World Bank Open Data (CC BY 4.0), UN M49 regions. Habits and predictor: Li et al., <i>Circulation</i>, 2018; Doll et al., <i>BMJ</i>, 2004; Moore et al., <i>PLoS Medicine</i>, 2012; Prospective Studies Collaboration, <i>Lancet</i>, 2007 and 2009; Emerging Risk Factors Collaboration, <i>NEJM</i>, 2011; WHO Europe, 2023; Lee et al., <i>PNAS</i>, 2019.
+    Data: World Bank Open Data (CC BY 4.0), UN M49 regions. Predictor and habits: Li et al., <i>Circulation</i>, 2018; Doll et al., <i>BMJ</i>, 2004; Moore et al., <i>PLoS Medicine</i>, 2012; Prospective Studies Collaboration, <i>Lancet</i>, 2007 and 2009; Emerging Risk Factors Collaboration, <i>NEJM</i>, 2011; WHO Europe, 2023; Lee et al., <i>PNAS</i>, 2019.
     · <a href="../">All projects</a>
   </footer>
 </div>
