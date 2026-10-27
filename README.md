@@ -6,7 +6,7 @@ Tableau dashboards and how-to write-ups, published with GitHub Pages.
 
 | Project | Folder | What it is |
 | --- | --- | --- |
-| Custom Tables with Tableau Map Layers | [`custom-table-map-layers/`](custom-table-map-layers/) | A category scorecard built entirely from map layers on one sheet, with a step-by-step guide |
+| Custom Tables with Tableau Map Layers | [`custom-table-map-layers/`](custom-table-map-layers/) | A category scorecard built entirely from map layers on one sheet, with a step-by-step guide · [live viz](https://public.tableau.com/views/CategoryScorecardCustomTablewithMapLayer/CategoryScorecard) |
 
 ## Adding a project
 
