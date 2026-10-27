@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau Work · Zameer Sayed</title>
+<meta name="description" content="Tableau dashboards and how-to write-ups by Zameer Sayed.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a short intro, then a grid of project cards (one per subfolder) */
+:root{--bg:#f6f7f9;--paper:#fff;--ink:#1b2430;--muted:#5d6977;--line:#dde2e9;--accent:#1f5a8c;--accent-soft:#e3edf6;--f:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#11151b;--paper:#171c24;--ink:#e6eaef;--muted:#9aa6b2;--line:#2a323d;--accent:#7cb2e3;--accent-soft:#1f3249;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f);padding:0 max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding:56px 0 28px}
+.kicker{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(2rem,4.5vw,2.7rem);line-height:1.15;margin:.3em 0 .3em;letter-spacing:-.015em}
+.intro{color:var(--muted);max-width:62ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;border-bottom:1px solid var(--line);background:#fff}
+.body{padding:16px 18px 18px;display:grid;gap:8px}
+.card h2{font-size:1.12rem;margin:0;line-height:1.3}
+.card p{margin:0;color:var(--muted);font-size:.93rem}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.74rem;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:999px;font-weight:500}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Tableau Work</div>
+    <h1>Dashboards and how-to write-ups</h1>
+    <p class="intro">Tableau builds I've made, each with a write-up of how it works and what I learned along the way. Data is public sample data unless noted.</p>
+  </header>
+
+  <main class="grid">
+    <!-- Add one card per project folder -->
+    <a class="card" href="custom-table-map-layers/">
+      <img src="custom-table-map-layers/images/scorecard-collapsed.png" alt="Category Scorecard: a custom table with stacked values, flags, sparklines and region bars">
+      <div class="body">
+        <h2>Custom Tables with Tableau Map Layers</h2>
+        <p>A category scorecard built entirely from map layers on one sheet: stacked values, flag icons, sparklines and profit-by-region bars.</p>
+        <div class="tags"><span class="tag">Map layers</span><span class="tag">Parameter actions</span><span class="tag">Superstore</span></div>
+      </div>
+    </a>
+  </main>
+
+  <footer>Zameer Sayed · Built with Tableau and GitHub Pages</footer>
+</div>
+</body>
+</html>
